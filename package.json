@@ -14,5 +14,8 @@
     "Education"
   ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
 }
