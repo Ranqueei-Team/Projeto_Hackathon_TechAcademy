@@ -1,8 +1,8 @@
 # Projeto Hackathon Tech Academy - Turma 1
 
-##Tema: Evasão escolar
+## Tema: Evasão escolar
 
-##Equipe: 
+## Equipe: 
 - Danilo de Souza
 - Edna Barbosa
 - Fernando
