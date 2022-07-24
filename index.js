@@ -18,14 +18,26 @@ app.use(
     express.static(path.join(__dirname, "node_modules/bootstrap/dist/"))
 );
  
+//Database connection
+const connection = require("./database/database");
+
+//Start database connection
+connection.authenticate()
+    .then( () => {
+        console.log("Conexão estabelecida com sucesso!");
+    }).catch( (error) => {
+        console.log("Erro ao conectar o banco de dados:", error);
+});
+
 //Main route
 app.get('/', function (req, res) {
     return res.render("index");
 });
 
 //Run server
-app.listen(8080, () => {
-   console.log("Servidor rodando!");
+const PORT = process.env.PORT;
+app.listen(PORT, () => {
+   console.log(`Servidor rodando na porta ${PORT}`);
 });
 
 module.exports = app;
