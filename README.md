@@ -6,7 +6,7 @@
 ## Equipe: 
 - Danilo de Souza
 - Edna Barbosa
-- Fernando
+- Fernando Facco
 - Isadora Vasconcellos
 - Rodrigo Ferreira
 
