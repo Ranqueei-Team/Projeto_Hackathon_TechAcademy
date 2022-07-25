@@ -1,0 +1,35 @@
+<%-include('../partials/header.ejs') %>
+<body>
+    <%-include('../partials/navbar.ejs') %>
+    <div class="container">
+        <h2>Usuários</h2>
+        <a href="/users/new" class="btn btn-success">Adicionar Usuário</a>
+        <hr>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>E-mail</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach(user => {%>
+                    <tr>
+                        <td><%= user.id %></td>
+                        <td><%= user.name %></td>
+                        <td><%= user.cpf %></td>
+                        <td><%= user.email %></td>
+                        <td><a href="/users/show/<%= user.id %>">Visualizar </a> </td>
+                        <td><a href="/users/edit/<%= user.id %>">Atualizar </a> </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+   
+</body>
+<%-include('../partials/footer.ejs') %>

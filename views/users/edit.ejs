@@ -1,0 +1,26 @@
+<%-include('../partials/header.ejs') %>
+<body>
+    <%-include('../partials/navbar.ejs') %>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2>Atualização de Usuário</h2>
+            </div>
+           
+            <div class="card-body">
+                <form method="POST" action="/users/update">
+                    <input type="hidden" name="id" value="<%= user.id %>">
+                    <input type="text" placeholder="Insira o nome do usuário" name="name" class="form-control" value="<%= user.name %>"><br>
+                    <input type="text" placeholder="Insira o CPF do usuário" name="cpf" class="form-control" value="<%= user.cpf %>"><br>
+                    <input type="email" placeholder="Insira o email do usuário" name="email" class="form-control" value="<%= user.email %>"><br>
+                    <input type="password" placeholder="Insira a senha do usuário" name="password" class="form-control" value="<% user.password %>"><br>
+                    <button class="btn btn-success">Atualizar</button>
+                    
+                </form>
+            </div>
+            
+        </div>
+        
+    </div>
+</body>
+<%-include('../partials/footer.ejs') %>
