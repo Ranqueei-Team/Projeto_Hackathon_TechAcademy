@@ -18,7 +18,7 @@ app.use(express.urlencoded({extended: true}));
 //configuration EJS
 app.set("view engine", "ejs");
 
-//Configuratio Static Files
+//Configuration Static Files
 app.use(express.static("public"));
 app.use(
     express.static(path.join(__dirname, "node_modules/bootstrap/dist/"))
@@ -26,6 +26,7 @@ app.use(
  
 //Models
 const User = require("./models/userModel");
+const Classroom = require("./models/classroomModel");
 
 //Database connection
 const connection = require("./database/database");
@@ -73,6 +74,8 @@ const usersRoute = require("./routes/usersRoute");
 app.use("/users/", usersRoute);
 const managerRoute = require("./routes/managerRoute");
 app.use("/manager/", managerRoute);
+const classroomRoute = require("./routes/classroomRoute");
+app.use("/classrooms/", classroomRoute);
 
 //Run server
 const PORT = process.env.PORT;
