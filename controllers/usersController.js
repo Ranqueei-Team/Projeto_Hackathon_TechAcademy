@@ -82,8 +82,11 @@ exports.POSTlogin = function (req, res, next) {
     })(req, res, next);
     console.log( next)
   };
+
 exports.logout = function (req, res) {
-    req.logout();
+    req.logout(function(err) {
+    if (err) { return next(err); }
     req.flash('success_msg', 'You are logged out');
-    res.redirect('/users/login');
-  };
+    res.redirect('/');
+  });    
+};
