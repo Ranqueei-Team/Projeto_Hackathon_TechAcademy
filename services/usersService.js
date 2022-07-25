@@ -22,7 +22,7 @@ class UserService {
     let errors = [];
 
     if (!name || !email ||!password || !confirm_password) {
-      errors.push({ msg: 'Por favor, preenchar todos os campos!' });
+      errors.push({ msg: 'Por favor, preencha todos os campos!' });
       console.log(errors)
     }
 
@@ -76,7 +76,7 @@ class UserService {
     let errors = [];
 
     if (!name || !email) {
-      errors.push({ msg: 'Por favor, preenchar os campos obrigatórios!' });
+      errors.push({ msg: 'Por favor, preencha os campos obrigatórios!' });
     }
 
     if (password != confirm_password) {
