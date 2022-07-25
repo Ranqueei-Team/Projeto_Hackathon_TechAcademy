@@ -1,28 +1,70 @@
 <%-include('../partials/header.ejs') %>
 <body>
     <%-include('../partials/navbar.ejs') %>
-    <%-include('../partials/messages.ejs') %>
-
-    <div class="container">
-        <div class="card">
-            <div class="card-header">
-                <h2>Cadastro de Usuário</h2>
-            </div>
-           
-            <div class="card-body">
+        <%-include('../partials/messages.ejs') %>
+    
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            
+            <div class="col-md-4 offset-md-4 col-sm-10 offset-sm-1">
+              <br><br>
+              <div class="card">
+            
+                <div class="card-header">
+                  <h3 class="panel-title">Cadastrar</h3>
+                </div>
+                
                 <form method="POST" action="/users/create">
-                    <input type="text" placeholder="Nome" name="name" value="<%= typeof name != 'undefined' ? name : '' %>" class="form-control"><br>
-                    <input type="text" placeholder="CPF" name="cpf" value="<%= typeof cpf != 'undefined' ? cpf : '' %>" class="form-control"><br>
-                    <input type="email" placeholder="E-mail" name="email" value="<%= typeof email != 'undefined' ? email : '' %>" class="form-control"><br>
-                    <input type="password" placeholder="Senha" name="password" class="form-control"><br>
-                    <input type="password" placeholder="Repira a senha" name="confirm_password" class="form-control"><br>
+            
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="row mb-3">
+                            <label for="inputEmail3" class="col-sm-12 col-form-label">Nome*</label>
+                            <input type="text" placeholder="Nome" name="name" value="<%= typeof name != 'undefined' ? name : '' %>" class="form-control"><br>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-12 col-form-label">E-mail*</label>
+                        <input type="email" placeholder="E-mail" name="email" value="<%= typeof email != 'undefined' ? email : '' %>" class="form-control"><br>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="row mb-3">
+                            <label for="inputEmail3" class="col-sm-12 col-form-label">CPF*</label>
+                            <input type="text" placeholder="CPF" name="cpf" value="<%= typeof cpf != 'undefined' ? cpf : '' %>" class="form-control"><br>
+                        </div>
+                    </div>
+
+                   
+
+                    <div class="row mb-3">
+                        <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-12 col-form-label">Senha*</label>
+                        <input type="password" placeholder="Senha" name="password" class="form-control"><br>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-12 col-form-label">Confirmar Senha*</label>
+                        <input type="password" placeholder="Repira a senha" name="confirm_password" class="form-control"><br>
+                    </div>
+
+                </div>
+            
+                <div class="card-footer text-center d-grid gap-2">
                     <button class="btn btn-success">Cadastrar</button>
-                    
-                </form>
+                </div>
+            
+              </div>
             </div>
             
-        </div>
-        
+          </div>
+        </div>            
     </div>
+
+   
 </body>
 <%-include('../partials/footer.ejs') %>

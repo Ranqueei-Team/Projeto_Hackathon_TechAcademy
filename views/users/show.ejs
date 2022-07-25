@@ -2,14 +2,20 @@
 <body>
     <%-include('../partials/navbar.ejs') %>
 
-    <div class="container">
-        <h1>Usuário</h1>
-        <ul>
-            <li><%= user.name %></li>
-            <li><%= user.cpf %></li>
-            <li><%= user.email %></li>
-            <li><%= user.password %></li>
-        </ul>
+    <div class="card">
+        <div class="card-header">
+          <div class="panel-title">Usuário</div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 ">
+                <ul class="list-group">
+                    <li class="list-group-item"><b>Nome:</b> <%= user.name %></li>
+                    <li class="list-group-item"><b>CPF:</b> <%= user.cpf %></li>
+                    <li class="list-group-item"><b>E-mail:</b> <%= user.email %></li>
+                </ul>
+            </div>
+        </div>
+   
         <a href="/users" class="btn btn-success">Voltar</a>
     </div>
 </body>

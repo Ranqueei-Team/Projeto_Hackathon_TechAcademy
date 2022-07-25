@@ -3,34 +3,40 @@
     <%-include('../partials/navbar.ejs') %>
     <div class="container">
         <%-include('../partials/messages.ejs') %>
-        <h2>Usuários</h2>
-        <a href="/users/new" class="btn btn-success">Adicionar Usuário</a>
-        <hr>
-
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>CPF</th>
-                    <th>E-mail</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% users.forEach(user => {%>
+        <div class="card">
+            <div class="card-header">
+              <div class="panel-title">Alunos</div>
+            </div>  
+        
+            <table class="table table-bordered ">
+                <thead class="table-dark">
                     <tr>
-                        <td><%= user.id %></td>
-                        <td><%= user.name %></td>
-                        <td><%= user.cpf %></td>
-                        <td><%= user.email %></td>
-                        <td><a href="/users/show/<%= user.id %>">Visualizar </a> </td>
-                        <td><a href="/users/edit/<%= user.id %>">Atualizar </a> </td>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>E-mail</th>
+                        <th colspan="2">Ações</th>
                     </tr>
-                <% }) %>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <% users.forEach(user => {%>
+                        <tr>
+                            <td><%= user.id %></td>
+                            <td><%= user.name %></td>
+                            <td><%= user.cpf %></td>
+                            <td><%= user.email %></td>
+                            <td><a href="/users/show/<%= user.id %>">Visualizar </a> </td>
+                            <td><a href="/users/edit/<%= user.id %>">Atualizar </a> </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+
+            <div class="card-footer text-center">
+                <a href="/>" class="btn btn-primary btn-block">Voltar </a>
+            </div>   
+            
     </div>
-   
+    <br><br>
 </body>
 <%-include('../partials/footer.ejs') %>

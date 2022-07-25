@@ -1,7 +1,5 @@
-exports.index = function (req, res) {
-    res.render('welcome');
-};// página 'create'
 
-exports.create = function (req, res) {
-    res.render('createPI');
-};
+
+exports.dashboard = function (req, res) {
+    res.render('welcome');
+};// Dashboard page

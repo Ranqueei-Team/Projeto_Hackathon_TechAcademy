@@ -5,9 +5,6 @@ const indexController = require("../controllers/indexController");
 
 router.get("/", indexController.index);
 
-router.get("/create", indexController.create);
-
-
-
+router.get("/dashboard", indexController.dashboard);
 
 module.exports = router;

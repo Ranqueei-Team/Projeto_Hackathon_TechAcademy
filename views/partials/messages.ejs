@@ -3,7 +3,7 @@
       <div class="alert alert-warning alert-dismissible fade show"
   role="alert">
        <%= error.msg %>
-      
+      </div>
     <% }); %>
   <% } %>
 
@@ -16,11 +16,11 @@
   <% if(error_msg != ''){ %>
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
       <%= error_msg %>
-  </div>
+    </div>
   <% } %>
   
   <% if(error != ''){ %>
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-    <%= error %>
-  </div>
+      <%= error %>
+    </div>
   <% } %>
