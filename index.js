@@ -1,8 +1,7 @@
 const express = require("express");
 const app = express();
 
-const path = require('path'
-)
+const path = require('path')
 require('dotenv').config();
 const { urlencoded } = require("express");
 
@@ -19,6 +18,10 @@ app.use(
     express.static(path.join(__dirname, "node_modules/bootstrap/dist/"))
 );
  
+
+//Models
+const User = require("./models/userModel");
+
 //Database connection
 const connection = require("./database/database");
 
