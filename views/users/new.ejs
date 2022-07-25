@@ -1,6 +1,8 @@
 <%-include('../partials/header.ejs') %>
 <body>
     <%-include('../partials/navbar.ejs') %>
+    <%-include('../partials/messages.ejs') %>
+
     <div class="container">
         <div class="card">
             <div class="card-header">
@@ -9,10 +11,11 @@
            
             <div class="card-body">
                 <form method="POST" action="/users/create">
-                    <input type="text" placeholder="Insira o nome do usuário" name="name" class="form-control"><br>
-                    <input type="text" placeholder="Insira o CPF do usuário" name="cpf" class="form-control"><br>
-                    <input type="email" placeholder="Insira o email do usuário" name="email" class="form-control"><br>
-                    <input type="password" placeholder="Insira a senha do usuário" name="password" class="form-control"><br>
+                    <input type="text" placeholder="Nome" name="name" value="<%= typeof name != 'undefined' ? name : '' %>" class="form-control"><br>
+                    <input type="text" placeholder="CPF" name="cpf" value="<%= typeof cpf != 'undefined' ? cpf : '' %>" class="form-control"><br>
+                    <input type="email" placeholder="E-mail" name="email" value="<%= typeof email != 'undefined' ? email : '' %>" class="form-control"><br>
+                    <input type="password" placeholder="Senha" name="password" class="form-control"><br>
+                    <input type="password" placeholder="Repira a senha" name="confirm_password" class="form-control"><br>
                     <button class="btn btn-success">Cadastrar</button>
                     
                 </form>

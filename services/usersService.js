@@ -13,15 +13,46 @@ class UserService {
 
   async create(new_user){
 
-    let salt = bcrypt.genSaltSync(10);
-    let password_hash = bcrypt.hashSync(new_user.password, salt);
-    const user = await User.create({
-        name: new_user.name,
-        cpf: new_user.cpf,
-        email: new_user.email,
-        password: password_hash
-    });
-    return user;
+    const { name, email, cpf, password, confirm_password} = new_user;
+    let errors = [];
+
+    if (!name || !email || !cpf || !password || !confirm_password) {
+      errors.push({ msg: 'Por favor, preenchar todos os campos!' });
+      console.log(errors)
+    }
+
+
+    if (password != confirm_password) {
+      errors.push({ msg: 'As senhas informadas são diferentes!' });
+      console.log(errors)
+    }  
+    if (password.length <= 7) {
+      errors.push({ msg: 'A senha deve ter pelo menos 8 caracteres!' });
+      console.log(errors)
+    }
+   
+    console.log(errors.length)
+    if (errors.length > 0) {
+      // render da página com os valores do 'form' + erros
+    
+      let err = new Error("Ocorreu um errro");
+      err.errors = {errors, name, cpf, email}
+
+      throw err;
+    } else {
+      const salt = bcrypt.genSaltSync(10);
+      const password_hash = bcrypt.hashSync(password, salt);
+      const user = await User.create({
+          name: new_user.name,
+          cpf: new_user.cpf,
+          email: new_user.email,
+          password: password_hash,
+          confirm_password: password_hash
+      });
+      return user;
+    }
+   
+    
   }
 
   async show(id){
@@ -42,6 +73,7 @@ class UserService {
       cpf: edit_user.cpf,
       email: edit_user.email,
       password: password_hash,
+      confirm_password: password_hash,
       active: true},{
       where: {
           id: edit_user.id

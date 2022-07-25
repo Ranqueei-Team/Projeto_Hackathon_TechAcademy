@@ -1,11 +1,12 @@
 const User = require('../models/userModel');
 const UserService = require("../services/usersService");
-
+const passport = require('passport');
 exports.index = async (req, res, next) => {
     try{
         const users = await new UserService().index();
         res.render("users/index", {users: users});
     }catch(error){
+        console.log(error)
         res.redirect("/");
     }
 };
@@ -19,9 +20,22 @@ exports.create = async(req, res, next) => {
     try{
         const user = await new UserService().create(req.body);
         console.log('verificando' +user)
-        res.render('users/show', {user: user});
+        req.flash(
+            'success_msg','Usuário cadastrado com sucesso!'
+           );
+        res.redirect("/users");
     }catch(error){
-        res.render("users/new");
+        
+        console.log(error)
+        if (error.errors){
+            res.render("users/new", {name: error.errors['name'], cpf: error.errors['cpf'], email: error.errors['email'], errors: error.errors['errors'] });
+        }
+           
+        else{
+            res.render("users/new");
+        }
+            
+        
     }
 };
 
@@ -53,3 +67,23 @@ exports.update = async(req, res) => {
         res.redirect("/");
     }
 };
+
+exports.GETlogin = function (req, res) {
+    res.render('users/login');
+};
+
+exports.POSTlogin = function (req, res, next) {
+    console.log("qqqqqq")
+    passport.authenticate('local', {
+    successRedirect: '/users/',
+    failureRedirect: '/users/login',
+    failureFlash: true
+
+    })(req, res, next);
+    console.log( next)
+  };
+exports.logout = function (req, res) {
+    req.logout();
+    req.flash('success_msg', 'You are logged out');
+    res.redirect('/users/login');
+  };

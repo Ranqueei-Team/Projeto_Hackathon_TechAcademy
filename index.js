@@ -1,5 +1,13 @@
 const express = require("express");
+const expressLayouts = require('express-ejs-layouts');
+const passport = require('passport');
+const flash = require('connect-flash');
+const session = require('express-session');
+
+
 const app = express();
+require('./config/passport')(passport);
+
 
 const path = require('path')
 require('dotenv').config();
@@ -23,9 +31,6 @@ app.use(
 //Models
 const User = require("./models/userModel");
 
-//Routes
-const usersRoute = require("./routes/usersRoute");
-app.use("/users/", usersRoute);
 
 
 //Database connection
@@ -43,6 +48,38 @@ connection.authenticate()
 app.get('/', function (req, res) {
     return res.render("index");
 });
+
+
+//Session 
+app.use(
+    session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+   })
+);
+
+//Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+// Add the line below, which you're missing:
+require('./config/passport')(passport);
+
+//Flash middleware
+app.use(flash());
+
+// Global variables middleware
+app.use(function(req, res, next) {
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
+    next();
+});
+
+//Routes
+const usersRoute = require("./routes/usersRoute");
+app.use("/users/", usersRoute);
+
 
 //Run server
 const PORT = process.env.PORT;

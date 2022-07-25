@@ -26,6 +26,13 @@ const User = connection.define("users", {
             min: 8
           }
     },
+    confirm_password:{
+        type: Sequelize.STRING,
+        allowNull: false,
+        validate: {
+            min: 8
+          }
+    },
     active: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
