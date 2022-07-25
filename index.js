@@ -27,6 +27,7 @@ app.use(
 //Models
 const User = require("./models/userModel");
 const Classroom = require("./models/classroomModel");
+const Mission = require("./models/missionModel");
 
 //Database connection
 const connection = require("./database/database");
