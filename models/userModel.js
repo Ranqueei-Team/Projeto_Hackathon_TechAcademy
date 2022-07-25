@@ -6,11 +6,6 @@ const User = connection.define("users", {
         type: Sequelize.STRING,
         allowNull: false
     },
-    cpf: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
-    },
     email: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -32,15 +27,10 @@ const User = connection.define("users", {
         validate: {
             min: 8
           }
-    },
-    active: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false,
-        defaultValue: true
     }
 });
 
 
-//User.sync({ force: false});
+User.sync({ force: true});
 
 module.exports = User;
