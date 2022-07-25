@@ -18,7 +18,7 @@ app.use(express.urlencoded({extended: true}));
 //configuration EJS
 app.set("view engine", "ejs");
 
-//Configuratio Static Files
+//Configuration Static Files
 app.use(express.static("public"));
 app.use(
     express.static(path.join(__dirname, "node_modules/bootstrap/dist/"))
@@ -74,6 +74,8 @@ const usersRoute = require("./routes/usersRoute");
 app.use("/users/", usersRoute);
 const managerRoute = require("./routes/managerRoute");
 app.use("/manager/", managerRoute);
+const classroomRoute = require("./routes/classroomRoute");
+app.use("/classrooms/", classroomRoute);
 
 //Run server
 const PORT = process.env.PORT;
