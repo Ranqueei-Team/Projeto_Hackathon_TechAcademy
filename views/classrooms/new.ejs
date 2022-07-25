@@ -1,0 +1,50 @@
+<%-include('../partials/header.ejs') %>
+<body>
+    <%-include('../partials/navbar.ejs') %>
+        <%-include('../partials/messages.ejs') %>
+    
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            
+            <div class="col-md-4 offset-md-4 col-sm-10 offset-sm-1">
+              <br><br>
+                <div class="card">
+            
+                    <div class="card-header">
+                    <h3 class="panel-title">Cadastrar Turma</h3>
+                    </div>
+                    
+                    <form method="POST" action="/classrooms/create">
+                
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="row mb-3">
+                                    <label for="inputEmail3" class="col-sm-12 col-form-label">Nome*</label>
+                                    <input type="text" placeholder="Nome" name="name" value="<%= typeof name != 'undefined' ? name : '' %>" class="form-control" required><br>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="row mb-3">
+                                    <label for="inputEmail3" class="col-sm-12 col-form-label">Descrição</label>
+                                    <textarea id="story" name="description" rows="5" cols="33"> </textarea> 
+                                      
+                                </div>
+                            </div>
+
+                            <div class="card-footer text-center d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-block">Cadastrar Turma</button>
+                            </div>
+                        </div>
+                
+                    </form>
+                </div>
+            <br><br>
+          </div>
+        </div>            
+    </div>
+
+   
+</body>
+<%-include('../partials/footer.ejs') %>

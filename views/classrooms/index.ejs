@@ -1,0 +1,41 @@
+<%-include('../partials/header.ejs') %>
+<body>
+    <%-include('../partials/navbar.ejs') %>
+    <div class="container">
+        <%-include('../partials/messages.ejs') %>
+        <div class="card">
+            <div class="card-header">
+              <div class="panel-title">Turmas</div>
+            </div>  
+        
+            <table class="table table-bordered ">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th colspan="2">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% classrooms.forEach(classroom => {%>
+                        <tr>
+                            <td><%= classroom.id %></td>
+                            <td><%= classroom.name %></td>
+                            <td><%= classroom.description %></td>
+                            <td><a href="/classrooms/show/<%= classroom.id %>">Visualizar </a> </td>
+                            <td><a href="/classrooms/edit/<%= classroom.id %>">Atualizar </a> </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+
+            <div class="card-footer text-center">
+                <a href="/classrooms/new" class="btn btn-success btn-block">Cadastrar </a>
+                <a href="/" class="btn btn-primary btn-block">Voltar </a>
+            </div>   
+            
+    </div>
+    <br><br>
+</body>
+<%-include('../partials/footer.ejs') %>

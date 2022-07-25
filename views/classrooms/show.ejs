@@ -1,0 +1,22 @@
+<%-include('../partials/header.ejs') %>
+<body>
+    <%-include('../partials/navbar.ejs') %>
+
+    <div class="card">
+        <div class="card-header">
+          <div class="panel-title">Turma</div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 ">
+                <ul class="list-group">
+                    <li class="list-group-item"><b>Nome:</b> <%= classroom.name %></li>
+                    <li class="list-group-item"><b>Descrição:</b> <%= classroom.description %></li>
+                </ul>
+            </div>
+        </div>
+   
+        <a href="/classrooms" class="btn btn-success">Voltar</a>
+    </div>
+</body>
+<%-include('../partials/footer.ejs') %>
+
