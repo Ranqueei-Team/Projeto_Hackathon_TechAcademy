@@ -5,25 +5,24 @@ const User = require('../models/userModel');// o import desta função será em 
 module.exports = function(passport) {
     passport.use(new LocalStrategy({ usernameField: 'email' }, (email,
       password, done) => {
-       // e-mail coincide?
+     
        User.findOne({where:{email: email}}).then(user => {
-        if(user != undefined){ // Se existe um usuário com esse e-mail
-            // Validar senha
-            var correct = bcrypt.compareSync(password,user.password);
+       
+            if (!user) {
+             
+                return done(null, false, { message: 'E-mail não cadastrado' });
+            }
+
+            let correct = bcrypt.compareSync(password,user.password);
 
             if(correct){
                 return done(null, user);
             }else{
-                return done(null, false, { message: 'Password incorrect'});
-            }
+                return done(null, false, { message: 'Senha incorreta!'});
+            }})
+        })
+    )
 
-        }else{
-            res.redirect("/login");
-        }
-    });
-        
-    })
-  );
 passport.serializeUser(function(user, done) {
   done(null, user.id);
 });

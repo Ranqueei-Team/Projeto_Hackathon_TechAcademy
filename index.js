@@ -4,10 +4,8 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('express-session');
 
-
 const app = express();
 require('./config/passport')(passport);
-
 
 const path = require('path')
 require('dotenv').config();
@@ -20,18 +18,14 @@ app.use(express.urlencoded({extended: true}));
 //configuration EJS
 app.set("view engine", "ejs");
 
-
 //Configuratio Static Files
 app.use(express.static("public"));
-
 app.use(
     express.static(path.join(__dirname, "node_modules/bootstrap/dist/"))
 );
  
 //Models
 const User = require("./models/userModel");
-
-
 
 //Database connection
 const connection = require("./database/database");
@@ -49,7 +43,6 @@ app.get('/', function (req, res) {
     return res.render("index");
 });
 
-
 //Session 
 app.use(
     session({
@@ -62,7 +55,6 @@ app.use(
 //Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
-// Add the line below, which you're missing:
 require('./config/passport')(passport);
 
 //Flash middleware
@@ -79,7 +71,8 @@ app.use(function(req, res, next) {
 //Routes
 const usersRoute = require("./routes/usersRoute");
 app.use("/users/", usersRoute);
-
+const managerRoute = require("./routes/managerRoute");
+app.use("/manager/", managerRoute);
 
 //Run server
 const PORT = process.env.PORT;
