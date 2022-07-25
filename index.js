@@ -12,15 +12,21 @@ app.use(express.urlencoded({extended: true}));
 //configuration EJS
 app.set("view engine", "ejs");
 
+
 //Configuratio Static Files
 app.use(express.static("public"));
+
 app.use(
     express.static(path.join(__dirname, "node_modules/bootstrap/dist/"))
 );
  
-
 //Models
 const User = require("./models/userModel");
+
+//Routes
+const usersRoute = require("./routes/usersRoute");
+app.use("/users/", usersRoute);
+
 
 //Database connection
 const connection = require("./database/database");
