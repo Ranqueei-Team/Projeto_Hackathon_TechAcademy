@@ -1,8 +1,13 @@
 const express = require("express");
-const app = express();
+const expressLayouts = require('express-ejs-layouts');
+const passport = require('passport');
+const flash = require('connect-flash');
+const session = require('express-session');
 
-const path = require('path'
-)
+const app = express();
+require('./config/passport')(passport);
+
+const path = require('path')
 require('dotenv').config();
 const { urlencoded } = require("express");
 
@@ -19,6 +24,9 @@ app.use(
     express.static(path.join(__dirname, "node_modules/bootstrap/dist/"))
 );
  
+//Models
+const User = require("./models/userModel");
+
 //Database connection
 const connection = require("./database/database");
 
@@ -34,6 +42,37 @@ connection.authenticate()
 app.get('/', function (req, res) {
     return res.render("index");
 });
+
+//Session 
+app.use(
+    session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+   })
+);
+
+//Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+require('./config/passport')(passport);
+
+//Flash middleware
+app.use(flash());
+
+// Global variables middleware
+app.use(function(req, res, next) {
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
+    next();
+});
+
+//Routes
+const usersRoute = require("./routes/usersRoute");
+app.use("/users/", usersRoute);
+const managerRoute = require("./routes/managerRoute");
+app.use("/manager/", managerRoute);
 
 //Run server
 const PORT = process.env.PORT;
