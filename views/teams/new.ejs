@@ -8,42 +8,34 @@
           <div class="col-md-12">
             
             <div class="col-md-8 offset-md-2 col-sm-10 offset-sm-1">
-              <br><br>
+                <br><br>
                 <div class="card">
             
                     <div class="card-header">
-                    <h3 class="panel-title">Cadastrar Recompensa</h3>
+                        <h3 class="panel-title">Cadastrar Equipe</h3>
                     </div>
                     
-                    <form method="POST" action="/rewards/create">
+                    <form method="POST" action="/teams/create">
                         <%= classroomId %>
                         <input type="hidden" name="classroomId" value="<%= classroomId %>">  
                        
                         <div class="card-body">
                             <div class="row mb-3">
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-sm-12 col-form-label">Nome da Recompensa*</label>
+                                    <label for="inputEmail3" class="col-sm-12 col-form-label">Nome da Equipe*</label>
                                     <input type="text" placeholder="Nome" name="name" value="<%= typeof name != 'undefined' ? name : '' %>" class="form-control" required><br>
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
-                                <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-sm-12 col-form-label">Classificação da Equipe*</label>
-                                    <input type="number" name="rating" value="<%= typeof rating != 'undefined' ? rating : '' %> required" class="form-control" required><br>
-                                      
-                                </div>
-                            </div>
-
                             <div class="card-footer text-center d-grid gap-2">
-                                <button type="submit" class="btn btn-primary btn-block" required>Cadastrar Recompensa</button>
+                                <button type="submit" class="btn btn-primary btn-block" required>Cadastrar Equipe</button>
                             </div>
                         </div>
                 
                     </form>
                 </div>
-            <br><br>
-          </div>
+                <br><br>
+            </div>
         </div>            
     </div>
 
