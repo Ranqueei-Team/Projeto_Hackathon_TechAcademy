@@ -4,6 +4,7 @@
   "description": "Projeto desenvolvido para o Hackathon da Tech Academy - Turma 1 - Tema Evasao Escolar",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
