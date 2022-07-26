@@ -6,10 +6,7 @@ class MissionService {
     return await Mission.findAll()
   }
 
-  //Refatorar
-  async new(){
-    return await Mission.findAll()
-  }
+  
 
   async create(new_mission){
 
