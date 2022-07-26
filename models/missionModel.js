@@ -8,7 +8,7 @@ const Mission = connection.define("missions", {
         allowNull: false
     },
     description: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false,
     },
     point: {
