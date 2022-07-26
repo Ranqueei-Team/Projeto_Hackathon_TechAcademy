@@ -19,60 +19,58 @@ class RewardService {
    
     if (errors.length > 0) {
       
-        let err = new Error("Ocorreu um erro!");
-        err.errors = {errors, name, rating, classroomId}
-        throw err;
+      let err = new Error("Ocorreu um erro!");
+      err.errors = {errors, name, rating, classroomId}
+      throw err;
     } else {
         
         const reward = await Reward.create({
-            name: name,
-            rating: rating,
-            classroomId: classroomId
+          name: name,
+          rating: rating,
+          classroomId: classroomId
         });
       return reward;
     }
-    
+  }
 
+  async show(id){
+    return await Reward.findByPk(id);
+  }
+
+
+  async edit(id){
+    return await Reward.findByPk(id);
+  }
+
+  async update(edit_reward){
+
+    const { id, name, rating, classroomId} = edit_reward;
+
+    //Validation
+    let errors = [];
+
+    if (!name || !rating ) {
+      errors.push({ msg: 'Por favor, preencha os campos obrigatórios!' });
     }
 
-    async show(id){
-      return await Reward.findByPk(id);
-    }
+    if (errors.length > 0) {
+      
+      let err = new Error("Ocorreu um erro!");
+      err.errors = {errors, id, name, rating, classroomId}
+      throw err;
 
+      } else {
 
-    async edit(id){
-      return await Reward.findByPk(id);
-    }
-
-    async update(edit_reward){
-
-      const { id, name, rating, classroomId} = edit_reward;
-
-      //Validation
-      let errors = [];
-
-      if (!name || !rating ) {
-        errors.push({ msg: 'Por favor, preencha os campos obrigatórios!' });
-      }
-
-      if (errors.length > 0) {
-        
-        let err = new Error("Ocorreu um erro!");
-        err.errors = {errors, id, name, rating, classroomId}
-
-          throw err;
-        } else {
-  
-        const update_reward = await Reward.update({
-          name: edit_reward.name,
-          rating: edit_reward.rating,
-        },{
-          where: {
-              id: id
-          }})
-      }  
-      return Reward.findByPk(id);
-    }
+      const update_reward = await Reward.update({
+        name: name,
+        rating: rating,
+      },{
+        where: {
+            id: id
+        }})
+    }  
+    return Reward.findByPk(id);
+  }
 
 }
 
