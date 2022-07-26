@@ -1,0 +1,20 @@
+tinymce.init({
+  language: 'pt_BR',
+  selector: "#description",
+  plugins: [
+              'advlist',
+              'autolink',
+              'link',
+              'image',
+              'lists',
+              'preview',
+              'searchreplace',
+              'wordcount',
+              'fullscreen',
+              'insertdatetime',
+              'media',
+              'save',
+              'table',
+              'emoticons',
+          ],
+});

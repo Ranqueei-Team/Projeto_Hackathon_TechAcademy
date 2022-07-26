@@ -24,9 +24,13 @@ app.use(
     express.static(path.join(__dirname, "node_modules/bootstrap/dist/"))
 );
  
+app.use('/tinymce', express.static(path.join(__dirname, 'node_modules', 'tinymce')));
+app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
+ 
 //Models
 const User = require("./models/userModel");
 const Classroom = require("./models/classroomModel");
+const Mission = require("./models/missionModel");
 
 //Database connection
 const connection = require("./database/database");
@@ -58,6 +62,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 require('./config/passport')(passport);
 
+//Current User
+app.use(function(req,res,next){
+    res.locals.currentUser = req.user;
+    next();
+  })
+
 //Flash middleware
 app.use(flash());
 
@@ -76,6 +86,8 @@ const managerRoute = require("./routes/managerRoute");
 app.use("/manager/", managerRoute);
 const classroomRoute = require("./routes/classroomRoute");
 app.use("/classrooms/", classroomRoute);
+const MissionRoute = require("./routes/missionRoute");
+app.use("/missions/", MissionRoute);
 
 //Run server
 const PORT = process.env.PORT;

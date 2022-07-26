@@ -46,7 +46,7 @@ class UserService {
         //Password crpytt
         const salt = bcrypt.genSaltSync(10);
         const password_hash = bcrypt.hashSync(password, salt);
-        
+     
         const user = await User.create({
             name: new_user.name,
             email: new_user.email,

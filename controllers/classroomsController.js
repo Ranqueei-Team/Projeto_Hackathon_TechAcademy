@@ -25,7 +25,7 @@ exports.create = async(req, res, next) => {
            );
         res.render("classrooms/show", {classroom: classroom});
     }catch(error){
-        
+    
         if (error.errors){
             res.render("classrooms/new", {name: error.errors['name'], description: error.errors['description'], errors: error.errors['errors'] });
         }
@@ -61,7 +61,6 @@ exports.update = async(req, res, next) => {
     }catch(error){
         console.log(error);
         if (error.errors){
-            console.log(error.errors['id']);
             res.render("classrooms/edit", {id: error.errors['id'], name: error.errors['name'], 
             description: error.errors['description'], errors: error.errors['errors'] });
         }

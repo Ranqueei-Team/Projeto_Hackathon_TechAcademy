@@ -9,12 +9,13 @@
         <div class="row">
             <div class="col-md-12 ">
                 <ul class="list-group">
+                    <li class="list-group-item"><b>ID:</b> <%= classroom.id %></li>
                     <li class="list-group-item"><b>Nome:</b> <%= classroom.name %></li>
                     <li class="list-group-item"><b>Descrição:</b> <%= classroom.description %></li>
                 </ul>
             </div>
         </div>
-   
+        <a href="/missions/new/<%= classroom.id %>" class="btn btn-success">Cadastrar Missão</a>
         <a href="/classrooms" class="btn btn-success">Voltar</a>
     </div>
 </body>

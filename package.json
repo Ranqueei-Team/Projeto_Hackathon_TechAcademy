@@ -4,6 +4,7 @@
   "description": "Projeto desenvolvido para o Hackathon da Tech Academy - Turma 1 - Tema Evasao Escolar",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -26,9 +27,11 @@
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.3",
     "http-status-codes": "^2.2.0",
+    "jquery": "^3.6.0",
     "mysql2": "^2.3.3",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
-    "sequelize": "^6.21.3"
+    "sequelize": "^6.21.3",
+    "tinymce": "^6.1.0"
   }
 }

@@ -7,16 +7,18 @@
         <div class="row">
           <div class="col-md-12">
             
-            <div class="col-md-4 offset-md-4 col-sm-10 offset-sm-1">
+            <div class="col-md-8 offset-md-2 col-sm-10 offset-sm-1">
               <br><br>
                 <div class="card">
             
                     <div class="card-header">
-                    <h3 class="panel-title">Cadastrar Turma</h3>
+                    <h3 class="panel-title">Cadastrar Missão</h3>
                     </div>
                     
-                    <form method="POST" action="/classrooms/create">
-                        
+                    <form method="POST" action="/missions/create">
+                        <%= classroomId %>
+                        <input type="hidden" name="classroomId" value="<%= classroomId %>">  
+                       
                         <div class="card-body">
                             <div class="row mb-3">
                                 <div class="row mb-3">
@@ -27,14 +29,22 @@
 
                             <div class="row mb-3">
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-sm-12 col-form-label">Descrição</label>
-                                    <textarea id="story" name="description" rows="5" cols="33"> </textarea> 
+                                    <label for="inputEmail3" class="col-sm-12 col-form-label">Descrição*</label>
+                                    <textarea id="description" name="description" rows="5" cols="33"> </textarea> 
+                                      
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="row mb-3">
+                                    <label for="inputEmail3" class="col-sm-12 col-form-label">Pontuação*</label>
+                                    <input type="number" placeholder="Pontos" name="point" value="<%= typeof point != 'undefined' ? point : '' %>" class="form-control" required><br>
                                       
                                 </div>
                             </div>
 
                             <div class="card-footer text-center d-grid gap-2">
-                                <button type="submit" class="btn btn-primary btn-block">Cadastrar Turma</button>
+                                <button type="submit" class="btn btn-primary btn-block">Cadastrar Missão</button>
                             </div>
                         </div>
                 
@@ -47,4 +57,7 @@
 
    
 </body>
+
 <%-include('../partials/footer.ejs') %>
+<script type="application/javascript" src= "/tinymce/tinymce.min.js"></script>
+<script type="application/javascript" src= "/js/tinymce/tinymce-config.js"></script>

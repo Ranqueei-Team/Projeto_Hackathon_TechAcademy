@@ -1,0 +1,72 @@
+<%-include('../partials/header.ejs') %>
+
+<body>
+    <%-include('../partials/navbar.ejs') %>
+        <%-include('../partials/messages.ejs') %>
+    
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            
+            <div class="col-md-8 offset-md-2 col-sm-10 offset-sm-1">
+              <br><br>
+              <div class="card">
+            
+                <div class="card-header">
+                  <h3 class="panel-title">Atualizar Missão</h3>
+                </div>
+                
+                <form method="POST" action="/missions/update">    
+                  <input type="hidden" name="id" value="<%= typeof mission.id != 'undefined' ? mission.id : '' %>">  
+                  <input type="hidden" name="classroomId" value="<%= mission.classroomId %>">  
+                    <div class="card-body">
+                      <div class="row mb-3">
+                          <div class="row mb-3">
+                              <label for="inputEmail3" class="col-sm-12 col-form-label">Nome*</label>
+                              <input type="text" placeholder="Insira o nome da Turma" name="name" class="form-control" value="<%= typeof mission.name != 'undefined' ? mission.name : '' %>" required><br>
+                          </div>
+                      </div>               
+
+                        <div class="row mb-3">
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-12 col-form-label">Descrição*</label>  
+                                <textarea id="description" name="description" rows="5" cols="33"> </textarea> 
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-12 col-form-label">Pontuação*</label>
+                                <input type="number" placeholder="Pontos" name="point" value="<%= typeof mission.point != 'undefined' ? mission.point : '' %>" class="form-control" required><br>
+                                  
+                            </div>
+                        </div>
+
+                    </div>
+            
+                  <div class="card-footer text-center d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-block">Atualizar Missão</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            
+          </div>
+        </div>            
+    </div>
+
+   
+</body>
+
+<!--
+<div id="content" >
+  <%- mission.description %>
+</div>
+-->
+
+
+<script type="application/javascript" src= "/tinymce/tinymce.min.js"></script>
+<script type="application/javascript" src= "/js/tinymce/tinymce-config.js"></script>
+<script src="/jquery/jquery.js"></script>
+
+<%-include('../partials/footer.ejs') %>

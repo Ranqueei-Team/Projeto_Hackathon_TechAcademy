@@ -1,0 +1,41 @@
+<%-include('../partials/header.ejs') %>
+<body>
+    <%-include('../partials/navbar.ejs') %>
+    <div class="container">
+        <%-include('../partials/messages.ejs') %>
+        <div class="card">
+            <div class="card-header">
+              <div class="panel-title">Missões</div>
+            </div>  
+        
+            <table class="table table-bordered ">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th colspan="2">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% missions.forEach(mission => {%>
+                        <tr>
+                            <td><%= mission.id %></td>
+                            <td><%= mission.name %></td>
+                            <td><%= mission.point %></td>
+                            <td><a href="/missions/show/<%= mission.id %>">Visualizar </a> </td>
+                            <td><a href="/missions/edit/<%= mission.id %>">Atualizar </a> </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+
+            <div class="card-footer text-center">
+                <a href="/missions/new" class="btn btn-success btn-block">Cadastrar </a>
+                <a href="/" class="btn btn-primary btn-block">Voltar </a>
+            </div>   
+            
+    </div>
+    <br><br>
+</body>
+<%-include('../partials/footer.ejs') %>
