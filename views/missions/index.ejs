@@ -14,7 +14,6 @@
                         <th>ID</th>
                         <th>Nome</th>
                         <th>Descrição</th>
-                        <th>Pontuação</th>
                         <th colspan="2">Ações</th>
                     </tr>
                 </thead>
@@ -23,7 +22,6 @@
                         <tr>
                             <td><%= mission.id %></td>
                             <td><%= mission.name %></td>
-                            <td><%= mission.description %></td>
                             <td><%= mission.point %></td>
                             <td><a href="/missions/show/<%= mission.id %>">Visualizar </a> </td>
                             <td><a href="/missions/edit/<%= mission.id %>">Atualizar </a> </td>

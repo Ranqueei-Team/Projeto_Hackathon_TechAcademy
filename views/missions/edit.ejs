@@ -8,7 +8,7 @@
         <div class="row">
           <div class="col-md-12">
             
-            <div class="col-md-4 offset-md-4 col-sm-10 offset-sm-1">
+            <div class="col-md-8 offset-md-2 col-sm-10 offset-sm-1">
               <br><br>
               <div class="card">
             
@@ -30,14 +30,14 @@
                         <div class="row mb-3">
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-12 col-form-label">Descrição*</label>  
-                                <textarea id="story" name="description" rows="5" cols="33"><%= typeof mission.description != 'undefined' ? mission.description : '' %> </textarea> 
+                                <textarea id="description" name="description" rows="5" cols="33"> </textarea> 
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-12 col-form-label">Pontuação*</label>
-                                <input type="number" placeholder="Pontos" name="point" value="<%= typeof point != 'undefined' ? point : '' %>" class="form-control" required><br>
+                                <input type="number" placeholder="Pontos" name="point" value="<%= typeof mission.point != 'undefined' ? mission.point : '' %>" class="form-control" required><br>
                                   
                             </div>
                         </div>
@@ -57,5 +57,16 @@
 
    
 </body>
+
+<!--
+<div id="content" >
+  <%- mission.description %>
+</div>
+-->
+
+
+<script type="application/javascript" src= "/tinymce/tinymce.min.js"></script>
+<script type="application/javascript" src= "/js/tinymce/tinymce-config.js"></script>
+<script src="/jquery/jquery.js"></script>
 
 <%-include('../partials/footer.ejs') %>
