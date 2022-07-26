@@ -60,7 +60,7 @@ exports.update = async(req, res, next) => {
     
     try{
         const mission = await new MissionService().update(req.body);
-        res.render("missions/show", {id: mission.id, mission: mission});
+        res.render("missions/show", {mission: mission});
     }catch(error){
         console.log(error);
         if (error.errors){
@@ -68,7 +68,7 @@ exports.update = async(req, res, next) => {
             description: error.errors['description'], point: error.errors['point'], errors: error.errors['errors'] });
         }
         else{
-            res.redirect("/");
+            res.redirect("/missions");
         }   
     }
 };

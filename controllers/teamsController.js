@@ -60,13 +60,12 @@ exports.update = async(req, res, next) => {
         const team = await new TeamService().update(req.body);
         res.render("teams/show", {id: team.id, team: team});
     }catch(error){
-        console.log(error);
         if (error.errors){
             res.render("teams/edit", {id: error.errors['id'],
             name: error.errors['name'], errors: error.errors['errors'] });
         }
         else{
-            res.redirect("/");
+            res.redirect("/teams");
         }   
     }
 };

@@ -50,7 +50,7 @@ class TeamService {
         let errors = [];
 
         if (!name ) {
-            errors.push({ msg: 'Por favor, preencha os campos obrigatórios!' });
+            errors.push({ msg: 'Por favor, preencha o nome da Equipe!' });
         }
 
         if (errors.length > 0) {
@@ -61,12 +61,11 @@ class TeamService {
         }else {
     
             const update_team = await Team.update({
-            name: name
-            },{
+                name: name
+        },{
             where: {
                 id: id
-            }})
-            ;
+            }});
         }  
         return Team.findByPk(id)
     }
