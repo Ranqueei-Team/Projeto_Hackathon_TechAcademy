@@ -31,6 +31,7 @@ app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
 const User = require("./models/userModel");
 const Classroom = require("./models/classroomModel");
 const Mission = require("./models/missionModel");
+const Reward = require("./models/rewardModel");
 
 //Database connection
 const connection = require("./database/database");
@@ -88,6 +89,8 @@ const classroomRoute = require("./routes/classroomRoute");
 app.use("/classrooms/", classroomRoute);
 const MissionRoute = require("./routes/missionRoute");
 app.use("/missions/", MissionRoute);
+const RewardRoute = require("./routes/rewardRoute");
+app.use("/rewards/", RewardRoute);
 
 //Run server
 const PORT = process.env.PORT;

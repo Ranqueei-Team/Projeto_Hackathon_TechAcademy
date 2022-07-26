@@ -15,8 +15,12 @@
                 </ul>
             </div>
         </div>
-        <a href="/missions/new/<%= classroom.id %>" class="btn btn-success">Cadastrar Missão</a>
-        <a href="/classrooms" class="btn btn-success">Voltar</a>
+        <div class="card-footer">
+            <a href="/rewards/new/<%= classroom.id %>" class="btn btn-success">Cadastrar Recompensa</a>
+            <a href="/missions/new/<%= classroom.id %>" class="btn btn-success">Cadastrar Missão</a>
+            <a href="/classrooms" class="btn btn-primary">Voltar</a>
+        </div>
+      
     </div>
 </body>
 <%-include('../partials/footer.ejs') %>
