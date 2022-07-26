@@ -25,7 +25,7 @@ class MissionService {
         throw err;
       } else {
         
-        const user = await Mission.create({
+        const mission = await Mission.create({
             name: new_mission.name,
             description: new_mission.description,
             point: new_mission.point,

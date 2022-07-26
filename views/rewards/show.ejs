@@ -1,0 +1,23 @@
+<%-include('../partials/header.ejs') %>
+<body>
+    <%-include('../partials/navbar.ejs') %>
+
+    <div class="card">
+        <div class="card-header">
+          <div class="panel-title">Recompensa</div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 ">
+                <ul class="list-group">
+                    <li class="list-group-item"><b>Nome da Recompensa:</b> <%= reward.name %></li>
+                    <li class="list-group-item"><b>Classificação da Equipe:</b> <%= reward.rating %></li>
+                    <li class="list-group-item"><b>Turma:</b> <%= reward.classroomId %></li>
+                </ul>
+            </div>
+        </div>
+   
+        <a href="/rewards" class="btn btn-success">Voltar</a>
+    </div>
+</body>
+<%-include('../partials/footer.ejs') %>
+

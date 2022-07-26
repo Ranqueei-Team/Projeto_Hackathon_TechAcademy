@@ -43,7 +43,7 @@ exports.show = async (req, res, next) => {
         const mission = await new MissionService().show(req.params.id);
         res.render("missions/show", {mission: mission} );
     }catch(error){
-        res.redirect("/mission");
+        res.redirect("/missions");
     }
 };
 
