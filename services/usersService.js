@@ -1,4 +1,5 @@
 const User = require('../models/userModel');
+const Profile = require('../models/profileModel');
 const bcrypt = require("bcryptjs");
 
 class UserService {
@@ -109,6 +110,18 @@ class UserService {
         }})
     }  
     return User.findByPk(id);
+  }
+
+  async createProfile(classroomId, userId, type){
+
+    console.log(classroomId, userId, type)
+    const profile = await Profile.create({
+      classroomId: classroomId,
+      userId: userId,
+      type: type
+    });
+
+    return profile;
   }
   
 };
