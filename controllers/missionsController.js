@@ -13,7 +13,8 @@ exports.index = async (req, res, next) => {
 };
 
 exports.new = async (req, res, next) => {
-    res.render("missions/new");
+    let classroomId = req.params.classroomId;   
+    res.render("missions/new", {classroomId: classroomId});
 };
 
 exports.create = async(req, res, next) => {
