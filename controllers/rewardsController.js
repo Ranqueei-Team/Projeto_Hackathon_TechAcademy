@@ -24,7 +24,6 @@ exports.create = async(req, res, next) => {
            );
         res.render("rewards/show", {reward: reward});
     }catch(error){
-        
         if (error.errors){
             res.render("rewards/new", {name: error.errors['name'], 
             rating: error.errors['rating'], 

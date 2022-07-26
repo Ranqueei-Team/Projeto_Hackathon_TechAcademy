@@ -26,12 +26,9 @@ exports.create = async(req, res, next) => {
         res.render("classrooms/show", {classroom: classroom});
     }catch(error){
     
-        if (error.errors){
-            res.render("classrooms/new", {name: error.errors['name'], description: error.errors['description'], errors: error.errors['errors'] });
-        }
-        else{
-            res.render("classrooms/new");
-        }       
+        res.render("classrooms/new", {name: error.errors['name'], 
+            description: error.errors['description'], 
+            errors: error.errors['errors'] });  
     }
 };
 
@@ -57,15 +54,12 @@ exports.update = async(req, res, next) => {
     
     try{
         const classroom = await new ClassroomService().update(req.body);
-        res.render("classrooms/show", {id: classroom.id, classroom: classroom});
+        res.render("classrooms/show", {classroom: classroom});
     }catch(error){
-        console.log(error);
-        if (error.errors){
-            res.render("classrooms/edit", {id: error.errors['id'], name: error.errors['name'], 
-            description: error.errors['description'], errors: error.errors['errors'] });
-        }
-        else{
-            res.redirect("/");
-        }   
+                
+        res.render("classrooms/edit", {id: error.errors['id'], 
+            name: error.errors['name'], 
+            description: error.errors['description'], 
+            errors: error.errors['errors'] });       
     }
 };
