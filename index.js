@@ -24,6 +24,9 @@ app.use(
     express.static(path.join(__dirname, "node_modules/bootstrap/dist/"))
 );
  
+app.use('/tinymce', express.static(path.join(__dirname, 'node_modules', 'tinymce')));
+app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
+ 
 //Models
 const User = require("./models/userModel");
 const Classroom = require("./models/classroomModel");

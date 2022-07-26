@@ -6,8 +6,6 @@ class MissionService {
     return await Mission.findAll()
   }
 
-  
-
   async create(new_mission){
 
     const { name, description, point, classroomId } = new_mission;
@@ -15,7 +13,7 @@ class MissionService {
     //Validation
     let errors = [];
 
-    if (!name || !description || !point || !classroomId ) {
+    if (!name || !point || !classroomId ) {
       errors.push({ msg: 'Por favor, preencha os campos obrigatórios!' });
     }
    
@@ -54,7 +52,7 @@ class MissionService {
     //Validation
     let errors = [];
 
-    if (!name || !description || !point ) {
+    if (!name || !point ) {
       errors.push({ msg: 'Por favor, preencha os campos obrigatórios!' });
     }
 
