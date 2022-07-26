@@ -25,7 +25,7 @@ exports.create = async(req, res, next) => {
            );
         res.redirect("/users/registration");
     }catch(error){
-        
+        console.log(error)
         if (error.errors){
             res.render("users/new", {name: error.errors['name'], email: error.errors['email'], errors: error.errors['errors'] });
         }

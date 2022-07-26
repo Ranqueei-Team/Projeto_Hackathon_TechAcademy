@@ -77,6 +77,8 @@ const managerRoute = require("./routes/managerRoute");
 app.use("/manager/", managerRoute);
 const classroomRoute = require("./routes/classroomRoute");
 app.use("/classrooms/", classroomRoute);
+const MissionRoute = require("./routes/missionRoute");
+app.use("/missions/", MissionRoute);
 
 //Run server
 const PORT = process.env.PORT;

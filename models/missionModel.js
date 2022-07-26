@@ -1,5 +1,6 @@
 const Sequelize = require("sequelize");
 const connection = require("../database/database");
+const Classroom = require("./classroomModel");
 
 const Mission = connection.define("missions", {
     name: {
@@ -17,6 +18,8 @@ const Mission = connection.define("missions", {
 });
 
 
-//Mission.sync({ force: true});
+Classroom.hasMany(Mission);
+Mission.belongsTo(Classroom);
 
+//Mission.sync({ force: true});
 module.exports = Mission;

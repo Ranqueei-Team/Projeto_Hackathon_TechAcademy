@@ -28,7 +28,16 @@
 
                       <div class="row mb-3">
                           <div class="row mb-3">
+                          <label for="inputEmail3" class="col-sm-12 col-form-label">Descrição*</label>  
                           <textarea id="story" name="description" rows="5" cols="33"><%= typeof classroom.description != 'undefined' ? classroom.description : '' %> </textarea> 
+                      </div>
+
+                      <div class="row mb-3">
+                        <div class="row mb-3">
+                            <label for="inputEmail3" class="col-sm-12 col-form-label">Pontuação</label>
+                            <input type="number" placeholder="Pontos" name="point" value="<%= typeof point != 'undefined' ? point : '' %>" class="form-control" required><br>
+                              
+                        </div>
                       </div>
 
                   </div>

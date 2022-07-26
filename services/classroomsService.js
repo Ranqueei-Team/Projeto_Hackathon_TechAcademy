@@ -70,7 +70,7 @@ class ClassroomService {
  
       const update_classroom = await Classroom.update({
         name: edit_classrooom.name,
-        description: edit_classrooom.email,
+        description: edit_classrooom.description,
         active: edit_classrooom.active,
       },{
         where: {
@@ -80,10 +80,6 @@ class ClassroomService {
     return Classroom.findByPk(id);
   }
 
+}
 
-
-  }
-
-  
-
-  module.exports = ClassroomService;
+module.exports = ClassroomService;
