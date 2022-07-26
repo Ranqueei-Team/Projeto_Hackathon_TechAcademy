@@ -12,7 +12,7 @@ const Mission = connection.define("missions", {
         allowNull: false,
     },
     point: {
-        type: Sequelize.DECIMAL(10,2),
+        type: Sequelize.FLOAT,
         allowNull: false
     }
 });

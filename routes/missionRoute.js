@@ -3,11 +3,11 @@ const router = express.Router();
 const missionsController = require('../controllers/missionsController')
 const { ensureAuthenticated } = require('../config/auth');
 
-router.get('/new/:missionid', ensureAuthenticated, missionsController.new);
-router.post('/create', ensureAuthenticated, missionsController.create);
-router.get('/show/:id', ensureAuthenticated, missionsController.show);
-router.get('/edit/:id', ensureAuthenticated, missionsController.edit);
-router.post('/update', ensureAuthenticated, missionsController.update);
-router.get('/', ensureAuthenticated, missionsController.index);
+router.get('/new/:classroomId',  missionsController.new);
+router.post('/create',  missionsController.create);
+router.get('/show/:id',  missionsController.show);
+router.get('/edit/:id',  missionsController.edit);
+router.post('/update', missionsController.update);
+router.get('/', missionsController.index);
 
 module.exports = router;
