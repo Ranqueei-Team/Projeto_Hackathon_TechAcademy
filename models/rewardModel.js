@@ -17,5 +17,6 @@ const Reward = connection.define("rewards", {
 Classroom.hasMany(Reward);
 Reward.belongsTo(Classroom);
 
-//Reward.sync({ force: true});
+Reward.sync({ force: false});
+
 module.exports = Reward;
