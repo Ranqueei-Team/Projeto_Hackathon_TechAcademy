@@ -24,7 +24,6 @@ exports.create = async(req, res, next) => {
            );
         res.render("rewards/show", {reward: reward});
     }catch(error){
-        
         if (error.errors){
             res.render("rewards/new", {name: error.errors['name'], 
             rating: error.errors['rating'], 
@@ -61,13 +60,14 @@ exports.update = async(req, res, next) => {
         const reward = await new RewardService().update(req.body);
         res.render("rewards/show", {id: reward.id, reward: reward});
     }catch(error){
-        console.log(error);
         if (error.errors){
-            res.render("rewards/edit", {id: error.errors['id'], name: error.errors['name'], 
-            rating: error.errors['rating'], errors: error.errors['errors'] });
+            res.render("rewards/edit", {id: error.errors['id'], 
+                name: error.errors['name'], 
+                rating: error.errors['rating'], 
+                errors: error.errors['errors'] });
         }
         else{
-            res.redirect("/");
+            res.redirect("/rewards");
         }   
     }
 };

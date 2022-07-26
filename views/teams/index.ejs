@@ -5,26 +5,24 @@
         <%-include('../partials/messages.ejs') %>
         <div class="card">
             <div class="card-header">
-              <div class="panel-title">Missões</div>
+              <div class="panel-title">Equipes</div>
             </div>  
         
             <table class="table table-bordered ">
                 <thead class="table-dark">
                     <tr>
                         <th>ID</th>
-                        <th>Nome</th>
-                        <th>Descrição</th>
+                        <th>Equipes</th>
                         <th colspan="2">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <% missions.forEach(mission => {%>
+                    <% teams.forEach(team => {%>
                         <tr>
-                            <td><%= mission.id %></td>
-                            <td><%= mission.name %></td>
-                            <td><%= mission.point %></td>
-                            <td><a href="/missions/show/<%= mission.id %>">Visualizar </a> </td>
-                            <td><a href="/missions/edit/<%= mission.id %>">Atualizar </a> </td>
+                            <td><%= team.id %></td>
+                            <td><%= team.name %></td>
+                            <td><a href="/teams/show/<%= team.id %>">Visualizar </a> </td>
+                            <td><a href="/teams/edit/<%= team.id %>">Atualizar </a> </td>
                         </tr>
                     <% }) %>
                 </tbody>

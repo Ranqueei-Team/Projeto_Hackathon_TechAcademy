@@ -32,6 +32,7 @@ const User = require("./models/userModel");
 const Classroom = require("./models/classroomModel");
 const Mission = require("./models/missionModel");
 const Reward = require("./models/rewardModel");
+const Team = require("./models/teamModel");
 
 //Database connection
 const connection = require("./database/database");
@@ -85,12 +86,14 @@ const usersRoute = require("./routes/usersRoute");
 app.use("/users/", usersRoute);
 const managerRoute = require("./routes/managerRoute");
 app.use("/manager/", managerRoute);
-const classroomRoute = require("./routes/classroomRoute");
-app.use("/classrooms/", classroomRoute);
-const MissionRoute = require("./routes/missionRoute");
-app.use("/missions/", MissionRoute);
-const RewardRoute = require("./routes/rewardRoute");
-app.use("/rewards/", RewardRoute);
+const classroomsRoute = require("./routes/classroomsRoute");
+app.use("/classrooms/", classroomsRoute);
+const missionsRoute = require("./routes/missionsRoute");
+app.use("/missions/", missionsRoute);
+const rewardsRoute = require("./routes/rewardsRoute");
+app.use("/rewards/", rewardsRoute);
+const teamsRoute = require("./routes/teamsRoute");
+app.use("/teams/", teamsRoute);
 
 //Run server
 const PORT = process.env.PORT;

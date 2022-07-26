@@ -21,25 +21,23 @@ class MissionService {
       
       let err = new Error("Ocorreu um erro!");
       err.errors = {errors, name, description, point, classroomId}
+      throw err;
 
-        throw err;
       } else {
         
         const mission = await Mission.create({
-            name: new_mission.name,
-            description: new_mission.description,
-            point: new_mission.point,
-            classroomId: classroomId
-         
+          name: name,
+          description: description,
+          point: point,
+          classroomId: classroomId
         });
-      return new_mission;
-        }
+        return new_mission;
+      }
     }
 
-    async show(id){
-      return await Mission.findByPk(id);
-    }
-
+  async show(id){
+    return await Mission.findByPk(id);
+  }
 
   async edit(id){
     return await Mission.findByPk(id);
@@ -47,7 +45,7 @@ class MissionService {
 
   async update(edit_mission){
 
-    const { id, name, description, point, classroomId} = edit_mission;
+    const { id, name, description, point} = edit_mission;
 
     //Validation
     let errors = [];
@@ -60,14 +58,14 @@ class MissionService {
       
       let err = new Error("Ocorreu um erro!");
       err.errors = {errors, id, name, description, point}
+      throw err;
 
-        throw err;
       } else {
  
       const update_mission = await Mission.update({
-        name: edit_mission.name,
-        description: edit_mission.description,
-        point: edit_mission.point,
+        name: name,
+        description: description,
+        point: point,
       },{
         where: {
             id: id
