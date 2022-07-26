@@ -1,5 +1,6 @@
 const Classroom = require('../models/classroomModel');
 const ClassroomService = require("../services/classroomsService");
+const UserService = require("../services/usersService");
 const passport = require('passport');
 
 
@@ -20,6 +21,7 @@ exports.create = async(req, res, next) => {
 
     try{
         const classroom = await new ClassroomService().create(req.body);
+        const profile = await new UserService().createProfile(parseInt(classroom.id), req.user.id, "Teacher");
         req.flash(
             'success_msg','Turma cadastrada com sucesso!'
            );

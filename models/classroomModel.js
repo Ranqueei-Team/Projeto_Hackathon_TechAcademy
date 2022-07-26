@@ -1,5 +1,6 @@
 const Sequelize = require("sequelize");
 const connection = require("../database/database");
+const User = require("./userModel");
 
 const Classroom = connection.define("classrooms", {
     name: {
@@ -18,6 +19,8 @@ const Classroom = connection.define("classrooms", {
 });
 
 
-//Classroom.sync({ force: true});
+
+
+Classroom.sync({ force: false});
 
 module.exports = Classroom;
