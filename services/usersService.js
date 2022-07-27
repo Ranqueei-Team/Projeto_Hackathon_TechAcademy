@@ -114,13 +114,12 @@ class UserService {
 
   async createProfile(classroomId, userId, type){
 
-    console.log(classroomId, userId, type)
     const profile = await Profile.create({
       classroomId: classroomId,
       userId: userId,
       type: type
     });
-
+    console.log(profile)
     return profile;
   }
   

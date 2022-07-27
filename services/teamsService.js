@@ -6,6 +6,10 @@ class TeamService {
         return await Team.findAll()
     }
 
+    async listTeamsByClassrooms(classroomId){
+        return await Team.findAll({where: {classroomId: classroomId}})
+    }
+
     async create(new_team){
 
         const { name, classroomId } = new_team;

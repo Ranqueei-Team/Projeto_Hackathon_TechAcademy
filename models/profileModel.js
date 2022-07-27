@@ -3,30 +3,19 @@ const connection = require("../database/database");
 const User = require("./userModel");
 const Classroom = require("./classroomModel");
 
-const Profile = connection.define('profiles', {
-    classroomId: {
-      type: Sequelize.INTEGER,
-      primaryKey: true,
-      references: {
-        model: Classroom, // 'Movies' would also work
-        key: 'id'
-      }
-    },
-    userId: {
-      type: Sequelize.INTEGER,
-      primaryKey: true,
-      references: {
-        model: User, // 'Actors' would also work
-        key: 'id'
-      }
-    },
+const Profile = connection.define("profiles", {
+    
     type: {
         type: Sequelize.STRING,
         allowNull: false
     },
 });
- 
-Profile.sync({ force: false});
+
+User.belongsToMany(Classroom, { through: Profile });
+Classroom.belongsToMany(User, { through: Profile });
+
 Profile.removeAttribute("id");
+Profile.sync({ force: false});
+
 
 module.exports = Profile;

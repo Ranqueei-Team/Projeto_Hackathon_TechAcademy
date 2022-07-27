@@ -1,4 +1,8 @@
 const Classroom = require('../models/classroomModel');
+const Profile = require('../models/profileModel');
+const User = require('../models/userModel');
+const Sequelize = require("sequelize");
+const sequelize = require("../database/database")
 
 class ClassroomService {
 
@@ -75,6 +79,15 @@ class ClassroomService {
       }  
     }
 
-}
+  async findByUser(userId){
 
+    const { QueryTypes } = require('sequelize');
+    const classrroms = await sequelize.query("SELECT * FROM profiles, classrooms where profiles.classroomId = classrooms.id and profiles.userId = ?",{
+      replacements: [userId],
+      type: QueryTypes.SELECT,
+    },); 
+    
+    return classrroms
+  }
+}
 module.exports = ClassroomService;

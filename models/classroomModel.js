@@ -1,6 +1,5 @@
 const Sequelize = require("sequelize");
 const connection = require("../database/database");
-const User = require("./userModel");
 
 const Classroom = connection.define("classrooms", {
     name: {
@@ -17,9 +16,6 @@ const Classroom = connection.define("classrooms", {
         defaultValue: true
     }
 });
-
-
-
 
 Classroom.sync({ force: false});
 
