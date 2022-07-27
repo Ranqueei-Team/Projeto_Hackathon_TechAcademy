@@ -19,7 +19,6 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
-    "better-errors": "^0.1.2",
     "bootstrap": "^5.2.0",
     "connect-flash": "^0.1.1",
     "dotenv": "^16.0.1",
@@ -30,6 +29,7 @@
     "http-status-codes": "^2.2.0",
     "jquery": "^3.6.0",
     "mysql2": "^2.3.3",
+    "nodemon": "^2.0.19",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "sequelize": "^6.21.3",
