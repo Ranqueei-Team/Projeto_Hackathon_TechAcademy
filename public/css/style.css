@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #FCFEFF;
+}
+
+header.header-bg-color {
+    background-color: #FCFEFF;
+    align-items: center;
+}
+
+h1,
+h2 {
+    margin-bottom: 20px;
+}
+
+/* Colors */
+
+.my-bg-light {
+    background-color: #F5F8FA;
+}
+
+.my-bg-light-2 {
+    background-color: #292C2E;
+}
+
+.my-color-light {
+    color: #CDCFD1;
+}
+
+.my-color-light:hover {
+    color: #DCDFE0;
+}
+
+.my-bg-dark {
+    background-color: #292C2E;
+}
+
+.nav-link {
+    color: #003F86;
+}
+
+.btn:hover {
+    background-color: #00346E;
+    border-color: #00346E;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #003F86;
+}
+
+.bi-heart-fill {
+    color: #ff405a;
+    background-color: #F5F8FA;
+}
+
+.bi-eye-fill {
+    color: #3eb2ff;
+    background-color: #F5F8FA;
+}
+
+.bi-star-fill {
+    color: #ffc14a;
+    background-color: #F5F8FA;
+}
+
+/* Buttons */
+
+.btn-primary {
+    background-color: #003F86;
+    border-color: #003F86;
+}
+
+.border-bottom-dark {
+    border-bottom: 2px solid #373838;
+}
+
+.marketing-align {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ul.ul-align-item {
+    align-items: center;
+}
+
+/* Featurettes */
+
+.featurette-divider {
+    margin-top: 10rem;
+    margin-bottom: 8rem;
+}
+
+div.featurette-divider-1 {
+    margin: 6rem 0;
+}
+
+div.featurette-divider-2 {
+    margin-top: 12rem;
+}
+
+div.py-5-top {
+    padding-top: 6rem;
+}
+
+/* Thin out the marketing headings */
+
+.featurette-heading {
+    letter-spacing: -.05rem;
+}
+
+.lead {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.heading-top-6 {
+    margin-top: 6rem;
+}
+
+/* Navbars */
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+/* RESPONSIVE CSS */
+
+@media (min-width: 40em) {
+    .featurette-heading {
+        font-size: 2.5rem;
+    }
+
+    ul.nav-pills-txt-align-center {
+        justify-content: center;
+    }
+
+}
+
+@media (min-width: 10em) {
+    ul.nav-pills-txt-align-center {
+        justify-content: center;
+    }
+
+}
+
+@media (max-width: 48em) {
+    div.featurette-divider-2 {
+        margin-top: 16rem;
+    }
+
+    img.img-fluid-top {
+        margin-top: 3rem;
+    }
+
+    .marketing-align {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+
+    img.img-fluid-bottom {
+        margin-bottom: 3rem;
+    }
+}
+
+@media (max-width: 15.4em) {
+    div.featurette-divider-2 {
+        margin-top: 22rem;
+    }
+}
