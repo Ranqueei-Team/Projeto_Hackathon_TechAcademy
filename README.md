@@ -4,7 +4,7 @@
 - Evasão escolar
 
 ## Equipe: 
-- Danilo de Souza
+- Danilo de Sousa
 - Edna Barbosa
 - Fernando Facco
 - Isadora Vasconcellos
