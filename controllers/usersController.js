@@ -82,7 +82,7 @@ exports.GETlogin = function (req, res) {
 
 exports.POSTlogin = function (req, res, next) {
     passport.authenticate('local', {
-    successRedirect: '/manager/dashboard',
+    successRedirect: '/classrooms/dashboard',
     failureRedirect: '/users/login',
     failureFlash: true
 

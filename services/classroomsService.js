@@ -1,4 +1,6 @@
 const Classroom = require('../models/classroomModel');
+const Profile = require('../models/profileModel');
+const User = require('../models/userModel');
 
 class ClassroomService {
 
@@ -74,6 +76,16 @@ class ClassroomService {
         return await Classroom.findByPk(id);
       }  
     }
+
+  async findByUser(userId){
+    const result = await Classroom.findAll({
+      
+      include: User,
+      where: { userId: userId },
+    });
+    console.log(result);
+    return result
+  }
 
 }
 
