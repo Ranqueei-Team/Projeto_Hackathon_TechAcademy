@@ -1,7 +1,5 @@
 const Mission = require('../models/missionModel');
 const MissionService = require("../services/missionService");
-const passport = require('passport');
-
 
 exports.index = async (req, res, next) => {
     try{
