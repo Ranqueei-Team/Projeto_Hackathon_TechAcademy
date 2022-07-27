@@ -3,7 +3,12 @@ const expressLayouts = require('express-ejs-layouts');
 const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('express-session');
-
+const { BetterError } = require('better-errors');
+try{
+    functionCall()
+}catch(error){
+    console.log(BetterError(error));
+}
 const app = express();
 require('./config/passport')(passport);
 
