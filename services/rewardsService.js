@@ -6,6 +6,10 @@ class RewardService {
     return await Reward.findAll()
   }
 
+  async listRewardsByClassrooms(classroomId){
+    return await Reward.findAll({where: {classroomId: classroomId}})
+  }
+
   async create(new_reward){
 
     const { name, rating, classroomId } = new_reward;

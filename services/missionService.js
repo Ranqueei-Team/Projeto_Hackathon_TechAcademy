@@ -6,6 +6,10 @@ class MissionService {
     return await Mission.findAll()
   }
 
+  async listMissionsByClassrooms(classroomId){
+    return await Mission.findAll({where: {classroomId: classroomId}})
+  }
+
   async create(new_mission){
 
     const { name, description, point, classroomId } = new_mission;
