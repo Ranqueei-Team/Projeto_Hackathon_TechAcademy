@@ -172,6 +172,7 @@ div.py-5-top {
     }
 }
 
+
 /*Sidebar*/
 .offcanvas{
     --bs-offcanvas-width: 300px;
@@ -185,7 +186,9 @@ footer{
     width: 100%;
     z-index:200 
 }
-
+.text-justify{
+    text-align: justify;
+}
 .main-login{
     padding-top: 90px;
 }
