@@ -29,6 +29,7 @@
     "http-status-codes": "^2.2.0",
     "jquery": "^3.6.0",
     "mysql2": "^2.3.3",
+    "nodemon": "^2.0.19",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "sequelize": "^6.21.3",
