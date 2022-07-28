@@ -18,8 +18,7 @@ class UserService {
     const students = await sequelize.query("SELECT * FROM users, profiles, classrooms where profiles.classroomId = classrooms.id and users.id = profiles.userId and profiles.classroomId = ? and type='Student'",{
       replacements: [classroomId],
       type: QueryTypes.SELECT,
-    },); 
-    console.log("Aquiiii2" + students)
+    },);
     return students
   }
 
@@ -33,16 +32,13 @@ class UserService {
 
     if (!name || !email ||!password || !confirm_password) {
       errors.push({ msg: 'Por favor, preencha todos os campos!' });
-      console.log(errors)
     }
 
     if (password != confirm_password) {
       errors.push({ msg: 'As senhas informadas são diferentes!' });
-      console.log(errors)
     }  
     if (password.length <= 7) {
       errors.push({ msg: 'A senha deve ter pelo menos 8 caracteres!' });
-      console.log(errors)
     }
    
     if (errors.length > 0) {

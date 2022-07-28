@@ -15,7 +15,6 @@ exports.create = async(req, res, next) => {
            );
         res.redirect("/users/registration");
     }catch(error){
-        console.log(error)
         if (error.errors){
             res.render("users/new", {name: error.errors['name'], email: error.errors['email'], errors: error.errors['errors'] });
         }
@@ -49,9 +48,7 @@ exports.update = async(req, res, next) => {
         const user = await new UserService().update(req.body);
         res.render("users/show", {id: user.id, user: user});
     }catch(error){
-        console.log(error);
         if (error.errors){
-            console.log(error.errors['id']);
             res.render("users/edit", {id: error.errors['id'], name: error.errors['name'], 
             email: error.errors['email'], password: error.errors['password'],
             errors: error.errors['errors'] });
@@ -77,7 +74,6 @@ exports.POSTlogin = function (req, res, next) {
     failureFlash: true
 
     })(req, res, next);
-    console.log( next)
   };
 
 exports.logout = function (req, res) {

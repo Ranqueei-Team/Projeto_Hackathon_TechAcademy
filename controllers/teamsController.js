@@ -71,7 +71,6 @@ exports.searchStudentByEmail = async(req, res, next) => {
         const student = await new TeamService().searchStudentByEmail(req.body.email);
         res.render("teams/studentByTeam", {student: student});
     }catch(error){
-        console.log(error)
         res.redirect("/");
     }
 };
@@ -89,8 +88,7 @@ exports.addStudentByTeam = async(req, res, next) => {
 exports.listStudentsByTeam = async(req, res, next) => {
     try{
         const students = await new UserService().findUsersByTeam(req.user.current_classroom);
-        console.log(students)
-        res.render("teams/listStudenstByTeam", {students: students});
+        res.render("teams/listStudentsByTeam", {students: students});
     }catch(error){
         res.redirect("/");
     }
