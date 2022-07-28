@@ -29,7 +29,7 @@ const User = connection.define("users", {
             min: 8
           }
     },
-    current_class: {
+    current_classroom: {
         type: Sequelize.INTEGER,
         allowNull: true,
         references: { model: 'classrooms', key: 'id' }
