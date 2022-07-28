@@ -11,6 +11,6 @@ router.get('/', teamsController.listTeamsByClassrooms);
 router.get('/studentByTeam/:teamId', teamsController.studentByTeam);
 router.post('/searchStudent', teamsController.searchStudentByEmail);
 router.get('/addStudentByTeam/:studentId/:teamId', teamsController.addStudentByTeam);
-router.get('/listStudentsByTeam', teamsController.listStudentsByTeam);
+router.get('/listStudentsByTeam/:teamId', teamsController.listStudentsByTeam);
 
 module.exports = router;

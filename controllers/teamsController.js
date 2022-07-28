@@ -81,16 +81,18 @@ exports.addStudentByTeam = async(req, res, next) => {
     try{
         const profile = await new UserService().createProfile(req.user.current_classroom, req.params.studentId, "Student");
         const user_team  = await new UserService().createUserTeam(req.params.teamId, req.params.studentId);
-        const students = await new UserService().findUsersByTeam(req.user.current_classroom);
+        const students = await new UserService().findUsersByTeam(req.params.teamId);
         res.render("teams/listStudentsByTeam", {students: students});
     }catch(error){
+        console.log(error)
         res.redirect("/");
     }
 };
 
 exports.listStudentsByTeam = async(req, res, next) => {
     try{
-        const students = await new UserService().findUsersByTeam(req.user.current_classroom);
+        const team_id = req.params.teamId
+        const students = await new UserService().findUsersByTeam(team_id);
         res.render("teams/listStudentsByTeam", {students: students});
     }catch(error){
         res.redirect("/");

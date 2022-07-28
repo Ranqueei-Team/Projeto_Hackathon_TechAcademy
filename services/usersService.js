@@ -13,11 +13,11 @@ class UserService {
   }
 
   //Return all users
-  async findUsersByTeam(classroomId){
-    
+  async findUsersByTeam(teamId){
+    console.log("aqui" +teamId)
     const { QueryTypes } = require('sequelize');
-    const students = await sequelize.query("SELECT * FROM users, profiles, classrooms where profiles.classroomId = classrooms.id and users.id = profiles.userId and profiles.classroomId = ? and type='Student'",{
-      replacements: [classroomId],
+    const students = await sequelize.query("SELECT * FROM users, users_teams, teams where teams.id = users_teams.teamId and users.id = users_teams.userId and teams.id = ?",{
+      replacements: [teamId],
       type: QueryTypes.SELECT,
     },);
     return students
