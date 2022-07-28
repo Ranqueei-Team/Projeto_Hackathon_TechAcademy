@@ -4,16 +4,6 @@ const bcrypt = require("bcryptjs");
 
 class UserService {
 
-  //Return all users
-  async index(){
-    return await User.findAll()
-  }
-
-  //Refatorar
-  async new(){
-    return await User.findAll()
-  }
-
   //Create user
   async create(new_user){
 
@@ -119,8 +109,15 @@ class UserService {
       userId: userId,
       type: type
     });
-    console.log(profile)
     return profile;
+  }
+
+  async currentClass(userId, classroomId){
+    const currentclassroom = await User.update({
+      current_classroom: classroomId},
+      { where: { id: userId } }
+    )
+    return currentclassroom;
   }
   
 };
