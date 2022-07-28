@@ -73,7 +73,6 @@ exports.dashboardClassrooms = async function (req, res, next) {
     try{
         
         const classrooms = await new ClassroomService().findByUser(req.user.id);
-        console.log(classrooms)
         res.render("classrooms/dashboard", {classrooms: classrooms});
     }catch(error){
         res.render("classrooms/dashboard", {classrooms: []});

@@ -65,7 +65,6 @@ exports.update = async(req, res, next) => {
         );
         res.redirect("/missions");
     }catch(error){
-        console.log(error);
         if (error.errors){
             res.render("missions/edit", {id: error.errors['id'], name: error.errors['name'], 
             description: error.errors['description'], point: error.errors['point'], errors: error.errors['errors'] });

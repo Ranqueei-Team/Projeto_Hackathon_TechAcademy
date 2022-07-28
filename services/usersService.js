@@ -1,8 +1,27 @@
 const User = require('../models/userModel');
 const Profile = require('../models/profileModel');
 const bcrypt = require("bcryptjs");
+const Sequelize = require("sequelize");
+const sequelize = require("../database/database")
+const UserTeam = require('../models/userTeamModel');
 
 class UserService {
+
+  //Return all users
+  async findUserById(id){
+    return await User.findOne({where: {id: id}})
+  }
+
+  //Return all users
+  async findUsersByTeam(teamId){
+    console.log("aqui" +teamId)
+    const { QueryTypes } = require('sequelize');
+    const students = await sequelize.query("SELECT * FROM users, users_teams, teams where teams.id = users_teams.teamId and users.id = users_teams.userId and teams.id = ?",{
+      replacements: [teamId],
+      type: QueryTypes.SELECT,
+    },);
+    return students
+  }
 
   //Create user
   async create(new_user){
@@ -14,16 +33,13 @@ class UserService {
 
     if (!name || !email ||!password || !confirm_password) {
       errors.push({ msg: 'Por favor, preencha todos os campos!' });
-      console.log(errors)
     }
 
     if (password != confirm_password) {
       errors.push({ msg: 'As senhas informadas são diferentes!' });
-      console.log(errors)
     }  
     if (password.length <= 7) {
       errors.push({ msg: 'A senha deve ter pelo menos 8 caracteres!' });
-      console.log(errors)
     }
    
     if (errors.length > 0) {
@@ -103,13 +119,20 @@ class UserService {
   }
 
   async createProfile(classroomId, userId, type){
-
     const profile = await Profile.create({
       classroomId: classroomId,
       userId: userId,
       type: type
     });
     return profile;
+  }
+
+  async createUserTeam(teamId, userId){
+    const user_team = await UserTeam.create({
+      teamId: teamId,
+      userId: userId
+    });
+    return user_team;
   }
 
   async currentClass(userId, classroomId){

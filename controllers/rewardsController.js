@@ -23,7 +23,6 @@ exports.create = async(req, res, next) => {
         );
         res.redirect("/rewards");
     }catch(error){
-        console.log(error)
         if (error.errors){
             res.render("rewards/new", {name: error.errors['name'], 
             rating: error.errors['rating'], 

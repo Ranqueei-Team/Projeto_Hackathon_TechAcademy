@@ -15,7 +15,6 @@ class ClassroomService {
 
     if (!name) {
       errors.push({ msg: 'Por favor, preencha o nome da turma!' });
-      console.log(errors)
     }
    
     if (errors.length > 0) {

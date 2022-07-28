@@ -8,5 +8,9 @@ router.post('/create',  teamsController.create);
 router.get('/edit/:id',  teamsController.edit);
 router.post('/update',teamsController.update);
 router.get('/', teamsController.listTeamsByClassrooms);
+router.get('/studentByTeam/:teamId', teamsController.studentByTeam);
+router.post('/searchStudent', teamsController.searchStudentByEmail);
+router.get('/addStudentByTeam/:studentId/:teamId', teamsController.addStudentByTeam);
+router.get('/listStudentsByTeam/:teamId', teamsController.listStudentsByTeam);
 
 module.exports = router;
