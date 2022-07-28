@@ -15,7 +15,5 @@ User.belongsToMany(Classroom, { through: Profile });
 Classroom.belongsToMany(User, { through: Profile });
 
 Profile.removeAttribute("id");
-Profile.sync({ force: false});
-
 
 module.exports = Profile;

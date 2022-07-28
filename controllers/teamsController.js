@@ -1,9 +1,9 @@
 const Team = require('../models/teamModel');
 const TeamService = require("../services/teamsService");
 
-exports.index = async (req, res, next) => {
+exports.listTeamsByClassrooms = async (req, res, next) => {
     try{
-        const teams = await new TeamService().index();
+        const teams = await new TeamService().listTeamsByClassrooms(req.user.current_classroom);
         res.render("teams/index", {teams: teams});
     }catch(error){
         res.redirect("/");
@@ -11,20 +11,18 @@ exports.index = async (req, res, next) => {
 };
 
 exports.new = async (req, res, next) => {
-    let classroomId = req.params.classroomId;   
+    let classroomId = req.user.current_classroom;   
     res.render("teams/new", {classroomId: classroomId});
 };
 
 exports.create = async(req, res, next) => {
-
     try{
-        const team = await new TeamService().create(req.body);
+        const team = await new TeamService().create(req.body, req.user.current_classroom);
         req.flash(
             'success_msg','Equipe cadastrada com sucesso!'
-           );
-        res.render("teams/show", {team: team});
+        );
+        res.redirect("/teams");
     }catch(error){
-        
         if (error.errors){
             res.render("teams/new", {name: error.errors['name'], 
             classroomId: error.errors['classroomId'], 
@@ -33,15 +31,6 @@ exports.create = async(req, res, next) => {
         else{
             res.render("teams/new");
         }       
-    }
-};
-
-exports.show = async (req, res, next) => {
-    try{
-        const team = await new TeamService().show(req.params.id);
-        res.render("teams/show", {team: team} );
-    }catch(error){
-        res.redirect("/team");
     }
 };
 
@@ -55,10 +44,12 @@ exports.edit = async (req, res, next) => {
 };
 
 exports.update = async(req, res, next) => {
-    
     try{
         const team = await new TeamService().update(req.body);
-        res.render("teams/show", {id: team.id, team: team});
+        req.flash(
+            'success_msg','Equipe atualizada com sucesso!'
+        );
+        res.redirect("/teams");
     }catch(error){
         if (error.errors){
             res.render("teams/edit", {id: error.errors['id'],
