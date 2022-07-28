@@ -17,7 +17,8 @@
                             </div>
             
                             <form method="POST" action="/teams/searchStudent">
-                                                        
+                                <%= teamId %>     
+                                <input type="hidden" name="teamId" value="<%= teamId %>">       
                                 <div class="card-body">
                                     <div class="row mb-3">
                                         <div class="input-group">
@@ -29,20 +30,22 @@
                                     </div>
                                 </div>
                             </form>
+                           
+                               
                                 <% if(locals.student){ %>
                                     <% if(student.email === currentUser.email){ %>
                                         <div class="alert alert-danger">Você não pode se incluir como aluno. Por favor, informe outro e-mail.</div>
                                     <% } else {%>
                                         <table>
                                             <tr>
-                                                <th>Nome</th>
+                                                <th>Nome  <%= teamId %>   </th>
                                                 <th>E-mail</th>
                                                 <th>Adicionar</th>
                                             </tr>
                                             <tr>
                                                 <td><%= student.name %></td>
                                                 <td><%= student.email %></td>
-                                                <td><a href="/teams/addStudentByTeam/<%= student.id %>">Adicionar</a></td>
+                                                <td><a href="/teams/addStudentByTeam/<%= student.id %>/<%= teamId %>">Adicionar</a></td>
                                             </tr>
                                         </table>
                                     <% }%>

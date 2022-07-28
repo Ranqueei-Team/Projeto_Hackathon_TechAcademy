@@ -63,13 +63,15 @@ exports.update = async(req, res, next) => {
 };
 
 exports.studentByTeam = async(req, res, next) => {
-    res.render("teams/studentByTeam");
+    const teamId = req.params.teamId
+    res.render("teams/studentByTeam", {teamId: teamId});
 };
 
 exports.searchStudentByEmail = async(req, res, next) => {
+    const teamId = req.body.teamId
     try{
         const student = await new TeamService().searchStudentByEmail(req.body.email);
-        res.render("teams/studentByTeam", {student: student});
+        res.render("teams/studentByTeam", {student: student, teamId: teamId});
     }catch(error){
         res.redirect("/");
     }
@@ -78,6 +80,7 @@ exports.searchStudentByEmail = async(req, res, next) => {
 exports.addStudentByTeam = async(req, res, next) => {
     try{
         const profile = await new UserService().createProfile(req.user.current_classroom, req.params.studentId, "Student");
+        const user_team  = await new UserService().createUserTeam(req.params.teamId, req.params.studentId);
         const students = await new UserService().findUsersByTeam(req.user.current_classroom);
         res.render("teams/listStudentsByTeam", {students: students});
     }catch(error){

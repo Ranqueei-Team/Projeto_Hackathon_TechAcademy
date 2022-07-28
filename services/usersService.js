@@ -3,6 +3,7 @@ const Profile = require('../models/profileModel');
 const bcrypt = require("bcryptjs");
 const Sequelize = require("sequelize");
 const sequelize = require("../database/database")
+const UserTeam = require('../models/userTeamModel');
 
 class UserService {
 
@@ -118,13 +119,20 @@ class UserService {
   }
 
   async createProfile(classroomId, userId, type){
-
     const profile = await Profile.create({
       classroomId: classroomId,
       userId: userId,
       type: type
     });
     return profile;
+  }
+
+  async createUserTeam(teamId, userId){
+    const user_team = await UserTeam.create({
+      teamId: teamId,
+      userId: userId
+    });
+    return user_team;
   }
 
   async currentClass(userId, classroomId){

@@ -34,7 +34,7 @@ const Mission = require("./models/missionModel");
 const Reward = require("./models/rewardModel");
 const Team = require("./models/teamModel");
 const Profile = require("./models/profileModel");
-
+const UserTeam = require("./models/userTeamModel");
 
 //Database connection
 const connection = require("./database/database");
