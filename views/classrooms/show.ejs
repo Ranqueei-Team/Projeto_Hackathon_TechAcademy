@@ -1,71 +1,42 @@
 <%-include('../partials/header.ejs') %>
 <body>
-    <%-include('../partials/navbar.ejs') %>
-
-    <div class="card">
-        <div class="card-header">
-          <div class="panel-title">Turma</div>
-        </div>
+<%-include('../partials/navbar-login.ejs') %>
+<main>
+    <div class="container main-login">
         <div class="row">
-            <div class="col-md-12 ">
-                <ul class="list-group">
-                    <li class="list-group-item"><b>ID:</b> <%= classroom.id %></li>
-                    <li class="list-group-item"><b>Nome:</b> <%= classroom.name %></li>
-                    <li class="list-group-item"><b>Descrição:</b> <%= classroom.description %></li>
-                </ul>
+            <div class="col-md-2">
+                <%-include('../partials/sidebar.ejs') %>
             </div>
-        </div>
-        <div class="card-header">
-            <div class="panel-title">Equipes da Turma</div>
-          </div>
-        <div class="row">
-            <div class="col-md-12 ">
-                <ul class="list-group">
-                    <% teams.forEach(team => {%>
-                        <li class="list-group-item"><b>ID:</b> <%= team.id %></li>
-                        <li class="list-group-item"><b>Nome:</b> <%= team.name %></li>
-                    <% }) %> 
-                </ul>
-            </div>
-        </div>
+            <div class="col-md-10">
 
-        <div class="card-header">
-            <div class="panel-title">Missões da Turma</div>
-          </div>
-        <div class="row">
-            <div class="col-md-12 ">
-                <ul class="list-group">
-                    <% missions.forEach(mission => {%>
-                        <li class="list-group-item"><b>ID:</b> <%= mission.id %></li>
-                        <li class="list-group-item"><b>Nome:</b> <%= mission.name %></li>
-                    <% }) %> 
-                </ul>
-            </div>
-        </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="panel-title">Missões</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <ul class="list-group">   
+                                <% missions.forEach(mission => {%>
+                             
+                                    <li class="list-group-item"><b>Nome:</b> <%= mission.name %></li>
+                                    <li class="list-group-item"><b>Descrição:</b> <%=- mission.description %></li>
+                                <% }) %> 
+                            </ul>
+                            <br><br><br><br> <br><br><br><br>  <br><br><br><br>
+                        </div>
+                    </div>          
+                
 
-        <div class="card-header">
-            <div class="panel-title">Recompensas da Turma</div>
-          </div>
-        <div class="row">
-            <div class="col-md-12 ">
-                <ul class="list-group">
-                    <% rewards.forEach(reward => {%>
-                        <li class="list-group-item"><b>ID:</b> <%= reward.id %></li>
-                        <li class="list-group-item"><b>Nome:</b> <%= reward.name %></li>
-                        <li class="list-group-item"><b>Classificação:</b> <%= reward.rating %></li>
-                    <% }) %> 
-                </ul>
-            </div>
-        </div>
+                </div>
 
-        <div class="card-footer">
-            <a href="/teams/new/<%= classroom.id %>" class="btn btn-success">Cadastrar Equipe</a>
-            <a href="/rewards/new/<%= classroom.id %>" class="btn btn-success">Cadastrar Recompensa</a>
-            <a href="/missions/new/<%= classroom.id %>" class="btn btn-success">Cadastrar Missão</a>
-            <a href="/classrooms/dashboard" class="btn btn-primary">Voltar</a>
+            </div>
+
+        
+                
         </div>
-      
     </div>
-</body>
+</main>
+</body>   
+
 <%-include('../partials/footer.ejs') %>
 
