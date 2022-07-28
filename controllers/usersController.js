@@ -2,16 +2,6 @@ const User = require('../models/userModel');
 const UserService = require("../services/usersService");
 const passport = require('passport');
 
-
-exports.index = async (req, res, next) => {
-    try{
-        const users = await new UserService().index();
-        res.render("users/index", {users: users});
-    }catch(error){
-        res.redirect("/");
-    }
-};
-
 exports.new = async (req, res, next) => {
     res.render("users/new");
 };
