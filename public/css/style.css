@@ -171,3 +171,7 @@ div.py-5-top {
         margin-top: 22rem;
     }
 }
+
+.text-justify{
+    text-align: justify;
+}
