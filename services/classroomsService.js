@@ -6,10 +6,6 @@ const sequelize = require("../database/database")
 
 class ClassroomService {
 
-  async index(){
-    return await Classroom.findAll()
-  }
-
   async create(new_classroom){
 
     const { name, description } = new_classroom;

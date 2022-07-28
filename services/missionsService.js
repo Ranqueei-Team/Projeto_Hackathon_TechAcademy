@@ -2,22 +2,19 @@ const Mission = require('../models/missionModel');
 
 class MissionService {
 
-  async index(){
-    return await Mission.findAll()
-  }
-
   async listMissionsByClassrooms(classroomId){
     return await Mission.findAll({where: {classroomId: classroomId}})
   }
 
-  async create(new_mission){
+  
+  async create(new_mission, classroomId){
 
-    const { name, description, point, classroomId } = new_mission;
+    const { name, description, point } = new_mission;
 
     //Validation
     let errors = [];
 
-    if (!name || !point || !classroomId ) {
+    if (!name || !point ) {
       errors.push({ msg: 'Por favor, preencha os campos obrigatórios!' });
     }
    

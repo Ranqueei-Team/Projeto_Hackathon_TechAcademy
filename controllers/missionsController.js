@@ -1,9 +1,10 @@
 const Mission = require('../models/missionModel');
-const MissionService = require("../services/missionService");
+const MissionService = require("../services/missionsService");
 
-exports.index = async (req, res, next) => {
+
+exports.listMissionsByClassrooms = async (req, res, next) => {
     try{
-        const missions = await new MissionService().index();
+        const missions = await new MissionService().listMissionsByClassrooms(req.user.current_classroom);
         res.render("missions/index", {missions: missions});
     }catch(error){
         res.redirect("/");
@@ -11,18 +12,17 @@ exports.index = async (req, res, next) => {
 };
 
 exports.new = async (req, res, next) => {
-    let classroomId = req.params.classroomId;   
+    let classroomId = req.user.current_classroom; 
     res.render("missions/new", {classroomId: classroomId});
 };
 
 exports.create = async(req, res, next) => {
-
     try{
-        const mission = await new MissionService().create(req.body);
+        const mission = await new MissionService().create(req.body,  req.user.current_classroom);
         req.flash(
             'success_msg','Missão cadastrada com sucesso!'
-           );
-        res.render("missions/show", {mission: mission});
+        );
+        res.redirect("/missions");
     }catch(error){
         
         if (error.errors){
@@ -48,6 +48,9 @@ exports.show = async (req, res, next) => {
 exports.edit = async (req, res, next) => {
     try{
         const mission = await new MissionService().edit(parseInt(req.params.id));
+        req.flash(
+            'success_msg','Missão atualizada com sucesso!'
+        );
         res.render("missions/edit", {mission: mission});
     }catch(error){
         res.redirect("/missions");
@@ -55,10 +58,12 @@ exports.edit = async (req, res, next) => {
 };
 
 exports.update = async(req, res, next) => {
-    
     try{
         const mission = await new MissionService().update(req.body);
-        res.render("missions/show", {mission: mission});
+        req.flash(
+            'success_msg','Missão atualizada com sucesso!'
+        );
+        res.redirect("/missions");
     }catch(error){
         console.log(error);
         if (error.errors){

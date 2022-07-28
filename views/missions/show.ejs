@@ -1,24 +1,42 @@
 <%-include('../partials/header.ejs') %>
-<body>
-    <%-include('../partials/navbar.ejs') %>
 
-    <div class="card">
-        <div class="card-header">
-          <div class="panel-title">Missão</div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 ">
-                <ul class="list-group">
-                    <li class="list-group-item"><b>Nome:</b> <%= mission.name %></li>
-                    <li class="list-group-item"><b>Descrição:</b> <%- mission.description %></li>
-                    <li class="list-group-item"><b>Pontuação:</b> <%= mission.point %></li>
-                    <li class="list-group-item"><b>Turma:</b> <%= mission.classroomId %></li>
-                </ul>
-            </div>
-        </div>
-   
-        <a href="/missions" class="btn btn-success">Voltar</a>
-    </div>
-</body>
-<%-include('../partials/footer.ejs') %>
+    <body>
+        <%-include('../partials/navbar-login.ejs') %>
+            <main>
+                <div class="container main-login">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <%-include('../partials/sidebar.ejs') %>
+                        </div>
 
+                        <div class="col-md-8 offset-md-2 col-sm-10 offset-sm-1">
+                            <br><br>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="panel-title">Missão</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 ">
+                                        <ul class="list-group">
+                                            <li class="list-group-item"><b>Nome:</b>
+                                                <%= mission.name %>
+                                            </li>
+                                            <li class="list-group-item"><b>Descrição:</b>
+                                                <%- mission.description %>
+                                            </li>
+                                            <li class="list-group-item"><b>Pontuação:</b>
+                                                <%= mission.point %>
+                                            </li>
+                                            <li class="list-group-item"><b>Turma:</b>
+                                                <%= mission.classroomId %>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <a href="/missions" class="btn btn-success">Voltar</a>
+                            </div>
+            </main>
+    </body>
+    <%-include('../partials/footer.ejs') %>

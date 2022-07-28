@@ -9,10 +9,7 @@ const Team = connection.define("teams", {
     },
 });
 
-
 Classroom.hasMany(Team);
 Team.belongsTo(Classroom);
-
-Team.sync({ force: false});
 
 module.exports = Team;
