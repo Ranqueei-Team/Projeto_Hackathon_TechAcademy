@@ -171,3 +171,21 @@ div.py-5-top {
         margin-top: 22rem;
     }
 }
+
+/*Sidebar*/
+.offcanvas{
+    --bs-offcanvas-width: 300px;
+    position:absolute;
+    background:#000;
+    z-index:200;
+}
+
+footer{
+    position: absolute;
+    width: 100%;
+    z-index:200 
+}
+
+.main-login{
+    padding-top: 90px;
+}
