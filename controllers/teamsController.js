@@ -1,5 +1,6 @@
 const Team = require('../models/teamModel');
 const TeamService = require("../services/teamsService");
+const UserService = require("../services/usersService");
 
 exports.listTeamsByClassrooms = async (req, res, next) => {
     try{
@@ -60,3 +61,38 @@ exports.update = async(req, res, next) => {
         }   
     }
 };
+
+exports.studentByTeam = async(req, res, next) => {
+    res.render("teams/studentByTeam");
+};
+
+exports.searchStudentByEmail = async(req, res, next) => {
+    try{
+        const student = await new TeamService().searchStudentByEmail(req.body.email);
+        res.render("teams/studentByTeam", {student: student});
+    }catch(error){
+        console.log(error)
+        res.redirect("/");
+    }
+};
+
+exports.addStudentByTeam = async(req, res, next) => {
+    try{
+        const profile = await new UserService().createProfile(req.user.current_classroom, req.params.studentId, "Student");
+        const students = await new UserService().findUsersByTeam(req.user.current_classroom);
+        res.render("teams/listStudentsByTeam", {students: students});
+    }catch(error){
+        res.redirect("/");
+    }
+};
+
+exports.listStudentsByTeam = async(req, res, next) => {
+    try{
+        const students = await new UserService().findUsersByTeam(req.user.current_classroom);
+        console.log(students)
+        res.render("teams/listStudenstByTeam", {students: students});
+    }catch(error){
+        res.redirect("/");
+    }
+};
+

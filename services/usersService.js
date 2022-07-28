@@ -1,8 +1,27 @@
 const User = require('../models/userModel');
 const Profile = require('../models/profileModel');
 const bcrypt = require("bcryptjs");
+const Sequelize = require("sequelize");
+const sequelize = require("../database/database")
 
 class UserService {
+
+  //Return all users
+  async findUserById(id){
+    return await User.findOne({where: {id: id}})
+  }
+
+  //Return all users
+  async findUsersByTeam(classroomId){
+    
+    const { QueryTypes } = require('sequelize');
+    const students = await sequelize.query("SELECT * FROM users, profiles, classrooms where profiles.classroomId = classrooms.id and users.id = profiles.userId and profiles.classroomId = ? and type='Student'",{
+      replacements: [classroomId],
+      type: QueryTypes.SELECT,
+    },); 
+    console.log("Aquiiii2" + students)
+    return students
+  }
 
   //Create user
   async create(new_user){

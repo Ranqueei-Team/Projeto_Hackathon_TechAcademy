@@ -1,0 +1,62 @@
+<%-include('../partials/header.ejs') %>
+<body>
+    <%-include('../partials/navbar-login.ejs') %>
+    <main>
+        <div class="container main-login">
+            <div class="row">
+                <div class="col-md-2">
+                    <%-include('../partials/sidebar.ejs') %>
+                </div>
+                    
+                    <div class="col-md-8 offset-md-2 col-sm-10 offset-sm-1">
+                        <br><br>
+                        <div class="card">
+                    
+                            <div class="card-header">
+                                <h3 class="panel-title">Adicionar Estudante</h3>
+                            </div>
+            
+                            <form method="POST" action="/teams/searchStudent">
+                                                        
+                                <div class="card-body">
+                                    <div class="row mb-3">
+                                        <div class="input-group">
+                                            <input type="email" placeholder="Informe o e-mail do estudante"  name="email" class="form-control" value="<%= typeof email != 'undefined' ? email : '' %>" required><br>
+                                            <div class="input-group-append">
+                                                <button type="submit" class="btn btn-primary btn-block" name="search" value="search">Pesquisar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                                <% if(locals.student){ %>
+                                    <% if(student.email === currentUser.email){ %>
+                                        <div class="alert alert-danger">Você não pode se incluir como aluno. Por favor, informe outro e-mail.</div>
+                                    <% } else {%>
+                                        <table>
+                                            <tr>
+                                                <th>Nome</th>
+                                                <th>E-mail</th>
+                                                <th>Adicionar</th>
+                                            </tr>
+                                            <tr>
+                                                <td><%= student.name %></td>
+                                                <td><%= student.email %></td>
+                                                <td><a href="/teams/addStudentByTeam/<%= student.id %>">Adicionar</a></td>
+                                            </tr>
+                                        </table>
+                                    <% }%>
+                                <% }%>
+
+                        
+                           
+                        </div>
+                        <br><br>
+                    </div>
+                </div>            
+            </div>
+        </div>
+   </main>
+</body>
+
+<%-include('../partials/footer.ejs') %>

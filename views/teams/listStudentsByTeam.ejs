@@ -10,34 +10,27 @@
                         <div class="col-md-10">
                             <div class="card">
                                 <div class="card-header">
-                                    <div class="panel-title">Equipes</div>
+                                    <div class="panel-title">Alunos da Turma</div>
                                 </div>
 
                                 <table class="table table-bordered ">
                                     <thead class="table-dark">
                                         <tr>
                                             <th>Equipes</th>
-                                            <th colspan="3">Ações</th>
+                                            <th colspan="2">Ações</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <% teams.forEach(team=> {%>
+                                        <% students.forEach(student=> {%>
                                             <tr>
                                                 <td>
-                                                    <%= team.name %>
-                                                </td>
-                                                <td><a href="/teams/edit/<%= team.id %>">Atualizar </a> </td>
-                                                <td><a href="/teams/studentByTeam">Adicionar Alunos </a> </td>
+                                                    <%= student.name %>
+                                                    <%= student.email %>
+                                                </td>                                                
                                             </tr>
-                                            <% }) %>
+                                        <% }) %>
                                     </tbody>
                                 </table>
-
-                                <div class="card-footer text-center">
-                                    <a href="/teams/new" class="btn btn-success btn-block">Cadastrar</a>
-                                    <a href="/teams/listStudentsByTeam" class="btn btn-primary btn-block">Listar Alunos </a> 
-                                </div>
-
                             </div>
                             <br><br>
             </main>

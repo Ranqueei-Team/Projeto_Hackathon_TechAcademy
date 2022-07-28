@@ -1,9 +1,14 @@
 const Team = require('../models/teamModel');
+const User = require('../models/userModel');
 
 class TeamService {
 
     async listTeamsByClassrooms(classroomId){
         return await Team.findAll({where: {classroomId: classroomId}})
+    }
+
+    async searchStudentByEmail(email){
+        return await User.findOne({where: {email: email}})
     }
 
     async create(new_team, classroomId){
