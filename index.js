@@ -27,6 +27,7 @@ app.use('/tinymce', express.static(path.join(__dirname, 'node_modules', 'tinymce
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
  
 //Models
+const databaseMigrations = require("./database/syncDatabase")
 const User = require("./models/userModel");
 const Classroom = require("./models/classroomModel");
 const Mission = require("./models/missionModel");
@@ -34,24 +35,6 @@ const Reward = require("./models/rewardModel");
 const Team = require("./models/teamModel");
 const Profile = require("./models/profileModel");
 
-//Main route configuration
-app.get('/', function (req, res) {
-    return res.render("index");
-});
-
-//Routes
-const usersRoute = require("./routes/usersRoute");
-app.use("/users/", usersRoute);
-const managerRoute = require("./routes/managerRoute");
-app.use("/manager/", managerRoute);
-const classroomsRoute = require("./routes/classroomsRoute");
-app.use("/classrooms/", classroomsRoute);
-const missionsRoute = require("./routes/missionsRoute");
-app.use("/missions/", missionsRoute);
-const rewardsRoute = require("./routes/rewardsRoute");
-app.use("/rewards/", rewardsRoute);
-const teamsRoute = require("./routes/teamsRoute");
-app.use("/teams/", teamsRoute);
 
 //Database connection
 const connection = require("./database/database");
@@ -94,6 +77,25 @@ app.use(function(req, res, next) {
     res.locals.error = req.flash('error');
     next();
 });
+
+//Main route configuration
+app.get('/', function (req, res) {
+    return res.render("index");
+});
+
+//Routes
+const usersRoute = require("./routes/usersRoute");
+app.use("/users/", usersRoute);
+const managerRoute = require("./routes/managerRoute");
+app.use("/manager/", managerRoute);
+const classroomsRoute = require("./routes/classroomsRoute");
+app.use("/classrooms/", classroomsRoute);
+const missionsRoute = require("./routes/missionsRoute");
+app.use("/missions/", missionsRoute);
+const rewardsRoute = require("./routes/rewardsRoute");
+app.use("/rewards/", rewardsRoute);
+const teamsRoute = require("./routes/teamsRoute");
+app.use("/teams/", teamsRoute);
 
 //Run server
 const PORT = process.env.PORT;
