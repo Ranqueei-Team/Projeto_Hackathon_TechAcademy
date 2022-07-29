@@ -3,8 +3,8 @@
     <body>
         <%-include('../partials/navbar-login.ejs') %>
             <main>
-                <div class="container main-login">
-                    <div class="row">
+                <div class="container main-login" style="padding-top: 6em;">
+                    <div class="row" >
                         <div class="col-md-2">
                             <%-include('../partials/sidebar.ejs') %>
                         </div>
@@ -14,11 +14,11 @@
                                     <div class="panel-title">Missões</div>
                                 </div>
 
-                                <table class="table table-bordered ">
+                                <table class="table table-striped ">
                                     <thead class="table-dark">
                                         <tr>
-                                            <th>Nome</th>
-                                            <th>Descrição</th>
+                                            <th>Nome da Missão</th>
+                                            <th>Pontuação máxima</th>
                                             <th colspan="2">Ações</th>
                                         </tr>
                                     </thead>
@@ -31,18 +31,22 @@
                                                 <td>
                                                     <%= mission.point %>
                                                 </td>
-                                                <td><a href="/missions/show/<%= mission.id %>">Visualizar </a> </td>
-                                                <td><a href="/missions/edit/<%= mission.id %>">Atualizar </a> </td>
+                                                <td><a href="/missions/show/<%= mission.id %>" class="btn btn-success btn-sm">Visualizar Missão</a> </td>
+                                                <td><a href="/missions/edit/<%= mission.id %>" class="btn btn-primary btn-sm">Atualizar Missão</a> </td>
                                             </tr>
                                             <% }) %>
                                     </tbody>
                                 </table>
 
                                 <div class="card-footer text-center">
-                                    <a href="/missions/new" class="btn btn-success btn-block">Cadastrar</a>
+                                    <a href="/missions/new" class="btn btn-primary btn-block">Cadastrar Missão</a>
                                 </div>
 
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
             </main>
     </body>
 
