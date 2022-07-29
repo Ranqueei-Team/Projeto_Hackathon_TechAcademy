@@ -193,15 +193,3 @@ footer{
     padding-top: 90px;
 }
 
-.form{
-    margin-top: 10rem;
-    margin-bottom: 5rem;
-}
-
-.card-header{
-    text-align: center;
-}
-
-input[type='number']{
-    width: 100px;
-} 
