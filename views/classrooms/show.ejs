@@ -7,50 +7,33 @@
             <div class="col-md-2">
                 <%-include('../partials/sidebar.ejs') %>
             </div>
-            <div class="col-md-10">
-
+            <div class="col-md-10" style="padding-top: 100px;">
                 <div class="card">
-                    <div class="card-header">
-                        <div class="panel-title">Missões</div>
+                    <div class="card-header bg-dark">
+                        <div class="panel-title ">Missões</div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12 ">
-                            <ul class="list-group">   
-                                <% missions.forEach(mission => {%>
-                             
-                                    <li class="list-group-item"><b>Nome:</b> <%= mission.name %></li>
-                                    <li class="list-group-item"><b>Descrição:</b> <%=- mission.description %></li>
-                                <% }) %> 
-                            </ul>
-                            <br><br><br><br> <br><br><br><br>  <br><br><br><br>
-                        </div>
-                    </div>          
-                
-
                 </div>
-                <div class="col-md-10">
-
+                <% missions.forEach(mission => {%>   
                     <div class="card">
                         <div class="card-header">
-                            <div class="panel-title">Missões</div>
+                            <div class="panel-title">Missão: <%= mission.name %></div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 ">
                                 <ul class="list-group">   
-                                    <% missions.forEach(mission => {%>
-                                
-                                        <li class="list-group-item"><b>Nome:</b> <%= mission.name %></li>
-                                        <li class="list-group-item"><b>Pontuação:</b> <%= mission.point %></li>
-                                        <li class="list-group-item"><b>Descrição:</b> <%=- mission.description %></li>
-                                    <% }) %> 
+                                                                 
+                                    <li class="list-group-item"><b>Pontuação:</b> <%= mission.point %></li>
+                                    <li class="list-group-item"><b>Descrição:</b> <%=- mission.description %></li>
+                                  
                                 </ul>
-                                <br><br><br><br> <br><br><br><br> 
                             </div>
                         </div>          
                     </div>
+                <% }) %> 
                 </div>                
             </div>
         </div>
+        <br><br>
     </main>
 </body>   
 

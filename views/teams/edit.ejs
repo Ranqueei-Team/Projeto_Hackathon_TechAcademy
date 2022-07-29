@@ -1,15 +1,19 @@
 <%-include('../partials/header.ejs') %>
-<body>
-  <%-include('../partials/navbar.ejs') %>
-    <main>
-      <div class="container marketing">
-        <div class="row form">
-          <div class="col-md-6 offset-md-3">
-            <%-include('../partials/messages.ejs') %>
+
+  <body>
+    <%-include('../partials/navbar-login.ejs') %>
+      <main>
+        <div class="container main-login" style="padding-top: 6em;">
+          <div class="row">
+            <div class="col-md-2">
+              <%-include('../partials/sidebar.ejs') %>
+            </div>
+            <div class="col-md-10">
+              <%-include('../partials/messages.ejs') %>
             <div class="card">
           
               <div class="card-header">
-                <h3 class="panel-title">Cadastar Equipe</h3>
+                <h3 class="panel-title">Atualizar Equipe</h3>
               </div>
 
               <form method="POST" action="/teams/update">
@@ -31,6 +35,7 @@
           </div>
         </div>
       </div>
+      <br><br>
     </main>
 </body>
 <%-include('../partials/footer.ejs') %>

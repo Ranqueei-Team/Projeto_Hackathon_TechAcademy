@@ -1,42 +1,75 @@
 <%-include('../partials/header.ejs') %>
-<body>
-    <%-include('../partials/navbar-login.ejs') %>
-    <div class="container">
-        <%-include('../partials/messages.ejs') %>
-        <div class="card">
-            <div class="card-header">
-              <div class="panel-title">Turmas</div>
-            </div>  
-        
-            <table class="table table-striped ">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Nome</th>
-                        <th>Descrição</th>
-                        <th colspan="2">Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-     
-                    <% if (classrooms !== ''){ %>
-                    <% classrooms.forEach(classroom => {%>
-                        <tr>
-                            <td><%= classroom.name %></td>
-                            <td><%= classroom.description %></td>
-                            <td><a href="/classrooms/show/<%= classroom.id %>">Acessar </a> </td>
-                        </tr>
-                    <% }) %>
-                    <% } %>
-                </tbody>
-            </table>
 
-            <div class="card-foorter">
-                <a href="/classrooms/new" class="btn btn-success btn-block">Cadastrar Turma</a>
-            </div> 
-              
-              
+  <body>
+    <%-include('../partials/navbar-login.ejs') %>
+      <main>
+        <div class="container main-login" style="padding-top: 6em;">
+          <div class="row">
             
-    </div>
-    <br><br>
-</body>
-<%-include('../partials/footer.ejs') %>
+            <div class="col-md-12">
+              <%-include('../partials/messages.ejs') %>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="panel-title">Minhas Turmas</div>
+                                    </div>
+
+                                    <div class="card">
+
+                                        <div class="card-body">
+                                            <div class="row mb-3">
+                                                <div class="input-group col-sm-3 my-1">
+                                                    <input type="email" placeholder="Informe o nome da turma"
+                                                        name="email" class="form-control" required><br>
+                                                    <div class="input-group-append">
+                                                        <button type="submit" class="btn btn-secondary btn-block"
+                                                            name="search" value="search">Pesquisar</button>
+                                                        <a href="/classrooms/new"
+                                                            class="btn btn-primary btn-block">Cadastrar Nova Turma</a>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <table class="table table-striped ">
+                                            <thead class="table-dark">
+                                                <tr>
+                                                    <th>Nome da Turma</th>
+                                                    <th>Descrição</th>
+                                                    <th colspan="2">Ações</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                <% if (classrooms !=='' ){ %>
+                                                    <% classrooms.forEach(classroom=> {%>
+                                                        <tr>
+                                                            <td>
+                                                                <%= classroom.name %>
+                                                            </td>
+                                                            <td>
+                                                                <%= classroom.description %>
+                                                            </td>
+                                                            <td><a href="/classrooms/show/<%= classroom.id %>"" class="
+                                                                    btn btn-primary btn-sm">Acessar </a>
+                                                            </td>
+                                                        </tr>
+                                                        <% }) %>
+                                                            <% } %>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <br><br>
+            </main>
+
+    </body>
+    <%-include('../partials/footer.ejs') %>
