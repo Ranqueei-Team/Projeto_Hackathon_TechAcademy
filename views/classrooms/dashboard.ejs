@@ -2,41 +2,48 @@
 
     <%-include('../partials/navbar-login.ejs') %>
 
-      <%-include('../partials/messages.ejs') %>
-        <div class="card">
-          <div class="card-header">
-            <div class="panel-title">Turmas</div>
-          </div>
-
-          <table class="table table-bordered ">
-            <thead class="table-dark">
-              <tr>
-                <th>Nome</th>
-                <th>Descrição</th>
-                <th colspan="2">Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-
-              <% if (classrooms !=='' ){ %>
-                <% classrooms.forEach(classroom=> {%>
-                  <tr>
-                    <td>
-                      <%= classroom.name %>
-                    </td>
-                    <td>
-                      <%= classroom.description %>
-                    </td>
-                    <td><a href="/classrooms/show/<%= classroom.id %>">Acessar </a> </td>
-                  </tr>
-                  <% }) %>
+        <%-include('../partials/messages.ejs') %>
+            <main class="container">
+                <section class="featurette-divider">
+                <div class="pricing-section p-3 pb-md-4 mx-auto text-center">
+                    <h1 class="display-4 fw-normal">Turmas</h1>
+                    <p class="fs-5 text-muted">Nunc ut lectus feugiat purus blandit faucibus sit amet vitae nulla.</p>
+                </div>
+            
+                <div class="px-3 py-2 border-bottom mb-3">
+                    <div class="container d-flex flex-wrap justify-content-center">
+                        <form class="col-12 col-lg mb-2 mb-lg-0 me-lg-auto" role="search">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Encontrar turmas" aria-label="Encontrar turmas" aria-describedby="button-addon2">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="bi bi-search"></i></button>
+                          </div>
+                    </form>
+            
+                    <div class="text-end ms-2">
+                        <a class="w-100 btn btn-outline-primary"
+                            href="/classrooms/new" role="button">Nova turma</a>
+                    </div>
+                    </div>
+                </div>        
+            
+                <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                    <% if (classrooms !== ''){ %>
+                    <% classrooms.forEach(classroom=> {%>
+                    <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-3">
+                        <h4 class="card-title my-0 fw-normal"><%= classroom.name %></h4>
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                <%= classroom.description %>
+                            </p>
+                            <a class="w-100 btn btn-lg btn-outline-primary"
+                            href="/classrooms/show/<%= classroom.id %>" role="button">Acessar</a>
+                        </div>
+                    </div>
+                </div>
+                    <% }) %>
                     <% } %>
-            </tbody>
-          </table>
-
-          <div class="card-foorter">
-            <a href="/classrooms/new" class="btn btn-success btn-block">Cadastrar Turma</a>
-          </div>
-        </div>
-
+            </main>
         <%-include('../partials/footer.ejs') %>
