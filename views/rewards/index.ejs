@@ -1,48 +1,50 @@
 <%-include('../partials/header.ejs') %>
-    <body>
-        <%-include('../partials/navbar-login.ejs') %>
-            <main>
-                <div class="container main-login">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <%-include('../partials/sidebar.ejs') %>
+<body>
+    <%-include('../partials/navbar-login.ejs') %>
+    <main>
+        <div class="container main-login">
+            <div class="row">
+                <div class="col-md-2">
+                    <%-include('../partials/sidebar.ejs') %>
+                </div>
+
+                <div class="col-md-10">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="panel-title">Recompensas</div>
                         </div>
-                        <div class="col-md-10">
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="panel-title">Recompensas</div>
-                                </div>
+                    </div>
 
-                                <table class="table table-bordered ">
-                                    <thead class="table-dark">
-                                        <tr>
-                                            <th>Recompensa</th>
-                                            <th>Classificação no Ranking</th>
-                                            <th>Ações</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <% rewards.forEach(reward=> {%>
-                                            <tr>
-                                                <td>
-                                                    <%= reward.name %>
-                                                </td>
-                                                <td>
-                                                    <%= reward.rating %>
-                                                </td>
-                                                <td><a href="/rewards/edit/<%= reward.id %>">Atualizar </a> </td>
-                                            </tr>
-                                            <% }) %>
-                                    </tbody>
-                                </table>
-
-                                <div class="card-footer text-center">
-                                    <a href="/rewards/new" class="btn btn-success btn-block">Cadastrar Recompensa</a>
-                                </div>
-
+                </div>
+                <div class="col-md-4"
+                        <% rewards.forEach(reward=> {%>
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body reward">
+                                    <img class="card-img-top" src="/images/trofeu.png" alt="trofeu">
+                                    <div class="card-body bg-primary ">
+                                        <p class="card-text text-light">Recompensa: <%= reward.name %></p>
+                                        <p class="card-text text-light">Classificação da Equipe: <%= reward.rating %></p>
+                                    </div>
+                                    
+                                </div>      
+                                <div class="card-footer">
+                                    <a href="/rewards/edit/<%= reward.id %>" type="button" class="btn btn-primary btn-block">Atualizar </a>
+                                </div>       
                             </div>
-                            <br><br>
-            </main>
-    </body>
+                                                            
+                        <% }) %>
+                </div>
+    
+                    
+               
+            </div>
+            
+
+            <div class="card-footer text-center">
+                <a href="/rewards/new" class="btn btn-success btn-block">Cadastrar Recompensa</a>
+            </div>
+        </div>
+    </main>
+</body>
 
 <%-include('../partials/footer.ejs') %>

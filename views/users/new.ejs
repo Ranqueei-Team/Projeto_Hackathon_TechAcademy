@@ -15,33 +15,41 @@
               <form method="POST" action="/users/create">
       
                 <div class="card-body">
-                    <div class="row mb-3">
+                    <div class="row">
                         <div class="row mb-3">
                             <label for="inputEmail3" class="col-sm-12 col-form-label">Nome*</label>
-                            <input type="text" placeholder="Informe seu nome completo" name="name" value="<%= typeof name != 'undefined' ? name : '' %>" class="form-control" required><br>
+                            <input type="text" placeholder="Informe seu nome completo" name="name" value="<%= typeof name != 'undefined' ? name : '' %>" class="form-control" required>
                         </div>
                     </div>
 
-                    <div class="row mb-3">
+                    <div class="row">
                         <div class="row mb-3">
                             <label for="inputEmail3" class="col-sm-12 col-form-label">E-mail*</label>
-                            <input type="email" placeholder="Informe seu e-mail" name="email" value="<%= typeof email != 'undefined' ? email : '' %>" class="form-control" required><br>
+                            <input type="email" placeholder="Informe seu e-mail" name="email" value="<%= typeof email != 'undefined' ? email : '' %>" class="form-control" required>
                         </div>
                     </div>
 
-                    <div class="row mb-3">
+                    <div class="row">
                         <div class="row mb-3">
                             <label for="inputEmail3" class="col-sm-12 col-form-label">Senha*</label>
-                            <input type="password" placeholder="A senha deve conter pelo menos 8 caracteres!" name="password" class="form-control" required><br>
+                            <input type="password" placeholder="A senha deve conter pelo menos 8 caracteres!" name="password" class="form-control" required>
                         </div>
                     </div>
 
-                    <div class="row mb-3">
+                    <div class="row">
                         <div class="row mb-3">
                             <label for="inputEmail3" class="col-sm-12 col-form-label">Confirmar Senha*</label>
-                            <input type="password" placeholder="Por favor, repira a senha!" name="confirm_password" class="form-control" required><br>
+                            <input type="password" placeholder="Por favor, repira a senha!" name="confirm_password" class="form-control" required>
                         </div>
                     </div>
+                    <div class="row">
+                      <div class="form-check d-flex justify-content-center mb-2">
+                        <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked="" aria-describedby="registerCheckHelpText">
+                        <label class="form-check-label" for="registerCheck">Concordo com os Termos de Uso</label>
+                      </div>
+                    </div>
+                
+              
                 </div>
                 <div class="card-footer text-center d-grid gap-2">
                     <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
@@ -56,3 +64,5 @@
     </main>
 </body>
 <%-include('../partials/footer.ejs') %>
+
+

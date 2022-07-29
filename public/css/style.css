@@ -311,7 +311,7 @@ div.py-5-top {
 }
 
 .form{
-    margin-top: 10rem;
+    margin-top: 8rem;
     margin-bottom: 5rem;
     z-index: 102;
 }
@@ -324,3 +324,7 @@ div.py-5-top {
 input[type='number']{
     width: 100px;
 } 
+
+.reward{
+    margin: 10px;
+}
