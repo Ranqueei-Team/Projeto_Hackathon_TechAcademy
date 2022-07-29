@@ -61,14 +61,16 @@ app.use(passport.initialize());
 app.use(passport.session());
 require('./config/passport')(passport);
 
+//Flash middleware
+app.use(flash());
+
 //Current User
 app.use(function(req,res,next){
     res.locals.currentUser = req.user;
     next();
   })
 
-//Flash middleware
-app.use(flash());
+
 
 //Global variables middleware
 app.use(function(req, res, next) {

@@ -309,3 +309,22 @@ div.py-5-top {
         margin: 0;
     }
 }
+
+.form{
+    margin-top: 8rem;
+    margin-bottom: 5rem;
+    z-index: 102;
+}
+
+
+.card-header{
+    text-align: center;
+}
+
+input[type='number']{
+    width: 100px;
+} 
+
+.reward{
+    margin: 10px;
+}

@@ -12,7 +12,6 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="panel-title">Missões</div>
-                        <%= locals.profileUser %>
                     </div>
                     <div class="row">
                         <div class="col-md-12 ">
@@ -29,14 +28,30 @@
                 
 
                 </div>
+                <div class="col-md-10">
 
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="panel-title">Missões</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 ">
+                                <ul class="list-group">   
+                                    <% missions.forEach(mission => {%>
+                                
+                                        <li class="list-group-item"><b>Nome:</b> <%= mission.name %></li>
+                                        <li class="list-group-item"><b>Pontuação:</b> <%= mission.point %></li>
+                                        <li class="list-group-item"><b>Descrição:</b> <%=- mission.description %></li>
+                                    <% }) %> 
+                                </ul>
+                                <br><br><br><br> <br><br><br><br> 
+                            </div>
+                        </div>          
+                    </div>
+                </div>                
             </div>
-
-        
-                
         </div>
-    </div>
-</main>
+    </main>
 </body>   
 
 <%-include('../partials/footer.ejs') %>

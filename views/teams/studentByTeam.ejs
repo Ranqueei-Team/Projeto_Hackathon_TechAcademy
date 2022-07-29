@@ -1,65 +1,66 @@
 <%-include('../partials/header.ejs') %>
 <body>
-    <%-include('../partials/navbar-login.ejs') %>
+  <%-include('../partials/navbar.ejs') %>
     <main>
-        <div class="container main-login">
-            <div class="row">
-                <div class="col-md-2">
-                    <%-include('../partials/sidebar.ejs') %>
-                </div>
-                    
-                    <div class="col-md-8 offset-md-2 col-sm-10 offset-sm-1">
-                        <br><br>
-                        <div class="card">
-                    
-                            <div class="card-header">
-                                <h3 class="panel-title">Adicionar Estudante</h3>
-                            </div>
-            
-                            <form method="POST" action="/teams/searchStudent">
-                               
-                                <input type="hidden" name="teamId" value="<%= teamId %>">       
-                                <div class="card-body">
-                                    <div class="row mb-3">
-                                        <div class="input-group">
-                                            <input type="email" placeholder="Informe o e-mail do estudante"  name="email" class="form-control" value="<%= typeof email != 'undefined' ? email : '' %>" required><br>
-                                            <div class="input-group-append">
-                                                <button type="submit" class="btn btn-primary btn-block" name="search" value="search">Pesquisar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                           
-                               
-                                <% if(locals.student){ %>
-                                    <% if(student.email === currentUser.email){ %>
-                                        <div class="alert alert-danger">Você não pode se incluir como aluno. Por favor, informe outro e-mail.</div>
-                                    <% } else {%>
-                                        <table>
-                                            <tr>
-                                                <th>Nome  <%= teamId %>   </th>
-                                                <th>E-mail</th>
-                                                <th>Adicionar</th>
-                                            </tr>
-                                            <tr>
-                                                <td><%= student.name %></td>
-                                                <td><%= student.email %></td>
-                                                <td><a href="/teams/addStudentByTeam/<%= student.id %>/<%= teamId %>">Adicionar</a></td>
-                                            </tr>
-                                        </table>
-                                    <% }%>
-                                <% } else {%>
-                                    <div class="alert alert-warning">E-mail não encontrado.</div>
-                                <% }%>                       
-                           
-                        </div>
-                        <br><br>
-                    </div>
-                </div>            
-            </div>
-        </div>
-   </main>
-</body>
+      <div class="container marketing">
+        <div class="row form">
+          <div class="col-md-6 offset-md-3">
+            <%-include('../partials/messages.ejs') %>
+            <div class="card">
+          
+              <div class="card-header">
+                <h3 class="panel-title">Pesquisar Estudante</h3>
+              </div>
 
+              <form method="POST" action="/teams/searchStudent">
+                <input type="hidden" name="teamId" value="<%= teamId %>"> 
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="input-group">
+                            <input type="email" placeholder="Informe o e-mail do estudante"  name="email" class="form-control" value="<%= typeof email != 'undefined' ? email : '' %>" required><br>
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-primary btn-block" name="search" value="search">Pesquisar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>       
+              </form>
+            
+                <div class="card-header">
+                    <h3 class="panel-title">Adicionar Estudante à Equipe</h3>
+                </div>
+            </div>
+         
+            <% if(locals.student){ %>
+                <% if(student.email === currentUser.email){ %>
+                    <div class="alert alert-danger">Você não pode se incluir como aluno. Por favor, informe outro e-mail.</div>
+                <% } else {%>
+                    <div class="table-responsive-md"></div>
+                        <table class="table table-bordered ">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Nome do estudante  </th>
+                                    <th>E-mail</th>
+                                    <th>Adicionar à Equipe</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><%= student.name %></td>
+                                    <td><%= student.email %></td>
+                                    <td class="text-center"><a href="/teams/addStudentByTeam/<%= student.id %>/<%= teamId %>" class="btn btn-primary btn-block btn-sm">Adicionar</a></td>
+                                </tr>
+                            </tbody>                        
+                        </table>
+                    </div>
+                <% }%>
+            <% } else {%>
+                <div class="alert alert-warning">Por favor, informe um e-mail válido!</div>
+            <% }%>          
+           
+          </div>
+        </div>
+      </div>
+    </main>
+</body>
 <%-include('../partials/footer.ejs') %>
