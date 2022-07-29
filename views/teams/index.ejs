@@ -1,46 +1,59 @@
 <%-include('../partials/header.ejs') %>
+
     <body>
         <%-include('../partials/navbar-login.ejs') %>
             <main>
-                <div class="container main-login">
+                <div class="container main-login" style="padding-top: 6em;">
                     <div class="row">
                         <div class="col-md-2">
                             <%-include('../partials/sidebar.ejs') %>
                         </div>
                         <div class="col-md-10">
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="panel-title">Equipes</div>
-                                </div>
+                            <%-include('../partials/messages.ejs') %>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="panel-title">Equipes</div>
+                                    </div>
 
-                                <table class="table table-bordered ">
-                                    <thead class="table-dark">
-                                        <tr>
-                                            <th>Equipes</th>
-                                            <th colspan="3">Ações</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <% teams.forEach(team=> {%>
+                                    <table class="table table-striped ">
+                                        <thead class="table-dark">
                                             <tr>
-                                                <td>
-                                                    <%= team.name %>
-                                                </td>
-                                                <td><a href="/teams/edit/<%= team.id %>">Atualizar </a> </td>
-                                                <td><a href="/teams/studentByTeam/<%= team.id %>">Adicionar Alunos </a> </td>
-                                                <td><a href="/teams/listStudentsByTeam/<%= team.id %>">Listar Alunos </a> </td>
+                                                <th>Nome das Equipes</th>
+                                                <% if( locals.profileUser === "Teacher") { %>
+                                                <th colspan="3">Ações</th>
+                                                <% } %>
                                             </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% teams.forEach(team=> {%>
+                                                <tr>
+                                                    <td>
+                                                        <%= team.name %>
+                                                    </td>
+                                                    <% if( locals.profileUser === "Teacher") { %>
+                                                        <td><a href="/teams/edit/<%= team.id %>"
+                                                            class="btn btn-primary btn-sm">Atualizar Equipe</a> </td>
+                                                        <td><a href="/teams/studentByTeam/<%= team.id %>"
+                                                            class="btn btn-success btn-sm">Adicionar Alunos na Equipe
+                                                        </a> </td>
+                                                        <td><a href="/teams/listStudentsByTeam/<%= team.id %>"
+                                                            class="btn btn-secondary btn-sm">Listar Alunos </a> </td>
+                                                    <% } %>
+                                                </tr>                                                    
                                             <% }) %>
-                                    </tbody>
-                                </table>
-
-                                <div class="card-footer text-center">
-                                    <a href="/teams/new" class="btn btn-success btn-block">Cadastrar</a>
+                                        </tbody>
+                                    </table>
+                                    <% if( locals.profileUser === "Teacher") { %>
+                                    <div class="card-footer text-center">
+                                        <a href="/teams/new" class="btn btn-primary btn-block">Cadastrar Equipes</a>
+                                    </div>
+                                    <% } %>
                                 </div>
-
-                            </div>
-                            <br><br>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
             </main>
     </body>
 
-<%-include('../partials/footer.ejs') %>
+    <%-include('../partials/footer.ejs') %>

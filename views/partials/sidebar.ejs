@@ -6,23 +6,13 @@
       <div class="position-sticky pt-3 sidebar-sticky">
         <ul class="nav nav-pills flex-column mb-auto">
           <li class="nav-item">
-            <a href="#" class="nav-link active" aria-current="page">
+            <a href="/classrooms/dashboard" class="nav-link active" aria-current="page">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                 class="nav-icon-mr bi bi-house-door-fill" viewBox="0 0 16 16">
                 <path
                   d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z" />
               </svg>
-              Início
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link link-dark">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                class="nav-icon-mr bi bi-star-fill" viewBox="0 0 16 16">
-                <path
-                  d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-              </svg>
-              Missões
+              Painel
             </a>
           </li>
           <li>
@@ -38,15 +28,17 @@
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link link-dark">
+            <a href="/missions" class="nav-link link-dark">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                class="nav-icon-mr bi bi-bar-chart-fill" viewBox="0 0 16 16">
+                class="nav-icon-mr bi bi-star-fill" viewBox="0 0 16 16">
                 <path
-                  d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z" />
+                  d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
               </svg>
-              Supervisão
+              Missões
             </a>
           </li>
+          
+          
           <li>
             <a href="/rewards" class="nav-link link-dark">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -60,13 +52,14 @@
           <li>
             <a href="#" class="nav-link link-dark">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                class="nav-icon-mr bi bi-chat-square-dots-fill" viewBox="0 0 16 16">
+                class="nav-icon-mr bi bi-bar-chart-fill" viewBox="0 0 16 16">
                 <path
-                  d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.5a1 1 0 0 0-.8.4l-1.9 2.533a1 1 0 0 1-1.6 0L5.3 12.4a1 1 0 0 0-.8-.4H2a2 2 0 0 1-2-2V2zm5 4a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                  d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z" />
               </svg>
-              Mensagens
+              Acompanhamento
             </a>
           </li>
+          <% if( locals.profileUser === "Teacher") { %>
           <li>
             <a href="/classrooms/edit" class="nav-link link-dark">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -74,32 +67,24 @@
                 <path
                   d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.5a1 1 0 0 0-.8.4l-1.9 2.533a1 1 0 0 1-1.6 0L5.3 12.4a1 1 0 0 0-.8-.4H2a2 2 0 0 1-2-2V2zm5 4a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
               </svg>
-              Turma (link)
+              Turma
             </a>
           </li>
-          <li>
-            <a href="/missions" class="nav-link link-dark">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                class="nav-icon-mr bi bi-chat-square-dots-fill" viewBox="0 0 16 16">
-                <path
-                  d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.5a1 1 0 0 0-.8.4l-1.9 2.533a1 1 0 0 1-1.6 0L5.3 12.4a1 1 0 0 0-.8-.4H2a2 2 0 0 1-2-2V2zm5 4a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
-              </svg>
-              Missões (link)
-            </a>
-          </li>
+          <% } %>
           <li>
             <a href="/classrooms/show/<%= currentUser.current_classroom %>" class="nav-link link-dark">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                class="nav-icon-mr bi bi-chat-square-dots-fill" viewBox="0 0 16 16">
+                class="nav-icon-mr bi bi-house-door-fill" viewBox="0 0 16 16">
                 <path
-                  d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.5a1 1 0 0 0-.8.4l-1.9 2.533a1 1 0 0 1-1.6 0L5.3 12.4a1 1 0 0 0-.8-.4H2a2 2 0 0 1-2-2V2zm5 4a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                  d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z" />
               </svg>
-              Principal (link)
+              Principal
+           
             </a>
           </li>
         </ul>
-        </ul>
       </div>
     </nav>
+ 
   </div>
 </div>

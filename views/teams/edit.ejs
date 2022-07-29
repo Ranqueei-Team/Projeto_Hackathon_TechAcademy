@@ -1,49 +1,41 @@
 <%-include('../partials/header.ejs') %>
-    <body>
-        <%-include('../partials/navbar-login.ejs') %>
-            <main>
-                <div class="container main-login">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <%-include('../partials/sidebar.ejs') %>
-                        </div>
-                        <div class="col-md-10">
 
-                            <div class="card-header">
-                                <h3 class="panel-title">Atualizar Equipe</h3>
-                            </div>
+  <body>
+    <%-include('../partials/navbar-login.ejs') %>
+      <main>
+        <div class="container main-login" style="padding-top: 6em;">
+          <div class="row">
+            <div class="col-md-2">
+              <%-include('../partials/sidebar.ejs') %>
+            </div>
+            <div class="col-md-10">
+              <%-include('../partials/messages.ejs') %>
+            <div class="card">
+          
+              <div class="card-header">
+                <h3 class="panel-title">Atualizar Equipe</h3>
+              </div>
 
-                            <form method="POST" action="/teams/update">
-                                <input type="hidden" name="id"
-                                    value="<%= typeof team.id != 'undefined' ? team.id : '' %>">
-                                <input type="hidden" name="classroomId" value="<%= team.classroomId %>">
-
-                                <div class="card-body">
-                                    <div class="row mb-3">
-                                        <div class="row mb-3">
-                                            <label for="inputEmail3" class="col-sm-12 col-form-label">Nome*</label>
-                                            <input type="text" placeholder="Informe o nome da equipe" name="name"
-                                                class="form-control"
-                                                value="<%= typeof team.name != 'undefined' ? team.name : '' %>"
-                                                required><br>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="card-footer text-center d-grid gap-2">
-                                    <button type="submit" class="btn btn-primary btn-block">Atualizar Equipe</button>
-                                </div>
-                            </form>
+              <form method="POST" action="/teams/update">
+                <input type="hidden" name="id" value="<%= typeof team.id != 'undefined' ? team.id : '' %>">
+                <input type="hidden" name="classroomId" value="<%= team.classroomId %>"> 
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="row mb-3">
+                            <label for="inputEmail3" class="col-sm-12 col-form-label">Nome da Equipe*</label>
+                            <input type="text" placeholder="Informe o nome da equipe" name="name" class="form-control" value="<%= typeof team.name != 'undefined' ? team.name : '' %>" required><br>
                         </div>
                     </div>
-
                 </div>
-                </div>
-                </div>
-
-
-            </main>
-    </body>
-
+                <div class="card-footer text-center d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-block">Atualizar Equipe</button>
+                </div>              
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br><br>
+    </main>
+</body>
 <%-include('../partials/footer.ejs') %>
