@@ -1,53 +1,46 @@
 <%-include('../partials/header.ejs') %>
 <body>
   <%-include('../partials/navbar.ejs') %>
-  <%-include('../partials/messages.ejs') %>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-        
-        <div class="col-md-4 offset-md-4 col-sm-10 offset-sm-1">
-          <br><br>
-          <div class="card">
-        
-            <div class="card-header">
-              <h3 class="panel-title">Login</h3>
+    <main>
+      <div class="container marketing">
+        <div class="row form">
+          <div class="col-md-6 offset-md-3">
+            <%-include('../partials/messages.ejs') %>
+            <div class="card">
+          
+              <div class="card-header">
+                <h3 class="panel-title">Acesso</h3>
+              </div>
+
+              <form action="/users/login" method="POST">
+      
+                <div class="card-body">
+                  <div class="form-group row">
+                    <div class="row mb-3">
+                      <label for="inputEmail3" class="col-sm-3 col-form-label">E-mail*</label>
+                      <div class="col-sm-9">
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Informe o e-mail cadastrado" required/>
+                      </div>
+                    </div>
+          
+                    <div class="row mb-3">
+                      <label for="inputPassword3" class="col-sm-3 col-form-label">Senha*</label>
+                      <div class="col-sm-9">
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Informa a senha cadastrada" required/>
+                      </div>
+                    </div>
+                  </div>     
+                </div>
+          
+                <div class="card-footer text-center d-grid gap-2">
+                  <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </div>
+              
+              </form>
             </div>
-            
-            <form action="/users/login" method="POST">
-        
-              <div class="card-body">
-                <div class="form-group row">
-                  <div class="row mb-3">
-                    <label for="inputEmail3" class="col-sm-3 col-form-label">E-mail*</label>
-                    <div class="col-sm-9">
-                      <input type="email" id="email" name="email" class="form-control" placeholder="Informe o e-mail cadastrado" required/>
-                    </div>
-                  </div>
-        
-                  <div class="row mb-3">
-                    <label for="inputPassword3" class="col-sm-3 col-form-label">Senha*</label>
-                    <div class="col-sm-9">
-                      <input type="password" id="password" name="password" class="form-control" placeholder="Informa a senha cadastrada" required/>
-                    </div>
-                  </div>
-                </div>     
-              </div>
-        
-              <div class="card-footer text-center d-grid gap-2">
-                <button type="submit" class="btn btn-primary btn-block">Login</button>
-              </div>
-        
           </div>
         </div>
-        
-
-      
-        
-        <br> <br>
       </div>
-    </div>            
-  </div>
-
-
+    </main>
+</body>
 <%-include('../partials/footer.ejs') %>
