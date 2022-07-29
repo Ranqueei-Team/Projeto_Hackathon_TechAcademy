@@ -22,6 +22,10 @@
     animation: slideUp 1.5s forwards;
 }
 
+.cookies-content p {
+    color: #FCFEFF;
+}
+
 @keyframes slideUp {
     to {
         transform: initial;

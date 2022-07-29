@@ -333,3 +333,42 @@ div.py-5-top {
         margin: 0;
     }
 }
+
+.form{
+    margin-top: 6rem;
+    margin-bottom: 5rem;
+    z-index: 102;
+}
+
+
+.card-header{
+    text-align: center;
+}
+
+input[type='number']{
+    width: 100px;
+} 
+
+.reward{
+    margin: 10px;
+}
+
+.card-header{
+    background-color: #00346E;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: 800;
+}
+.panel-title{
+    font-size: 18px;
+}
+th, td{
+    text-align: center;
+}
+
+footer {
+    
+    position: relative;
+    bottom: 0;
+}
+

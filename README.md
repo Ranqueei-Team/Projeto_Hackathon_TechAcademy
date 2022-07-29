@@ -38,18 +38,21 @@ CREATE database nome_do_banco
 # criar uma cópia do arquivo ".example-env" e renomeá-lo para ".env"
 
 # configuração .env
-PORT= 
+PORT=8080 
 DATABASE="nome_do_banco"
 USER_DATABASE="nome_do_usuario_MySQL"
 PASSWORD_DATABASE="senha_do_usuario_MySQL"
 
-OBS: campo "PORT" referente à porta que seu servidor será iniciado ex: 8080,3000
+OBS: campo "PORT" é referente à porta que seu servidor será iniciado no computador, por exemplo: 8080,3000
 
 # instalar bibliotecas e dependências necessárias
 npm install
 
 # iniciar servidor
 node index.js
+
+# acessar o sistema
+http://localhost:<numero_da_porta_configurada_no_env>
 ```
 
 ## Equipe
@@ -58,6 +61,9 @@ node index.js
 - [Fernando Facco Rodrigues](https://www.linkedin.com/in/fernandofacco/)
 - [Isadora Vasconcellos](https://www.linkedin.com/in/isadora-vasconcellos/)
 - [Rodrigo L. de Lima Ferreira](https://www.linkedin.com/in/rllimaferreira/)
+
+## Versão disponível para testes no Heroku
+[Ranqueei] (https://ranqueei.herokuapp.com/)
 
 ## Agradecimentos
 Aos professores Gabriel Antonio Custódio Silva, Rafael do Prado Ribeiro, Henrique Shishido, Adriano Rivolli, Claiton Oliveira, Gustavo Viais e Fernanda Araújo por terem proporcionado todos esses ensinamentos na certificação "Tech Academy", pela StartSe.
