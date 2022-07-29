@@ -5,7 +5,6 @@ const { ensureAuthenticated } = require('../config/auth');
 
 router.get('/new', usersController.new);
 router.post('/create', usersController.create);
-router.get('/show/:id', ensureAuthenticated, usersController.show);
 router.get('/edit/:id', ensureAuthenticated, usersController.edit);
 router.post('/update', ensureAuthenticated, usersController.update);
 router.get('/registration', usersController.registration);
