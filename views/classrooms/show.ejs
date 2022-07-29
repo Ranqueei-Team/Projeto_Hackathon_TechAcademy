@@ -12,6 +12,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="panel-title">Missões</div>
+                        <%= locals.profileUser %>
                     </div>
                     <div class="row">
                         <div class="col-md-12 ">
@@ -40,3 +41,18 @@
 
 <%-include('../partials/footer.ejs') %>
 
+<script>
+   (function()
+        {
+        if( window.localStorage )
+        {
+            if( !localStorage.getItem('firstLoad') )
+            {
+            localStorage['firstLoad'] = true;
+            window.location.reload();
+            }  
+            else
+            localStorage.removeItem('firstLoad');
+        }
+    })();
+</script>
