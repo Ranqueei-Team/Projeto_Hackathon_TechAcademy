@@ -42,8 +42,32 @@ footer {
 }
 
 .mb-auto {
-    margin-left: 4px;
-    margin-right: 4px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+/* Cards */
+.card-header {
+    background-color: #00346E;
+}
+
+.card-title,
+.panel-title {
+    color: #fff;
+}
+
+/* Buttons */
+
+.btn-outline-primary {
+    --bs-btn-color: #00346E;
+    --bs-btn-border-color: #00346E;
+    --bs-btn-hover-bg: #00346E;
+    --bs-btn-hover-border-color: #00346E;
+    --bs-btn-active-bg: #00346E;
+    --bs-btn-active-border-color: #00346E;
+    --bs-btn-disabled-color: #00346E;
+    --bs-btn-disabled-border-color: #00346E;
+    font-weight: 600;
 }
 
 /* Text */
@@ -312,41 +336,37 @@ div.py-5-top {
 
 /* Forms */
 
-.form{
+.form {
     margin-top: 6rem;
     margin-bottom: 5rem;
     z-index: 102;
 }
 
 
-.card-header{
+.card-header {
     text-align: center;
 }
 
-input[type='number']{
+input[type='number'] {
     width: 100px;
-} 
+}
 
-.reward{
+.reward {
     margin: 10px;
 }
 
-.card-header{
+.card-header {
     background-color: #00346E;
     color: #FFFFFF;
     text-align: center;
     font-weight: 800;
 }
-.panel-title{
+
+.panel-title {
     font-size: 18px;
 }
-th, td{
+
+th,
+td {
     text-align: center;
 }
-
-footer {
-    
-    position: relative;
-    bottom: 0;
-}
-
