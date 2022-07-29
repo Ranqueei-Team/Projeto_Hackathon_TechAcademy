@@ -23,7 +23,7 @@ nav.header-bg-color {
 }
 
 .dropdown-menu-link[data-bs-popper] {
-    left: -48px;
+    left: -45px;
 }
 
 /* Text */
@@ -112,6 +112,10 @@ p.lead {
 
 .border-bottom-dark {
     border-bottom: 2px solid #373A3D;
+}
+
+.marketing-align-items {
+    align-items: center;
 }
 
 /* Featurettes */
