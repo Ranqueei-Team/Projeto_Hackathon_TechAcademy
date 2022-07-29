@@ -1,71 +1,129 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+
+/* Fixing the footer to the base */
+
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #FCFEFF;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #F7FAFC;
 }
 
-header.header-bg-color {
-    background-color: #FCFEFF;
-    align-items: center;
+nav.header-bg-color {
+    background-color: #F7FAFC;
 }
+
+footer {
+    z-index: 101;
+}
+
+.sidebar {
+    padding: 88px 0 0 !important;
+}
+
+.user-avatar {
+    margin-top: 1rem;
+    padding: 4px 0 4px 0;
+}
+
+.dropdown-menu-user[data-bs-popper] {
+    left: -88px;
+}
+
+.dropdown-menu-link[data-bs-popper] {
+    left: -45px;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    background-color: #00346E;
+}
+
+.mb-auto {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+/* Text */
 
 h1,
 h2 {
     margin-bottom: 20px;
 }
 
-/* Colors */
-
-.my-bg-light {
-    background-color: #F5F8FA;
-}
-
-.my-bg-light-2 {
-    background-color: #292C2E;
-}
-
-.my-color-light {
-    color: #CDCFD1;
-}
-
-.my-color-light:hover {
-    color: #DCDFE0;
-}
-
-.my-bg-dark {
-    background-color: #292C2E;
+p,
+p.lead {
+    font-weight: 400;
+    color: #373A3D;
 }
 
 .nav-link {
-    color: #003F86;
+    font-weight: 500;
 }
 
-.btn:hover {
+.dropdown-item {
+    font-weight: 500;
+}
+
+/* Colors */
+
+.my-bg-light {
+    background-color: #F2F5F7;
+}
+
+.my-color-light {
+    color: #D7DBE0;
+}
+
+.my-color-light:hover {
+    color: #CDCFD1;
+}
+
+.my-bg-dark {
+    background-color: #292B2E;
+}
+
+.btn:hover,
+.btn:focus {
     background-color: #00346E;
     border-color: #00346E;
 }
 
-.nav-pills .nav-link.active {
-    background-color: #003F86;
-}
-
 .bi-heart-fill {
-    color: #ff405a;
-    background-color: #F5F8FA;
+    color: #FF4040;
+    background-color: #F2F5F7;
 }
 
 .bi-eye-fill {
-    color: #3eb2ff;
-    background-color: #F5F8FA;
+    color: #003F86;
+    background-color: #F2F5F7;
 }
 
-.bi-star-fill {
-    color: #ffc14a;
-    background-color: #F5F8FA;
+.bi-star-fill-color {
+    color: #FFB830;
+    background-color: #F2F5F7;
 }
 
-/* Buttons */
+.dropdown-item:active {
+    background-color: #F2F5F7;
+}
+
+.dropdown-item,
+.nav-link {
+    color: #003F86;
+}
+
+.dropdown-item:hover,
+.nav-link:hover {
+    color: #292B2E;
+}
+
+.dropdown-item:focus,
+.nav-link:focus {
+    color: #436286;
+}
 
 .btn-primary {
     background-color: #003F86;
@@ -73,17 +131,15 @@ h2 {
 }
 
 .border-bottom-dark {
-    border-bottom: 2px solid #373838;
+    border-bottom: 2px solid #373A3D;
 }
 
-.marketing-align {
-    display: flex;
+.marketing-align-items {
     align-items: center;
-    justify-content: center;
 }
 
-ul.ul-align-item {
-    align-items: center;
+.bg-light-sidebar {
+    background-color: #F2F5F7 !important;
 }
 
 /* Featurettes */
@@ -95,10 +151,6 @@ ul.ul-align-item {
 
 div.featurette-divider-1 {
     margin: 6rem 0;
-}
-
-div.featurette-divider-2 {
-    margin-top: 12rem;
 }
 
 div.py-5-top {
@@ -116,19 +168,91 @@ div.py-5-top {
     font-weight: 400;
 }
 
-.heading-top-6 {
-    margin-top: 6rem;
-}
-
-/* Navbars */
+/* Navbar */
 
 .navbar {
-    margin-bottom: 20px;
+    padding: 1rem 0 1rem 0;
+}
+
+.dropdown-menu {
+    min-width: 0;
+}
+
+.nav-icon-mr {
+    margin-right: 4px;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar-mt {
+    margin-top: 8.063rem;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    /* rtl:raw:
+    right: 0;
+    */
+    bottom: 0;
+    /* rtl:remove */
+    left: 0;
+    z-index: 100;
+    /* Behind the navbar */
+    padding: 48px 0 0;
+    /* Height of navbar */
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+@media (max-width: 767.98px) {
+    .sidebar {
+        top: 5rem;
+    }
+}
+
+.sidebar-sticky {
+    height: calc(100vh - 48px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* Scrollable contents if viewport is shorter than content. */
+}
+
+/*
+   * Navbar
+   */
+
+.navbar-brand {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    background-color: rgba(0, 0, 0, .25);
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.navbar .navbar-toggler {
+    top: .25rem;
+    right: 1rem;
+}
+
+.navbar .form-control {
+    padding: .75rem 1rem;
+}
+
+.form-control-dark {
+    color: #fff;
+    background-color: rgba(255, 255, 255, .1);
+    border-color: rgba(255, 255, 255, .1);
+}
+
+.form-control-dark:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
 }
 
 /* RESPONSIVE CSS */
 
-@media (min-width: 40em) {
+@media (min-width: 768px) {
     .featurette-heading {
         font-size: 2.5rem;
     }
@@ -139,18 +263,7 @@ div.py-5-top {
 
 }
 
-@media (min-width: 10em) {
-    ul.nav-pills-txt-align-center {
-        justify-content: center;
-    }
-
-}
-
-@media (max-width: 48em) {
-    div.featurette-divider-2 {
-        margin-top: 16rem;
-    }
-
+@media (max-width: 768px) {
     img.img-fluid-top {
         margin-top: 3rem;
     }
@@ -164,10 +277,72 @@ div.py-5-top {
     img.img-fluid-bottom {
         margin-bottom: 3rem;
     }
+
+    .navbar-expand-md .navbar-nav {
+        flex-direction: row-reverse;
+    }
+
+    .bg-light-sidebar {
+        background-color: #F7FAFC !important;
+    }
 }
 
-@media (max-width: 15.4em) {
-    div.featurette-divider-2 {
-        margin-top: 22rem;
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav {
+        flex-direction: row;
+        justify-content: end;
     }
+}
+
+@media (min-width: 768px) {
+
+    /* Sidebar */
+    .sidebar-mt {
+        margin-top: 4.063rem;
+    }
+
+    .navbar-expand-md .navbar-nav {
+        flex-direction: row-reverse;
+    }
+
+    .user-avatar {
+        margin: 0;
+    }
+}
+
+.form{
+    margin-top: 6rem;
+    margin-bottom: 5rem;
+    z-index: 102;
+}
+
+
+.card-header{
+    text-align: center;
+}
+
+input[type='number']{
+    width: 100px;
+} 
+
+.reward{
+    margin: 10px;
+}
+
+.card-header{
+    background-color: #00346E;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: 800;
+}
+.panel-title{
+    font-size: 18px;
+}
+th, td{
+    text-align: center;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
 }

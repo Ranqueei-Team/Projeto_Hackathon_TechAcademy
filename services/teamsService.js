@@ -1,18 +1,19 @@
 const Team = require('../models/teamModel');
+const User = require('../models/userModel');
 
 class TeamService {
-
-    async index(){
-        return await Team.findAll()
-    }
 
     async listTeamsByClassrooms(classroomId){
         return await Team.findAll({where: {classroomId: classroomId}})
     }
 
-    async create(new_team){
+    async searchStudentByEmail(email){
+        return await User.findOne({where: {email: email}})
+    }
 
-        const { name, classroomId } = new_team;
+    async create(new_team, classroomId){
+
+        const name = new_team.name;
 
         //Validation
         let errors = [];
@@ -36,11 +37,6 @@ class TeamService {
             return team;
         }
     }
-
-    async show(id){
-      return await Team.findByPk(id);
-    }
-
 
     async edit(id){
         return await Team.findByPk(id);

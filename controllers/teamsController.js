@@ -1,9 +1,10 @@
 const Team = require('../models/teamModel');
 const TeamService = require("../services/teamsService");
+const UserService = require("../services/usersService");
 
-exports.index = async (req, res, next) => {
+exports.listTeamsByClassrooms = async (req, res, next) => {
     try{
-        const teams = await new TeamService().index();
+        const teams = await new TeamService().listTeamsByClassrooms(req.user.current_classroom);
         res.render("teams/index", {teams: teams});
     }catch(error){
         res.redirect("/");
@@ -11,20 +12,18 @@ exports.index = async (req, res, next) => {
 };
 
 exports.new = async (req, res, next) => {
-    let classroomId = req.params.classroomId;   
+    let classroomId = req.user.current_classroom;   
     res.render("teams/new", {classroomId: classroomId});
 };
 
 exports.create = async(req, res, next) => {
-
     try{
-        const team = await new TeamService().create(req.body);
+        const team = await new TeamService().create(req.body, req.user.current_classroom);
         req.flash(
             'success_msg','Equipe cadastrada com sucesso!'
-           );
-        res.render("teams/show", {team: team});
+        );
+        res.redirect("/teams");
     }catch(error){
-        
         if (error.errors){
             res.render("teams/new", {name: error.errors['name'], 
             classroomId: error.errors['classroomId'], 
@@ -33,15 +32,6 @@ exports.create = async(req, res, next) => {
         else{
             res.render("teams/new");
         }       
-    }
-};
-
-exports.show = async (req, res, next) => {
-    try{
-        const team = await new TeamService().show(req.params.id);
-        res.render("teams/show", {team: team} );
-    }catch(error){
-        res.redirect("/team");
     }
 };
 
@@ -55,10 +45,12 @@ exports.edit = async (req, res, next) => {
 };
 
 exports.update = async(req, res, next) => {
-    
     try{
         const team = await new TeamService().update(req.body);
-        res.render("teams/show", {id: team.id, team: team});
+        req.flash(
+            'success_msg','Equipe atualizada com sucesso!'
+        );
+        res.redirect("/teams");
     }catch(error){
         if (error.errors){
             res.render("teams/edit", {id: error.errors['id'],
@@ -69,3 +61,41 @@ exports.update = async(req, res, next) => {
         }   
     }
 };
+
+exports.studentByTeam = async(req, res, next) => {
+    const teamId = req.params.teamId
+    res.render("teams/studentByTeam", {teamId: teamId});
+};
+
+exports.searchStudentByEmail = async(req, res, next) => {
+    const teamId = req.body.teamId
+    try{
+        const student = await new TeamService().searchStudentByEmail(req.body.email);
+        res.render("teams/studentByTeam", {student: student, teamId: teamId});
+    }catch(error){
+        res.redirect("/");
+    }
+};
+
+exports.addStudentByTeam = async(req, res, next) => {
+    try{
+        const profile = await new UserService().createProfile(req.user.current_classroom, req.params.studentId, "Student");
+        const user_team  = await new UserService().createUserTeam(req.params.teamId, req.params.studentId);
+        const students = await new UserService().findUsersByTeam(req.params.teamId);
+        res.render("teams/listStudentsByTeam", {students: students});
+    }catch(error){
+        console.log(error)
+        res.redirect("/");
+    }
+};
+
+exports.listStudentsByTeam = async(req, res, next) => {
+    try{
+        const team_id = req.params.teamId
+        const students = await new UserService().findUsersByTeam(team_id);
+        res.render("teams/listStudentsByTeam", {students: students});
+    }catch(error){
+        res.redirect("/");
+    }
+};
+

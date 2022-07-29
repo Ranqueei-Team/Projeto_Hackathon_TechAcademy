@@ -17,6 +17,4 @@ const Classroom = connection.define("classrooms", {
     }
 });
 
-Classroom.sync({ force: false});
-
 module.exports = Classroom;

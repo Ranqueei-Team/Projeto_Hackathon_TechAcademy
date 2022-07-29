@@ -17,10 +17,7 @@ const Mission = connection.define("missions", {
     }
 });
 
-
 Classroom.hasMany(Mission);
 Mission.belongsTo(Classroom);
-
-Mission.sync({ force: false});
 
 module.exports = Mission;

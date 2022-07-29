@@ -3,11 +3,14 @@ const router = express.Router();
 const teamsController = require('../controllers/teamsController')
 const { ensureAuthenticated } = require('../config/auth');
 
-router.get('/new/:classroomId',  teamsController.new);
+router.get('/new',  teamsController.new);
 router.post('/create',  teamsController.create);
-router.get('/show/:id',  teamsController.show);
 router.get('/edit/:id',  teamsController.edit);
 router.post('/update',teamsController.update);
-router.get('/', teamsController.index);
+router.get('/', teamsController.listTeamsByClassrooms);
+router.get('/studentByTeam/:teamId', teamsController.studentByTeam);
+router.post('/searchStudent', teamsController.searchStudentByEmail);
+router.get('/addStudentByTeam/:studentId/:teamId', teamsController.addStudentByTeam);
+router.get('/listStudentsByTeam/:teamId', teamsController.listStudentsByTeam);
 
 module.exports = router;

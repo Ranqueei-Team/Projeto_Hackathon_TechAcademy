@@ -28,11 +28,12 @@ const User = connection.define("users", {
         validate: {
             min: 8
           }
+    },
+    current_classroom: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: { model: 'classrooms', key: 'id' }
     }
 });
-
-
-
-User.sync({ force: false});
 
 module.exports = User;

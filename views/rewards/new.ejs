@@ -1,53 +1,53 @@
 <%-include('../partials/header.ejs') %>
-<body>
-    <%-include('../partials/navbar.ejs') %>
-        <%-include('../partials/messages.ejs') %>
-    
-    <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-12">
-            
-            <div class="col-md-8 offset-md-2 col-sm-10 offset-sm-1">
-              <br><br>
+
+  <body>
+    <%-include('../partials/navbar-login.ejs') %>
+      <main>
+        <div class="container main-login" style="padding-top: 6em;">
+          <div class="row">
+            <div class="col-md-2">
+              <%-include('../partials/sidebar.ejs') %>
+            </div>
+            <div class="col-md-10">
+              <%-include('../partials/messages.ejs') %>
                 <div class="card">
-            
-                    <div class="card-header">
-                    <h3 class="panel-title">Cadastrar Recompensa</h3>
-                    </div>
-                    
-                    <form method="POST" action="/rewards/create">
-                   
-                        <input type="hidden" name="classroomId" value="<%= classroomId %>">  
-                       
-                        <div class="card-body">
-                            <div class="row mb-3">
-                                <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-sm-12 col-form-label">Nome da Recompensa*</label>
-                                    <input type="text" placeholder="Nome" name="name" value="<%= typeof name != 'undefined' ? name : '' %>" class="form-control" required><br>
-                                </div>
-                            </div>
 
-                            <div class="row mb-3">
-                                <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-sm-12 col-form-label">Classificação da Equipe*</label>
-                                    <input type="number" name="rating" value="<%= typeof rating != 'undefined' ? rating : '' %> required" class="form-control" required><br>
-                                      
-                                </div>
-                            </div>
+                  <div class="card-header">
+                    <h3 class="panel-title">Cadastar Recompensa</h3>
+                  </div>
 
-                            <div class="card-footer text-center d-grid gap-2">
-                                <button type="submit" class="btn btn-primary btn-block" required>Cadastrar Recompensa</button>
-                            </div>
+                  <form method="POST" action="/rewards/create">
+                    <input type="hidden" name="classroomId" value="<%= classroomId %>">
+                    <div class="card-body">
+                      <div class="row mb-3">
+                        <div class="row mb-3">
+                          <label for="inputEmail3" class="col-sm-12 col-form-label">Nome da Recompensa*</label>
+                          <input type="text" placeholder="Informe o nome da recompensa" name="name"
+                            value="<%= typeof name != 'undefined' ? name : '' %>" class="form-control" required><br>
                         </div>
-                
-                    </form>
+                      </div>
+
+                      <div class="row mb-3">
+                        <div class="row mb-3">
+                          <label for="inputEmail3" class="col-sm-12 col-form-label">Classificação da Equipe no
+                            Ranking*</label>
+                          <input type="number" name="rating" size="3"
+                            value="<%= typeof rating != 'undefined' ? rating : '' %> required" class="form-control"
+                            required><br>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer text-center d-grid gap-2">
+                      <button type="submit" class="btn btn-primary btn-block">Cadastrar Recompensa</button>
+                    </div>
+
+                  </form>
                 </div>
-            <br><br>
+                <br><br><br>
+            </div>
           </div>
-        </div>            
-    </div>
-
-   
-</body>
-
-<%-include('../partials/footer.ejs') %>
+        </div>
+        <br><br>
+      </main>
+  </body>
+  <%-include('../partials/footer.ejs') %>

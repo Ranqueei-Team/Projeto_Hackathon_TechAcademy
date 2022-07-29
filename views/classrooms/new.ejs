@@ -1,50 +1,47 @@
 <%-include('../partials/header.ejs') %>
-<body>
-    <%-include('../partials/navbar.ejs') %>
-        <%-include('../partials/messages.ejs') %>
-    
-    <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-12">
-            
-            <div class="col-md-4 offset-md-4 col-sm-10 offset-sm-1">
-              <br><br>
+
+  <body>
+    <%-include('../partials/navbar-login.ejs') %>
+      <main>
+        <div class="container main-login" style="padding-top: 6em;">
+          <div class="row">
+            <div class="col-md-12">
+              <%-include('../partials/messages.ejs') %>
                 <div class="card">
-            
-                    <div class="card-header">
-                    <h3 class="panel-title">Cadastrar Turma</h3>
-                    </div>
-                    
-                    <form method="POST" action="/classrooms/create">
-                        
-                        <div class="card-body">
-                            <div class="row mb-3">
-                                <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-sm-12 col-form-label">Nome*</label>
-                                    <input type="text" placeholder="Nome" name="name" value="<%= typeof name != 'undefined' ? name : '' %>" class="form-control" required><br>
-                                </div>
-                            </div>
 
-                            <div class="row mb-3">
-                                <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-sm-12 col-form-label">Descrição</label>
-                                    <textarea id="story" name="description" rows="5" cols="33"> </textarea> 
-                                      
-                                </div>
-                            </div>
+                  <div class="card-header">
+                    <h3 class="panel-title">Nova Turma</h3>
+                  </div>
 
-                            <div class="card-footer text-center d-grid gap-2">
-                                <button type="submit" class="btn btn-primary btn-block">Cadastrar Turma</button>
-                            </div>
+                  <form method="POST" action="/classrooms/create">
+                    <div class="card-body">
+                      <div class="row mb-3">
+                        <div class="row mb-3">
+                          <label for="inputEmail3" class="col-sm-12 col-form-label">Nome da Turma*</label>
+                          <input type="text" placeholder="Informe um nome para a turma" name="name"
+                            value="<%= typeof name != 'undefined' ? name : '' %>" class="form-control" required><br>
                         </div>
-                
-                    </form>
-                </div>
-            <br><br>
-          </div>
-        </div>            
-    </div>
+                      </div>
 
-   
-</body>
-<%-include('../partials/footer.ejs') %>
+                      <div class="row mb-3">
+                        <div class="row mb-3">
+                          <label for="inputEmail3" class="col-sm-12 col-form-label">Descrição da Turma</label>
+                          <textarea id="story" name="description" rows="5" cols="33"
+                            placeholder="Breve descrição da turma..."></textarea>
+                        </div>
+                      </div>
+                      
+                    </div>
+                    <div class="card-footer text-center d-grid gap-2">
+                      <button type="submit" class="btn btn-primary btn-block">Cadastrar Turma</button>
+                    </div>
+
+                  </form>
+                </div>
+            </div>
+          </div>
+        </div>
+        <br><br>
+      </main>
+  </body>
+  <%-include('../partials/footer.ejs') %>

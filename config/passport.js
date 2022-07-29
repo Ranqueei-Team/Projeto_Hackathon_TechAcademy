@@ -1,6 +1,6 @@
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
-const User = require('../models/userModel');// o import desta função será em usersController.js para POSTlogin e // logout, 'passport' vai ser passado a partir de app.js
+const User = require('../models/userModel');
 
 module.exports = function(passport) {
     passport.use(new LocalStrategy({ usernameField: 'email' }, (email,
@@ -9,7 +9,6 @@ module.exports = function(passport) {
        User.findOne({where:{email: email}}).then(user => {
        
             if (!user) {
-             
                 return done(null, false, { message: 'E-mail não cadastrado' });
             }
 
@@ -23,13 +22,13 @@ module.exports = function(passport) {
         })
     )
 
-passport.serializeUser(function(user, done) {
-  done(null, user.id);
-});
-// metodo para desserialização do 'user'
-passport.deserializeUser(function(id, done) {
-    User.findOne({ where: { id: id } }).then((user) => {
-        done(null, user);
-      });
-  });
-  };
+    passport.serializeUser(function(user, done) {
+        done(null, user.id);
+    });
+
+    passport.deserializeUser(function(id, done) {
+        User.findOne({ where: { id: id } }).then((user) => {
+            done(null, user);
+        });
+    });
+};

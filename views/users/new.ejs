@@ -1,63 +1,68 @@
 <%-include('../partials/header.ejs') %>
 <body>
-    <%-include('../partials/navbar.ejs') %>
-        <%-include('../partials/messages.ejs') %>
-    
-    <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-12">
-            
-            <div class="col-md-4 offset-md-4 col-sm-10 offset-sm-1">
-              <br><br>
-                <div class="card">
-            
-                    <div class="card-header">
-                    <h3 class="panel-title">Cadastrar</h3>
-                    </div>
-                    
-                    <form method="POST" action="/users/create">
-                
-                        <div class="card-body">
-                            <div class="row mb-3">
-                                <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-sm-12 col-form-label">Nome*</label>
-                                    <input type="text" placeholder="Nome" name="name" value="<%= typeof name != 'undefined' ? name : '' %>" class="form-control" required><br>
-                                </div>
-                            </div>
+  <%-include('../partials/navbar.ejs') %>
+    <main>
+      <div class="container marketing">
+        <div class="row form">
+          <div class="col-md-6 offset-md-3">
+            <%-include('../partials/messages.ejs') %>
+            <div class="card">
+          
+              <div class="card-header">
+                <h3 class="panel-title">Cadastre-se</h3>
+              </div>
 
-                            <div class="row mb-3">
-                                <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-sm-12 col-form-label">E-mail*</label>
-                                        <input type="email" placeholder="E-mail" name="email" value="<%= typeof email != 'undefined' ? email : '' %>" class="form-control" required><br>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-sm-12 col-form-label">Senha*</label>
-                                    <input type="password" placeholder="Senha" name="password" class="form-control" required><br>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-sm-12 col-form-label">Confirmar Senha*</label>
-                                    <input type="password" placeholder="Repira a senha" name="confirm_password" class="form-control" required><br>
-                                </div>
-                            </div>
-
-                            <div class="card-footer text-center d-grid gap-2">
-                                <button type="submit" class="btn btn-primary btn-block">Atualizar</button>
-                            </div>
+              <form method="POST" action="/users/create">
+      
+                <div class="card-body">
+                    <div class="row">
+                        <div class="row mb-3">
+                            <label for="inputEmail3" class="col-sm-12 col-form-label">Nome*</label>
+                            <input type="text" placeholder="Informe seu nome completo" name="name" value="<%= typeof name != 'undefined' ? name : '' %>" class="form-control" required>
                         </div>
-                
-                    </form>
-                </div>
-            <br><br>
-          </div>
-        </div>            
-    </div>
+                    </div>
 
-   
+                    <div class="row">
+                        <div class="row mb-3">
+                            <label for="inputEmail3" class="col-sm-12 col-form-label">E-mail*</label>
+                            <input type="email" placeholder="Informe seu e-mail" name="email" value="<%= typeof email != 'undefined' ? email : '' %>" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="row mb-3">
+                            <label for="inputEmail3" class="col-sm-12 col-form-label">Senha*</label>
+                            <input type="password" placeholder="A senha deve conter pelo menos 8 caracteres!" name="password" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="row mb-3">
+                            <label for="inputEmail3" class="col-sm-12 col-form-label">Confirmar Senha*</label>
+                            <input type="password" placeholder="Por favor, repira a senha!" name="confirm_password" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-check d-flex justify-content-center mb-2">
+                        <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck"  aria-describedby="registerCheckHelpText">
+                        <label class="form-check-label" for="registerCheck">Concordo com os Termos de Uso</label>
+                      </div>
+                    </div>
+                
+              
+                </div>
+                <div class="card-footer text-center d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+                </div>
+               
+              
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 </body>
 <%-include('../partials/footer.ejs') %>
+
+

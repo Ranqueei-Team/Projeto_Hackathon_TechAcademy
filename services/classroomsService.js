@@ -6,10 +6,6 @@ const sequelize = require("../database/database")
 
 class ClassroomService {
 
-  async index(){
-    return await Classroom.findAll()
-  }
-
   async create(new_classroom){
 
     const { name, description } = new_classroom;
@@ -19,7 +15,6 @@ class ClassroomService {
 
     if (!name) {
       errors.push({ msg: 'Por favor, preencha o nome da turma!' });
-      console.log(errors)
     }
    
     if (errors.length > 0) {
