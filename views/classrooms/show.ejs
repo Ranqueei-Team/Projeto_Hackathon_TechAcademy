@@ -22,9 +22,11 @@
                             <div class="col-md-12 ">
                                 <ul class="list-group">   
                                                                  
-                                    <li class="list-group-item"><b>Pontuação:</b> <%= mission.point %></li>
-                                    <li class="list-group-item"><b>Descrição:</b> <%=- mission.description %></li>
-                                  
+                                    <li class="list-group-item"><b>Pontuação da missão:</b> <%= mission.point %></li>
+                                        <% if (mission.description) { %>
+                                            <li class="list-group-item"><b>Descrição:</b> 
+                                        <%=- mission.description %></li>
+                                        <% }%>                                  
                                 </ul>
                             </div>
                         </div>          
