@@ -69,6 +69,7 @@
               Mensagens
             </a>
           </li>
+          <% if( locals.profileUser === "Teacher") { %>
           <li>
             <a href="/classrooms/edit" class="nav-link link-dark">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -78,7 +79,8 @@
               </svg>
               Turma
             </a>
-          </li>          
+          </li>   
+          <% } %>       
           <li>
             <a href="/classrooms/show/<%= currentUser.current_classroom %>" class="nav-link link-dark">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
