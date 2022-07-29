@@ -85,6 +85,23 @@ app.get('/', function (req, res) {
     return res.render("index");
 });
 
+const Sequelize = require("sequelize");
+const sequelize = require("./database/database")
+app.use(function(req,res,next){
+    if (req.user && req.user.current_classroom){
+        async function checkProfile () {
+            const { QueryTypes } = require('sequelize');
+      
+            const profile = await sequelize.query("SELECT type FROM profiles where profiles.classroomId = ? and profiles.userId = ? limit 1",{
+            replacements: [req.user.current_classroom, req.user.id],
+            type: QueryTypes.SELECT,
+            })
+            res.locals.profileUser = profile[0].type
+    }
+    checkProfile();}
+   
+    next();
+})
 //Routes
 const usersRoute = require("./routes/usersRoute");
 app.use("/users/", usersRoute);
