@@ -9,7 +9,7 @@
             <div class="card">
           
               <div class="card-header">
-                <h3 class="panel-title">Acesso</h3>
+                <h3 class="panel-title">Iniciar sessão</h3>
               </div>
 
               <form action="/users/login" method="POST">
@@ -29,11 +29,30 @@
                         <input type="password" id="password" name="password" class="form-control" placeholder="Informa a senha cadastrada" required/>
                       </div>
                     </div>
+
+                    <div class="row mb-3">
+                      <label for="inputPassword3" class="col-sm-3 col-form-label">Senha*</label>
+                      <div class="col-sm-9">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked="">
+                          <label class="form-check-label" for="form2Example31">Lembram de mim </label>
+                          <div class="col">
+                            <!-- Simple link -->
+                            <a href="#!">Esqueceu a senha?</a>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                    
                   </div>     
                 </div>
           
                 <div class="card-footer text-center d-grid gap-2">
-                  <button type="submit" class="btn btn-primary btn-block">Login</button>
+                  <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                  <div class="text-center">
+                    <p>Não possui cadastrado? <a href="#!">Cadastre-se</a></p>                    
+                  </div>
                 </div>
               
               </form>
