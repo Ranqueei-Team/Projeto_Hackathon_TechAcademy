@@ -1,42 +1,42 @@
 <%-include('../partials/header.ejs') %>
-<body>
-    <%-include('../partials/navbar-login.ejs') %>
-    <div class="container">
-        <%-include('../partials/messages.ejs') %>
-        <div class="card">
-            <div class="card-header">
-              <div class="panel-title">Turmas</div>
-            </div>  
-        
-            <table class="table table-bordered ">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Nome</th>
-                        <th>Descrição</th>
-                        <th colspan="2">Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-     
-                    <% if (classrooms !== ''){ %>
-                    <% classrooms.forEach(classroom => {%>
-                        <tr>
-                            <td><%= classroom.name %></td>
-                            <td><%= classroom.description %></td>
-                            <td><a href="/classrooms/show/<%= classroom.id %>">Acessar </a> </td>
-                        </tr>
-                    <% }) %>
-                    <% } %>
-                </tbody>
-            </table>
 
-            <div class="card-foorter">
-                <a href="/classrooms/new" class="btn btn-success btn-block">Cadastrar Turma</a>
-            </div> 
-              
-              
-            
-    </div>
-    <br><br>
-</body>
-<%-include('../partials/footer.ejs') %>
+    <%-include('../partials/navbar-login.ejs') %>
+
+      <%-include('../partials/messages.ejs') %>
+        <div class="card">
+          <div class="card-header">
+            <div class="panel-title">Turmas</div>
+          </div>
+
+          <table class="table table-bordered ">
+            <thead class="table-dark">
+              <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th colspan="2">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <% if (classrooms !=='' ){ %>
+                <% classrooms.forEach(classroom=> {%>
+                  <tr>
+                    <td>
+                      <%= classroom.name %>
+                    </td>
+                    <td>
+                      <%= classroom.description %>
+                    </td>
+                    <td><a href="/classrooms/show/<%= classroom.id %>">Acessar </a> </td>
+                  </tr>
+                  <% }) %>
+                    <% } %>
+            </tbody>
+          </table>
+
+          <div class="card-foorter">
+            <a href="/classrooms/new" class="btn btn-success btn-block">Cadastrar Turma</a>
+          </div>
+        </div>
+
+        <%-include('../partials/footer.ejs') %>
