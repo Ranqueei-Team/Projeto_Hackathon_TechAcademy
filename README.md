@@ -38,18 +38,21 @@ CREATE database nome_do_banco
 # criar uma cópia do arquivo ".example-env" e renomeá-lo para ".env"
 
 # configuração .env
-PORT= 
+PORT=8080 
 DATABASE="nome_do_banco"
 USER_DATABASE="nome_do_usuario_MySQL"
 PASSWORD_DATABASE="senha_do_usuario_MySQL"
 
-OBS: campo "PORT" referente à porta que seu servidor será iniciado ex: 8080,3000
+OBS: campo "PORT" é referente à porta que seu servidor será iniciado no computador, por exemplo: 8080,3000
 
 # instalar bibliotecas e dependências necessárias
 npm install
 
 # iniciar servidor
 node index.js
+
+# acessar o sistema
+http://localhost:<numero_da_porta_configurada_no_env>
 ```
 
 ## Equipe
