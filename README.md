@@ -63,7 +63,7 @@ http://localhost:<numero_da_porta_configurada_no_env>
 - [Rodrigo L. de Lima Ferreira](https://www.linkedin.com/in/rllimaferreira/)
 
 ## Versão disponível para testes no Heroku
-[Ranqueei] (https://ranqueei.herokuapp.com/)
+- [Ranqueei](https://ranqueei.herokuapp.com/)
 
 ## Agradecimentos
 Aos professores Gabriel Antonio Custódio Silva, Rafael do Prado Ribeiro, Henrique Shishido, Adriano Rivolli, Claiton Oliveira, Gustavo Viais e Fernanda Araújo por terem proporcionado todos esses ensinamentos na certificação "Tech Academy", pela StartSe.
