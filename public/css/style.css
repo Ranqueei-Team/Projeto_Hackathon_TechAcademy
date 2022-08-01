@@ -186,8 +186,12 @@ p.lead {
 /* Featurettes */
 
 .featurette-divider {
-    margin-top: 5.5rem;
-    margin-bottom: 5.5rem;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+}
+
+.mkt-top-spacing {
+    padding: 88px 0 0 !important;
 }
 
 div.py-5-top {
