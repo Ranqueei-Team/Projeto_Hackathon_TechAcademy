@@ -186,8 +186,8 @@ p.lead {
     margin-bottom: 6rem;
 }
 
-div.featurette-divider-1 {
-    margin: 6rem 0;
+.main-content-divider {
+    padding: 88px 0 !important;
 }
 
 div.py-5-top {
