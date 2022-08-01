@@ -17,6 +17,7 @@ nav.header-bg-color {
 footer {
     flex-shrink: 0;
 }
+
 .content-top-position {
     flex: 1 0 auto;
 }
@@ -337,6 +338,25 @@ div.py-5-top {
 
     .user-avatar {
         margin: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-for-sidebar.ms-sm-auto {
+        padding-right: 1.5rem !important;
+        padding-left: 1.5rem !important;
+    }
+}
+
+@media (min-width: 576px) {
+    .main-for-sidebar.ms-sm-auto {
+        margin-left: 0 !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .main-for-sidebar.ms-sm-auto {
+        margin-left: auto !important;
     }
 }
 
