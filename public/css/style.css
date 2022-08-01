@@ -364,6 +364,12 @@ div.py-5-top {
     }
 }
 
+@media (max-width: 372px) {
+    .footer-jc-center {
+        justify-content: center !important;
+    }
+}
+
 /* Forms */
 
 .card-header {
