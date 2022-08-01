@@ -182,12 +182,8 @@ p.lead {
 /* Featurettes */
 
 .featurette-divider {
-    margin-top: 5.45rem;
-    margin-bottom: 6rem;
-}
-
-.main-content-divider {
-    padding: 88px 0 !important;
+    margin-top: 5.5rem;
+    margin-bottom: 5.5rem;
 }
 
 div.py-5-top {
