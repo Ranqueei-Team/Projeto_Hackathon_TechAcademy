@@ -7,7 +7,6 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     background-color: #F7FAFC;
 }
 
@@ -16,7 +15,10 @@ nav.header-bg-color {
 }
 
 footer {
-    z-index: 101;
+    flex-shrink: 0;
+}
+.content-top-position {
+    flex: 1 0 auto;
 }
 
 .sidebar {
