@@ -349,13 +349,17 @@ div.py-5-top {
 }
 
 @media (min-width: 576px) {
-    .main-for-sidebar.ms-sm-auto {
+
+    .main-for-sidebar.ms-sm-auto,
+    .footer-for-sidebar {
         margin-left: 0 !important;
     }
 }
 
 @media (min-width: 768px) {
-    .main-for-sidebar.ms-sm-auto {
+
+    .main-for-sidebar.ms-sm-auto,
+    .footer-for-sidebar {
         margin-left: auto !important;
     }
 }
