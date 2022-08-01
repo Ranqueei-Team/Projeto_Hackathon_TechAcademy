@@ -162,6 +162,10 @@ p.lead {
     color: #436286;
 }
 
+.dropdown-toggle::after {
+    color: #003F86;
+}
+
 .btn-primary {
     background-color: #003F86;
     border-color: #003F86;
