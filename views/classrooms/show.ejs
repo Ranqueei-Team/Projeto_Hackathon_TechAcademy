@@ -1,58 +1,55 @@
 <%-include('../partials/header.ejs') %>
-<body>
-<%-include('../partials/navbar-login.ejs') %>
-<main>
-    <div class="container main-login">
-        <div class="row">
-            <div class="col-md-2">
-                <%-include('../partials/sidebar.ejs') %>
-            </div>
-            <div class="col-md-10" style="padding-top: 100px;">
-                <div class="card">
-                    <div class="card-header bg-dark">
-                        <div class="panel-title ">Missões</div>
+    <%-include('../partials/navbar-login.ejs') %>
+        <%-include('../partials/sidebar.ejs') %>
+            <main
+                class="main-for-sidebar content-top-position featurette-divider col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+                    <div class="container main-login">
+                        <div>
+                            <div class="card">
+                                <div class="card-header bg-dark">
+                                    <div class="panel-title ">Missões</div>
+                                </div>
+                            </div>
+                            <% missions.forEach(mission=> {%>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="panel-title">Missão: <%= mission.name %>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 ">
+                                            <ul class="list-group">
+                                                <li class="list-group-item"><b>Pontuação da missão:</b>
+                                                    <%= mission.point %>
+                                                </li>
+                                                <% if (mission.description) { %>
+                                                    <li class="list-group-item"><b>Descrição:</b>
+                                                        <%- mission.description %>
+                                                    </li>
+                                                    <% }%>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% }) %>
+                        </div>
                     </div>
                 </div>
-                <% missions.forEach(mission => {%>   
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="panel-title">Missão: <%= mission.name %></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 ">
-                                <ul class="list-group">   
-                                                                 
-                                    <li class="list-group-item"><b>Pontuação da missão:</b> <%= mission.point %></li>
-                                        <% if (mission.description) { %>
-                                            <li class="list-group-item"><b>Descrição:</b> 
-                                        <%=- mission.description %></li>
-                                        <% }%>                                  
-                                </ul>
-                            </div>
-                        </div>          
-                    </div>
-                <% }) %> 
-                </div>                
-            </div>
-        </div>
-        <br><br>
-    </main>
-</body>   
+            </main>
 
-<%-include('../partials/footer.ejs') %>
+            <%-include('../partials/footer-next-to-sidebar.ejs') %>
 
-<script>
-   (function()
-        {
-        if( window.localStorage )
-        {
-            if( !localStorage.getItem('firstLoad') )
-            {
-            localStorage['firstLoad'] = true;
-            window.location.reload();
-            }  
-            else
-            localStorage.removeItem('firstLoad');
-        }
-    })();
-</script>
+                <script>
+                    (function () {
+                        if (window.localStorage) {
+                            if (!localStorage.getItem('firstLoad')) {
+                                localStorage['firstLoad'] = true;
+                                window.location.reload();
+                            }
+                            else
+                                localStorage.removeItem('firstLoad');
+                        }
+                    })();
+                </script>

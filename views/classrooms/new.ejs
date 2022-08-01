@@ -1,9 +1,8 @@
 <%-include('../partials/header.ejs') %>
+  <%-include('../partials/navbar-login.ejs') %>
 
-  <body>
-    <%-include('../partials/navbar-login.ejs') %>
-      <main>
-        <div class="container main-login" style="padding-top: 6em;">
+      <main class="content-top-position featurette-divider">
+        <div class="container main-login">
           <div class="row">
             <div class="col-md-12">
               <%-include('../partials/messages.ejs') %>
@@ -30,7 +29,7 @@
                             placeholder="Breve descrição da turma..."></textarea>
                         </div>
                       </div>
-                      
+
                     </div>
                     <div class="card-footer text-center d-grid gap-2">
                       <button type="submit" class="btn btn-primary btn-block">Cadastrar Turma</button>
@@ -41,7 +40,5 @@
             </div>
           </div>
         </div>
-        <br><br>
       </main>
-  </body>
-  <%-include('../partials/footer.ejs') %>
+    <%-include('../partials/footer.ejs') %>

@@ -1,52 +1,46 @@
 <%-include('../partials/header.ejs') %>
+  <%-include('../partials/navbar-login.ejs') %>
+    <main class="content-top-position featurette-divider">
+      <div class="container main-login">
+        <div class="row">
+          <div class="col-md-2">
+            <%-include('../partials/sidebar.ejs') %>
+          </div>
+          <div class="col-md-10">
+            <%-include('../partials/messages.ejs') %>
+              <div class="card">
 
-  <body>
-    <%-include('../partials/navbar-login.ejs') %>
-      <main>
-        <div class="container main-login" style="padding-top: 6em;">
-          <div class="row">
-            <div class="col-md-2">
-              <%-include('../partials/sidebar.ejs') %>
-            </div>
-            <div class="col-md-10">
-              <%-include('../partials/messages.ejs') %>
-                <div class="card">
-
-                  <div class="card-header">
-                    <h3 class="panel-title">Atualizar Dados da Turma</h3>
-                  </div>
-
-                  <form method="POST" action="/classrooms/update">
-                    <input type="hidden" name="id"
-                      value="<%= typeof classroom.id != 'undefined' ? classroom.id : '' %>">
-                    <div class="card-body">
-                      <div class="row mb-3">
-                        <div class="row mb-3">
-                          <label for="inputEmail3" class="col-sm-12 col-form-label">Nome da Turma*</label>
-                          <input type="text" placeholder="Insira o nome da Turma" name="name" class="form-control"
-                            value="<%= typeof classroom.name != 'undefined' ? classroom.name : '' %>" required><br>
-                        </div>
-                      </div>
-
-                      <div class="row mb-3">
-                        <div class="row mb-3">
-                          <label for="inputEmail3" class="col-sm-12 col-form-label">Descrição da Turma</label>
-                          <textarea id="story" name="description" rows="5" cols="33"
-                            placeholder="Breve descrição da turma..."><%= typeof classroom.description != 'undefined' ? classroom.description : '' %> </textarea>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card-footer text-center d-grid gap-2">
-                      <button type="submit" class="btn btn-primary btn-block">Atualizar Turma</button>
-                    </div>
-
-
-                  </form>
+                <div class="card-header">
+                  <h3 class="panel-title">Atualizar Dados da Turma</h3>
                 </div>
-            </div>
+
+                <form method="POST" action="/classrooms/update">
+                  <input type="hidden" name="id" value="<%= typeof classroom.id != 'undefined' ? classroom.id : '' %>">
+                  <div class="card-body">
+                    <div class="row mb-3">
+                      <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-12 col-form-label">Nome da Turma*</label>
+                        <input type="text" placeholder="Insira o nome da Turma" name="name" class="form-control"
+                          value="<%= typeof classroom.name != 'undefined' ? classroom.name : '' %>" required><br>
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-12 col-form-label">Descrição da Turma</label>
+                        <textarea id="story" name="description" rows="5" cols="33"
+                          placeholder="Breve descrição da turma..."><%= typeof classroom.description != 'undefined' ? classroom.description : '' %> </textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer text-center d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-block">Atualizar Turma</button>
+                  </div>
+                </form>
+              </div>
           </div>
         </div>
-        <br><br>
-      </main>
-  </body>
-  <%-include('../partials/footer.ejs') %>
+      </div>
+      <br><br>
+    </main>
+    <%-include('../partials/footer-next-to-sidebar.ejs') %>

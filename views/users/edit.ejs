@@ -1,58 +1,59 @@
 <%-include('../partials/header.ejs') %>
-<body>
   <%-include('../partials/navbar.ejs') %>
-    <main>
+    <main class="content-top-position featurette-divider">
       <div class="container marketing">
         <div class="row form">
           <div class="col-md-6 offset-md-3">
             <%-include('../partials/messages.ejs') %>
-            <div class="card">
-          
-              <div class="card-header">
-                <h3 class="panel-title">Atualização de Dados Pessoais</h3>
-              </div>
+              <div class="card">
 
-              <form method="POST" action="/users/update"> 
-                <input type="hidden" name="id" value="<%= currentUser.id %>">  
-                <div class="card-body">
-                    <div class="row mb-3">
-                        <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-12 col-form-label">Nome*</label>
-                            <input type="text" placeholder="Insira o nome do usuário" name="name" class="form-control" value="<%= typeof currentUser.name != 'undefined' ? currentUser.name : '' %>" required><br>
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-12 col-form-label">E-mail*</label>
-                            <input type="email" placeholder="Insira o email do usuário" name="email" class="form-control" value="<%= typeof currentUser.email != 'undefined' ? currentUser.email : '' %>" required><br>
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-12 col-form-label">Senha*</label>
-                            <input type="password" placeholder="A senha deve conter pelo menos 8 caracteres!" name="password" class="form-control" required><br>
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-12 col-form-label">Confirmar Senha*</label>
-                            <input type="password" placeholder="Por favor, repira a senha!" name="confirm_password" class="form-control" required><br>
-                        </div>
-                    </div>
+                <div class="card-header">
+                  <h3 class="panel-title">Atualização de Dados Pessoais</h3>
                 </div>
-                <div class="card-footer text-center d-grid gap-2">
+
+                <form method="POST" action="/users/update">
+                  <input type="hidden" name="id" value="<%= currentUser.id %>">
+                  <div class="card-body">
+                    <div class="row mb-3">
+                      <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-12 col-form-label">Nome*</label>
+                        <input type="text" placeholder="Insira o nome do usuário" name="name" class="form-control"
+                          value="<%= typeof currentUser.name != 'undefined' ? currentUser.name : '' %>" required><br>
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-12 col-form-label">E-mail*</label>
+                        <input type="email" placeholder="Insira o email do usuário" name="email" class="form-control"
+                          value="<%= typeof currentUser.email != 'undefined' ? currentUser.email : '' %>" required><br>
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-12 col-form-label">Senha*</label>
+                        <input type="password" placeholder="A senha deve conter pelo menos 8 caracteres!"
+                          name="password" class="form-control" required><br>
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-12 col-form-label">Confirmar Senha*</label>
+                        <input type="password" placeholder="Por favor, repira a senha!" name="confirm_password"
+                          class="form-control" required><br>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer text-center d-grid gap-2">
                     <button type="submit" class="btn btn-primary btn-block">Atualizar Dados</button>
-                </div>
-               
-              
-              </form>
-            </div>
+                  </div>
+
+                </form>
+              </div>
           </div>
         </div>
       </div>
     </main>
-</body>
-<%-include('../partials/footer.ejs') %>
+    <%-include('../partials/footer.ejs') %>

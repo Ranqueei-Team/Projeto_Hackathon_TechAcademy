@@ -1,75 +1,45 @@
 <%-include('../partials/header.ejs') %>
-
-  <body>
-    <%-include('../partials/navbar-login.ejs') %>
-      <main>
-        <div class="container main-login" style="padding-top: 6em;">
-          <div class="row">
+  <%-include('../partials/navbar-login.ejs') %>
+        <%-include('../partials/messages.ejs') %>
+        <main class="container content-top-position featurette-divider">
+                <div class="pricing-section p-3 pb-md-4 mx-auto text-center">
+                    <h1 class="display-4 fw-normal">Minhas Turmas</h1>
+                </div>
             
-            <div class="col-md-12">
-              <%-include('../partials/messages.ejs') %>
-                                <div class="card">
-                                    <div class="card-header">
-                                        <div class="panel-title">Minhas Turmas</div>
-                                    </div>
-
-                                    <div class="card">
-
-                                        <div class="card-body">
-                                            <div class="row mb-3">
-                                                <div class="input-group col-sm-3 my-1">
-                                                    <input type="email" placeholder="Informe o nome da turma"
-                                                        name="email" class="form-control" required><br>
-                                                    <div class="input-group-append">
-                                                        <button type="submit" class="btn btn-secondary btn-block"
-                                                            name="search" value="search">Pesquisar</button>
-                                                        <a href="/classrooms/new"
-                                                            class="btn btn-primary btn-block">Cadastrar Nova Turma</a>
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <table class="table table-striped ">
-                                            <thead class="table-dark">
-                                                <tr>
-                                                    <th>Nome da Turma</th>
-                                                    <th>Descrição</th>
-                                                    <th colspan="2">Ações</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-
-                                                <% if (classrooms !=='' ){ %>
-                                                    <% classrooms.forEach(classroom=> {%>
-                                                        <tr>
-                                                            <td>
-                                                                <%= classroom.name %>
-                                                            </td>
-                                                            <td>
-                                                                <%= classroom.description %>
-                                                            </td>
-                                                            <td><a href="/classrooms/show/<%= classroom.id %>"" class="
-                                                                    btn btn-primary btn-sm">Acessar </a>
-                                                            </td>
-                                                        </tr>
-                                                        <% }) %>
-                                                            <% } %>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-
-                                </div>
-                            </div>
+                <div class="px-3 py-2 mb-3">
+                    <div class="container d-flex flex-wrap justify-content-center">
+                        <form class="col-12 col-lg mb-2 mb-lg-0 me-lg-auto" role="search">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Pesquisar turmas" aria-label="Pesquisar turmas" aria-describedby="button-addon2">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="bi bi-search"></i></button>
+                          </div>
+                    </form>
+            
+                    <div class="text-end ms-2">
+                        <a class="w-100 btn btn-outline-primary"
+                            href="/classrooms/new" role="button">Nova turma</a>
+                    </div>
+                    </div>
+                </div>        
+            
+                <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                    <% if (classrooms !== ''){ %>
+                    <% classrooms.forEach(classroom=> {%>
+                    <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-3">
+                        <h4 class="card-title my-0 fw-normal"><%= classroom.name %></h4>
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                <%= classroom.description %>
+                            </p>
+                            <a class="w-100 btn btn-lg btn-outline-primary"
+                            href="/classrooms/show/<%= classroom.id %>" role="button">Acessar</a>
                         </div>
                     </div>
                 </div>
-                    <br><br>
+                    <% }) %>
+                    <% } %>
             </main>
-
-    </body>
-    <%-include('../partials/footer.ejs') %>
+        <%-include('../partials/footer.ejs') %>

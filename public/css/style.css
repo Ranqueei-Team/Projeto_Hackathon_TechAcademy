@@ -7,7 +7,6 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     background-color: #F7FAFC;
 }
 
@@ -16,11 +15,19 @@ nav.header-bg-color {
 }
 
 footer {
-    z-index: 101;
+    flex-shrink: 0;
+}
+
+.content-top-position {
+    flex: 1 0 auto;
 }
 
 .sidebar {
     padding: 88px 0 0 !important;
+}
+
+.sidebar-icon-size {
+    font-size: 20px;
 }
 
 .user-avatar {
@@ -42,8 +49,32 @@ footer {
 }
 
 .mb-auto {
-    margin-left: 4px;
-    margin-right: 4px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+/* Cards */
+.card-header {
+    background-color: #00346E;
+}
+
+.card-title,
+.panel-title {
+    color: #fff;
+}
+
+/* Buttons */
+
+.btn-outline-primary {
+    --bs-btn-color: #00346E;
+    --bs-btn-border-color: #00346E;
+    --bs-btn-hover-bg: #00346E;
+    --bs-btn-hover-border-color: #00346E;
+    --bs-btn-active-bg: #00346E;
+    --bs-btn-active-border-color: #00346E;
+    --bs-btn-disabled-color: #00346E;
+    --bs-btn-disabled-border-color: #00346E;
+    font-weight: 600;
 }
 
 /* Text */
@@ -145,8 +176,8 @@ p.lead {
 /* Featurettes */
 
 .featurette-divider {
-    margin-top: 10rem;
-    margin-bottom: 8rem;
+    margin-top: 5.45rem;
+    margin-bottom: 6rem;
 }
 
 div.featurette-divider-1 {
@@ -310,41 +341,61 @@ div.py-5-top {
     }
 }
 
-.form{
-    margin-top: 6rem;
-    margin-bottom: 5rem;
-    z-index: 102;
+@media (max-width: 768px) {
+    .main-for-sidebar.ms-sm-auto {
+        padding-right: 1.5rem !important;
+        padding-left: 1.5rem !important;
+    }
 }
 
+@media (min-width: 576px) {
 
-.card-header{
+    .main-for-sidebar.ms-sm-auto,
+    .footer-for-sidebar {
+        margin-left: 0 !important;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .main-for-sidebar.ms-sm-auto,
+    .footer-for-sidebar {
+        margin-left: auto !important;
+    }
+}
+
+@media (max-width: 372px) {
+    .footer-jc-center {
+        justify-content: center !important;
+    }
+}
+
+/* Forms */
+
+.card-header {
     text-align: center;
 }
 
-input[type='number']{
+input[type='number'] {
     width: 100px;
-} 
+}
 
-.reward{
+.reward {
     margin: 10px;
 }
 
-.card-header{
+.card-header {
     background-color: #00346E;
     color: #FFFFFF;
     text-align: center;
     font-weight: 800;
 }
-.panel-title{
+
+.panel-title {
     font-size: 18px;
 }
-th, td{
+
+th,
+td {
     text-align: center;
 }
-
-footer {
-    
-    position: relative;
-    bottom: 0;
-}
-
