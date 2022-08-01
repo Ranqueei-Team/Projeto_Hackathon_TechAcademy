@@ -1,57 +1,53 @@
 <%-include('../partials/header.ejs') %>
+    <%-include('../partials/navbar-login.ejs') %>
+        <main class="content-top-position featurette-divider">
+            <div class="container main-login">
+                <div class="row">
+                    <div class="col-md-2">
+                        <%-include('../partials/sidebar.ejs') %>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="panel-title">Recompensas</div>
+                            </div>
 
-    <body>
-        <%-include('../partials/navbar-login.ejs') %>
-            <main>
-                <div class="container main-login">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <%-include('../partials/sidebar.ejs') %>
-                        </div>
-                        <div class="col-md-10">
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="panel-title">Recompensas</div>
-                                </div>
-
-                                <table class="table table-striped ">
-                                    <thead class="table-dark">
-                                        <tr>
-                                            <th>Recompensa</th>
-                                            <th>Classificação no Ranking</th>
-                                            <% if( locals.profileUser === "Teacher") { %>
-                                                <th>Ações</th>
+                            <table class="table table-striped ">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Recompensa</th>
+                                        <th>Classificação no Ranking</th>
+                                        <% if( locals.profileUser==="Teacher" ) { %>
+                                            <th>Ações</th>
                                             <% } %>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <% rewards.forEach(reward=> {%>
-                                            <tr>
-                                                <td>
-                                                    <%= reward.name %>
-                                                </td>
-                                                <td>
-                                                    <%= reward.rating %>
-                                                </td>
-                                                <% if( locals.profileUser === "Teacher") { %>
-                                                    <td><a href="/rewards/edit/<%= reward.id %>"
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% rewards.forEach(reward=> {%>
+                                        <tr>
+                                            <td>
+                                                <%= reward.name %>
+                                            </td>
+                                            <td>
+                                                <%= reward.rating %>
+                                            </td>
+                                            <% if( locals.profileUser==="Teacher" ) { %>
+                                                <td><a href="/rewards/edit/<%= reward.id %>"
                                                         class="btn btn-primary btn-sm">Atualizar Recompensa </a> </td>
                                                 <% } %>
-                                            </tr>
-                                            <% }) %>
-                                    </tbody>
-                                </table>
-                                <% if( locals.profileUser === "Teacher") { %>
-                                    <div class="card-footer text-center">
-                                        <a href="/rewards/new" class="btn btn-primary btn-block">Cadastrar Recompensa</a>
-                                    </div>
+                                        </tr>
+                                        <% }) %>
+                                </tbody>
+                            </table>
+                            <% if( locals.profileUser==="Teacher" ) { %>
+                                <div class="card-footer text-center">
+                                    <a href="/rewards/new" class="btn btn-primary btn-block">Cadastrar Recompensa</a>
+                                </div>
                                 <% } %>
-                            </div>
                         </div>
                     </div>
                 </div>
-                <br><br>
-            </main>
-    </body>
-
-    <%-include('../partials/footer.ejs') %>
+            </div>
+            <br><br>
+        </main>
+        <%-include('../partials/footer-next-to-sidebar.ejs') %>
