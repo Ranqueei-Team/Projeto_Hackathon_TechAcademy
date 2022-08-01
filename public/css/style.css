@@ -42,11 +42,11 @@ footer {
 }
 
 .dropdown-menu-user[data-bs-popper] {
-    left: -88px;
+    left: -55px;
 }
 
 .dropdown-menu-link[data-bs-popper] {
-    left: -45px;
+    left: -46px;
 }
 
 .nav-pills .nav-link.active,
@@ -311,10 +311,6 @@ div.py-5-top {
         margin-bottom: 3rem;
     }
 
-    .navbar-expand-md .navbar-nav {
-        flex-direction: row-reverse;
-    }
-
     .bg-light-sidebar {
         background-color: #F7FAFC !important;
     }
@@ -332,10 +328,6 @@ div.py-5-top {
     /* Sidebar */
     .sidebar-mt {
         margin-top: 4.063rem;
-    }
-
-    .navbar-expand-md .navbar-nav {
-        flex-direction: row-reverse;
     }
 
     .user-avatar {

@@ -1,8 +1,6 @@
-<!-- Page Content -->
 <%-include('../partials/messages.ejs') %>
-
 <header class="header-bg-color">
-  <nav class="navbar header-bg-color border-bottom fixed-top navbar-expand-md" aria-label="Fifth navbar example">
+  <nav class="navbar header-bg-color border-bottom fixed-top navbar-expand-lg" aria-label="Fifth navbar example">
     <div class="container">
       <a href="/" class="d-flex align-items-start mb-md-0 me-md-auto text-dark text-decoration-none">
         <svg height="32" viewBox="0 0 229 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,20 +46,23 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarsExample05">
         <ul class="text-end navbar-nav w-100 me-auto mb-2 mb-lg-0">
-          <div class="dropdown text-end">
-            <a href="#" class="user-avatar d-block link-dark text-decoration-none dropdown-toggle"
+          <li class="nav-item"><a href="/" class="nav-link">Início</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Ranqueei</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Criadores</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Parceiros</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Contato</a></li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link user-avatar d-block link-dark text-decoration-none dropdown-toggle"
               data-bs-toggle="dropdown" aria-expanded="false">
               <img src="/images/user-1.png" alt="mdo" width="32" height="32" class="rounded-circle">
             </a>
-            <ul class="text-end dropdown-menu dropdown-menu-user text-small">
+            <ul class="text-end dropdown-menu dropdown-menu-user">
               <li><a class="dropdown-item" href="/classrooms/dashboard">Dashboard</a></li>
               <li><a class="dropdown-item" href="/users/logout">Sair</a></li>
             </ul>
-          </div>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 </header>
-
-    
