@@ -348,6 +348,10 @@ div.py-5-top {
         padding-right: 1.5rem !important;
         padding-left: 1.5rem !important;
     }
+
+    .paragraph-ac {
+        text-align: center;
+    }
 }
 
 @media (min-width: 576px) {
