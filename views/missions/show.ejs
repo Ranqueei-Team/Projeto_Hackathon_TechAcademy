@@ -1,45 +1,39 @@
 <%-include('../partials/header.ejs') %>
-
-    <body>
-        <%-include('../partials/navbar-login.ejs') %>
-            <main>
-                <div class="container main-login">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <%-include('../partials/sidebar.ejs') %>
-                        </div>
-                        <div class="col-md-10">
-                            <%-include('../partials/messages.ejs') %>
-
-                                <div class="card">
-                                    <div class="card-header">
-                                        <div class="panel-title">Missão</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12 ">
-                                            <ul class="list-group">
-                                                <li class="list-group-item"><b>Nome da Missão:</b>
-                                                    <%= mission.name %>
-                                                </li>
-                                                <li class="list-group-item"><b>Descrição da Missão:</b>
-                                                    <%- mission.description %>
-                                                </li>
-                                                <li class="list-group-item"><b>Pontuação Máxima da Missão:</b>
-                                                    <%= mission.point %>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer text-center d-grid gap-2">
-                                        <a href="/missions" class="btn btn-primary">Voltar</a>
+    <%-include('../partials/navbar-login.ejs') %>
+        <main class="content-top-position featurette-divider">
+            <div class="container main-login">
+                <div class="row">
+                    <div class="col-md-2">
+                        <%-include('../partials/sidebar.ejs') %>
+                    </div>
+                    <div class="col-md-10">
+                        <%-include('../partials/messages.ejs') %>
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="panel-title">Missão</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 ">
+                                        <ul class="list-group">
+                                            <li class="list-group-item"><b>Nome da Missão:</b>
+                                                <%= mission.name %>
+                                            </li>
+                                            <li class="list-group-item"><b>Descrição da Missão:</b>
+                                                <%- mission.description %>
+                                            </li>
+                                            <li class="list-group-item"><b>Pontuação Máxima da Missão:</b>
+                                                <%= mission.point %>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
-                               
+                                <div class="card-footer text-center d-grid gap-2">
+                                    <a href="/missions" class="btn btn-primary">Voltar</a>
+                                </div>
                             </div>
-                        </div>
                     </div>
                 </div>
-                <br><br>
-            </main>
-    </body>
-    <%-include('../partials/footer.ejs') %>
+            </div>
+            </div>
+        </main>
+        <%-include('../partials/footer-next-to-sidebar.ejs') %>
