@@ -1,54 +1,47 @@
 <%-include('../partials/header.ejs') %>
 <%-include('../partials/navbar-login.ejs') %>
-<main class="content-top-position main-content-divider">
-  <div class="container main-login">
-    <div class="row">
-      <div class="col-md-2">
-        <%-include('../partials/sidebar.ejs') %>
+<%-include('../partials/sidebar.ejs') %>
+<main class="main-for-sidebar content-top-position featurette-divider col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <div class="container pt-3">
+    <%-include('../partials/messages.ejs') %>
+    <div class="card">
+      <div class="card-header">
+        <h3 class="panel-title">Atualizar Missão</h3>
       </div>
-      <div class="col-md-10">
-        <%-include('../partials/messages.ejs') %>
-        <div class="card">
-          <div class="card-header">
-            <h3 class="panel-title">Atualizar Missão</h3>
+
+      <form method="POST" action="/missions/update">
+        <input type="hidden" name="id" value="<%= typeof mission.id != 'undefined' ? mission.id : '' %>">
+        <input type="hidden" name="classroomId" value="<%= mission.classroomId %>">
+        <div class="card-body">
+          <div class="row mb-3">
+            <div class="row mb-3">
+              <label for="inputEmail3" class="col-sm-12 col-form-label">Nome da Missão*</label>
+              <input type="text" placeholder="Insira o nome da Missão" name="name" class="form-control"
+                value="<%= typeof mission.name != 'undefined' ? mission.name : '' %>" required><br>
+            </div>
           </div>
 
-          <form method="POST" action="/missions/update">
-            <input type="hidden" name="id" value="<%= typeof mission.id != 'undefined' ? mission.id : '' %>">
-            <input type="hidden" name="classroomId" value="<%= mission.classroomId %>">
-            <div class="card-body">
-              <div class="row mb-3">
-                <div class="row mb-3">
-                  <label for="inputEmail3" class="col-sm-12 col-form-label">Nome da Missão*</label>
-                  <input type="text" placeholder="Insira o nome da Missão" name="name" class="form-control"
-                    value="<%= typeof mission.name != 'undefined' ? mission.name : '' %>" required><br>
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <div class="row mb-3">
-                  <label for="inputEmail3" class="col-sm-12 col-form-label">Descrição da Missão</label>
-                  <textarea id="description" name="description" rows="5" cols="33"
-                    placeholder="Descreva a Missão. Você pode inserir figuras, links, tabelas, formatar o texto, entre outros recursos."> </textarea>
-                </div>
-              </div>
-
-
-              <div class="row mb-3">
-                <div class="row mb-3">
-                  <label for="inputEmail3" class="col-sm-12 col-form-label">Pontuação da Missão*</label>
-                  <input type="number" placeholder="Pontos" name="point"
-                    value="<%= typeof mission.point != 'undefined' ? mission.point : '' %>" class="form-control"
-                    required><br>
-                </div>
-              </div>
+          <div class="row mb-3">
+            <div class="row mb-3">
+              <label for="inputEmail3" class="col-sm-12 col-form-label">Descrição da Missão</label>
+              <textarea id="description" name="description" rows="5" cols="33"
+                placeholder="Descreva a Missão. Você pode inserir figuras, links, tabelas, formatar o texto, entre outros recursos."> </textarea>
             </div>
-            <div class="card-footer text-center d-grid gap-2">
-              <button type="submit" class="btn btn-primary btn-block">Atualizar Missão</button>
+          </div>
+
+          <div class="row mb-3">
+            <div class="row mb-3">
+              <label for="inputEmail3" class="col-sm-12 col-form-label">Pontuação da Missão*</label>
+              <input type="number" placeholder="Pontos" name="point"
+                value="<%= typeof mission.point != 'undefined' ? mission.point : '' %>" class="form-control"
+                required><br>
             </div>
-          </form>
+          </div>
         </div>
-      </div>
+        <div class="card-footer text-center d-grid gap-2">
+          <button type="submit" class="btn btn-primary btn-block">Atualizar Missão</button>
+        </div>
+      </form>
     </div>
   </div>
 </main>
