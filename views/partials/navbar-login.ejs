@@ -1,6 +1,4 @@
-<!-- Page Content -->
 <%-include('../partials/messages.ejs') %>
-
 <header class="header-bg-color">
   <nav class="navbar header-bg-color border-bottom fixed-top navbar-expand-md" aria-label="Fifth navbar example">
     <div class="container">
@@ -46,22 +44,26 @@
         aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarsExample05">
+      <div class="navbar-user collapse navbar-collapse justify-content-end" id="navbarsExample05">
         <ul class="text-end navbar-nav w-100 me-auto mb-2 mb-lg-0">
-          <div class="dropdown text-end">
-            <a href="#" class="user-avatar d-block link-dark text-decoration-none dropdown-toggle"
+          <li class="nav-item"><a href="/" class="nav-link">Início</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Ranqueei</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Criadores</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Parceiros</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Contato</a></li>
+          <li class="nav-item"><a href="/classrooms/dashboard" class="nav-link">Dashboard</a></li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link user-avatar d-block link-dark text-decoration-none dropdown-toggle"
               data-bs-toggle="dropdown" aria-expanded="false">
               <img src="/images/user-1.png" alt="mdo" width="32" height="32" class="rounded-circle">
             </a>
-            <ul class="text-end dropdown-menu dropdown-menu-user text-small">
-              <li><a class="dropdown-item" href="/classrooms/dashboard">Dashboard</a></li>
+            <ul class="text-end dropdown-menu dropdown-menu-user">
+              <li><a class="dropdown-item" href="/users/edit/<%= currentUser.id %>">Configurações</a></li>
               <li><a class="dropdown-item" href="/users/logout">Sair</a></li>
             </ul>
-          </div>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 </header>
-
-    
