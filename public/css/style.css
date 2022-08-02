@@ -22,7 +22,7 @@ footer {
 }
 
 .sidebar {
-    padding: 88px 0 0 !important;
+    padding: 6rem 0 0 !important;
 }
 
 .sidebar-icon-size {
@@ -191,7 +191,7 @@ p.lead {
 }
 
 .mkt-top-spacing {
-    padding: 88px 0 0 !important;
+    padding: 6rem 0 0 !important;
 }
 
 div.py-5-top {
@@ -231,6 +231,14 @@ div.py-5-top {
     margin-top: 8.063rem;
 }
 
+.sidebar-padding-rl {
+    padding: 0 4px;
+}
+
+#sidebarMenu > div > ul > li.nav-item {
+    width: 100%;
+}
+
 .sidebar {
     position: fixed;
     top: 0;
@@ -248,8 +256,8 @@ div.py-5-top {
 }
 
 @media (max-width: 767.98px) {
-    .sidebar {
-        top: 5rem;
+    .sidebar-super-mt {
+        margin-top: 16rem;
     }
 }
 
@@ -332,7 +340,7 @@ div.py-5-top {
 }
 
 @media (min-width: 768px) {
-
+    
     /* Sidebar */
     .sidebar-mt {
         margin-top: 4.063rem;
@@ -340,6 +348,11 @@ div.py-5-top {
 
     .user-avatar {
         margin: 0;
+    }
+
+    .navbar-user>ul {
+        flex-direction: row;
+        justify-content: end;
     }
 }
 
