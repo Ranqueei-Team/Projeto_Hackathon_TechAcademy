@@ -36,6 +36,13 @@ footer {
     overflow: hidden;
 }
 
+.multiline-title-overflow {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
 .user-avatar {
     margin-top: 1rem;
     padding: 4px 0 4px 0;
