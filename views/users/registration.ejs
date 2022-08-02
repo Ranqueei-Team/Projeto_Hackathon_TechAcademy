@@ -1,21 +1,20 @@
 <%-include('../partials/header.ejs') %>
-  <%-include('../partials/navbar.ejs') %>
-    <main class="content-top-position featurette-divider">
-      <div class="container marketing">
-        <div class="row form">
-          <div class="col-md-8 offset-md-2">
-            <%-include('../partials/messages.ejs') %>
+<%-include('../partials/navbar-login.ejs') %>
+<main class="content-top-position featurette-divider">
+  <div class="container pt-3">
+    <%-include('../partials/messages.ejs') %>
+    <div class="row form">
+      <div class="col-md-8 offset-md-2">
+        <div class="alert alert-primary">
+          <h2 class="panel-title text-center">Cadastro Realizado com sucesso!</h2>
+          <h4 class="text-center">Faça login para continuar!</h4>
+        </div>
 
-              <div class="alert alert-primary">
-                <h2 class="panel-title text-center">Cadastro Realizado com sucesso!</h2>
-                <h4 class="text-center">Faça login para continuar!</h4>
-              </div>
-
-              <div class="card-footer">
-                <a href="/users/login" class="btn btn-success d-grid gap-2 d-md-block">Fazer Login</a>
-              </div>
-          </div>
+        <div class="card-footer">
+          <a href="/users/login" class="btn btn-success d-grid gap-2 d-md-block">Fazer Login</a>
         </div>
       </div>
-    </main>
-    <%-include('../partials/footer.ejs') %>
+    </div>
+  </div>
+</main>
+<%-include('../partials/footer.ejs') %>
