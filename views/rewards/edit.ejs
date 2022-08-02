@@ -1,50 +1,42 @@
 <%-include('../partials/header.ejs') %>
-  <%-include('../partials/navbar-login.ejs') %>
-    <main class="content-top-position featurette-divider">
-      <div class="container main-login">
-        <div class="row">
-          <div class="col-md-2">
-            <%-include('../partials/sidebar.ejs') %>
+<%-include('../partials/navbar-login.ejs') %>
+<%-include('../partials/sidebar.ejs') %>
+<main class="main-for-sidebar content-top-position featurette-divider col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <div class="container pt-3">
+    <%-include('../partials/messages.ejs') %>
+    <div class="card">
+      <div class="card-header">
+        <h3 class="panel-title">Atualizar Recompensa</h3>
+      </div>
+
+      <form method="POST" action="/rewards/update">
+        <input type="hidden" name="id" value="<%= typeof reward.id != 'undefined' ? reward.id : '' %>">
+        <input type="hidden" name="classroomId" value="<%= reward.classroomId %>">
+        <div class="card-body">
+          <div class="row mb-3">
+            <div class="row mb-3">
+              <label for="inputEmail3" class="col-sm-12 col-form-label">Nome da Recompensa*</label>
+              <input type="text" placeholder="Insira a recompensa que será disponibilizada" name="name"
+                class="form-control" value="<%= typeof reward.name != 'undefined' ? reward.name : '' %>"
+                required>
+            </div>
           </div>
-          <div class="col-md-10">
-            <%-include('../partials/messages.ejs') %>
-              <div class="card">
 
-                <div class="card-header">
-                  <h3 class="panel-title">Atualizar Recompensa</h3>
-                </div>
-
-                <form method="POST" action="/rewards/update">
-                  <input type="hidden" name="id" value="<%= typeof reward.id != 'undefined' ? reward.id : '' %>">
-                  <input type="hidden" name="classroomId" value="<%= reward.classroomId %>">
-                  <div class="card-body">
-                    <div class="row mb-3">
-                      <div class="row mb-3">
-                        <label for="inputEmail3" class="col-sm-12 col-form-label">Nome da Recompensa*</label>
-                        <input type="text" placeholder="Insira a recompensa que será disponibilizada" name="name"
-                          class="form-control" value="<%= typeof reward.name != 'undefined' ? reward.name : '' %>"
-                          required>
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <div class="row mb-3">
-                        <label for="inputEmail3" class="col-sm-12 col-form-label">Classificação da Equipe no
-                          Ranking*</label>
-                        <input type="number" name="rating"
-                          value="<%= typeof reward.rating != 'undefined' ? reward.rating : '' %>" class="form-control"
-                          required><br>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-footer text-center d-grid gap-2">
-                    <button type="submit" class="btn btn-primary btn-block">Atualizar Recompensa</button>
-                  </div>
-                </form>
-              </div>
+          <div class="row mb-3">
+            <div class="row mb-3">
+              <label for="inputEmail3" class="col-sm-12 col-form-label">Classificação da Equipe no
+                Ranking*</label>
+              <input type="number" name="rating"
+                value="<%= typeof reward.rating != 'undefined' ? reward.rating : '' %>" class="form-control"
+                required><br>
+            </div>
           </div>
         </div>
-      </div>
-      <br><br>
-    </main>
-    <%-include('../partials/footer-next-to-sidebar.ejs') %>
+        <div class="card-footer text-center d-grid gap-2">
+          <button type="submit" class="btn btn-primary btn-block">Atualizar Recompensa</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+<%-include('../partials/footer-next-to-sidebar.ejs') %>
