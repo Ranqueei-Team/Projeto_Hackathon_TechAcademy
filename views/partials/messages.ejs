@@ -1,25 +1,25 @@
 <% if(typeof errors != 'undefined'){ %>
   <% errors.forEach(function(error) { %>
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <div class="alert alert-warning alert-block messages" role="alert">
       <%= error.msg %>
     </div>
   <% }); %>
 <% } %>
 
 <% if(success_msg != ''){ %>
-  <div class="alert alert-success" role="alert">
+  <div class="alert alert-success alert-block messages" role="alert">
     <%= success_msg %>
   </div>
 <% } %>
 
 <% if(error_msg != ''){ %>
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <div class="alert alert-danger alert-block messages" role="alert">
     <%= error_msg %>
   </div>
 <% } %>
 
 <% if(error != ''){ %>
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <div class="alert alert-danger alert-block messages" role="alert">
     <%= error %>
   </div>
 <% } %>

@@ -425,3 +425,11 @@ th,
 td {
     text-align: center;
 }
+
+.welcome{
+    text-align: right;
+}
+
+.messages{
+    margin-top: -35px;
+}

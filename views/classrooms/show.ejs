@@ -9,26 +9,32 @@
             </div>
         </div>
         <% missions.forEach(mission=> {%>
-            <div class="card">
-                <div class="card-header">
-                    <div class="panel-title">Missão: <%= mission.name %>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 ">
-                        <ul class="list-group">
-                            <li class="list-group-item"><b>Pontuação da missão:</b>
-                                <%= mission.point %>
-                            </li>
-                            <% if (mission.description) { %>
-                                <li class="list-group-item"><b>Descrição:</b>
-                                    <%- mission.description %>
-                                </li>
-                            <% }%>
-                        </ul>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="panel-title">Missão: <%= mission.name %></div>
+                        </div>
+                        
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table>
+                                            <% if (mission.description) { %>
+                                                <tr>                                     
+                                                    <td><%- mission.description %></td>
+                                                </tr>
+                                            <% }%>
+                                        </table>
+                                    </div>
+                                </div>
+                            
+                        <div class="card-footer bg-dark">
+                            <p class="text-light"><b>Pontuação máxima da missão:</b> <%= mission.point %> pontos</p>
+                        </div>
                     </div>
                 </div>
             </div>
+            <br>
         <% }) %>
     </div>
 </main>

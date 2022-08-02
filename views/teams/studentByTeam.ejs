@@ -32,6 +32,7 @@
 
         <% if(locals.student){ %>
           <% if(student.email===currentUser.email){ %>
+            <br><br>
             <div class="alert alert-danger">Você não pode se incluir como aluno. Por favor, informe outro
               e-mail.</div>
             <% } else {%>
@@ -61,7 +62,7 @@
               </div>
             <% }%>
             <% } else {%>
-              <div class="alert alert-warning text-center">Por favor, informe um e-mail válido!</div>
+              <div class="alert alert-info text-center">Por favor, informe um e-mail válido!</div>
             <% }%>
       </div>
     </div>

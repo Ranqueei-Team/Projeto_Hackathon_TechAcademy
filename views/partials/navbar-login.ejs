@@ -51,13 +51,14 @@
           <li class="nav-item"><a href="#" class="nav-link">Criadores</a></li>
           <li class="nav-item"><a href="#" class="nav-link">Parceiros</a></li>
           <li class="nav-item"><a href="#" class="nav-link">Contato</a></li>
+          <li class="nav-item"><a href="/classrooms/dashboard" class="nav-link">Dashboard</a></li>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link user-avatar d-block link-dark text-decoration-none dropdown-toggle"
               data-bs-toggle="dropdown" aria-expanded="false">
               <img src="/images/user-1.png" alt="mdo" width="32" height="32" class="rounded-circle">
             </a>
             <ul class="text-end dropdown-menu dropdown-menu-user">
-              <li><a class="dropdown-item" href="/classrooms/dashboard">Dashboard</a></li>
+              <li><a class="dropdown-item" href="/users/edit/<%= currentUser.id %>">Configurações</a></li>
               <li><a class="dropdown-item" href="/users/logout">Sair</a></li>
             </ul>
           </li>

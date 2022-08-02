@@ -11,17 +11,24 @@
         </div>
         <div class="row">
             <div class="col-md-12 ">
-                <ul class="list-group">
-                    <li class="list-group-item"><b>Nome da Missão:</b>
-                        <%= mission.name %>
-                    </li>
-                    <li class="list-group-item"><b>Descrição da Missão:</b>
-                        <%- mission.description %>
-                    </li>
-                    <li class="list-group-item"><b>Pontuação Máxima da Missão:</b>
-                        <%= mission.point %>
-                    </li>
-                </ul>
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <td><b>Nome da Missão:</b></td>
+                            <td><%= mission.name %></td>
+                        </tr>
+                        <% if (mission.description) { %>
+                            <tr>    
+                                <td><b>Descrição da missão:</b></td>                                 
+                                <td><%- mission.description %></td>
+                            </tr>
+                        <% }%>
+                        <tr>
+                            <td><b>Pontuação Máxima da Missão:</b></td>
+                            <td><%= mission.point %> pontos</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
         <div class="card-footer text-center d-grid gap-2">
