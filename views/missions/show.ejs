@@ -1,39 +1,41 @@
-<%-include('../partials/header.ejs') %>
-<%-include('../partials/navbar-login.ejs') %>
-<%-include('../partials/sidebar.ejs') %>
-<main class="main-for-sidebar content-top-position featurette-divider col-md-9 ms-sm-auto col-lg-10 px-md-4">
-    <div class="container pt-3">
-    <%-include('../partials/messages.ejs') %>
-        <div class="card">
-            <div class="card-header bg-dark">
-                <div class="panel-title ">Missão</div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 ">
-                <div class="table-responsive">
-                    <table>
-                        <tr>
-                            <td><b>Nome da Missão:</b></td>
-                            <td><%= mission.name %></td>
-                        </tr>
-                        <% if (mission.description) { %>
-                            <tr>    
-                                <td><b>Descrição da missão:</b></td>                                 
-                                <td><%- mission.description %></td>
-                            </tr>
-                        <% }%>
-                        <tr>
-                            <td><b>Pontuação da Missão:</b></td>
-                            <td><%= mission.point %> pontos</td>
-                        </tr>
-                    </table>
+<body  onload="checkStorage()">
+    <%-include('../partials/header.ejs') %>
+    <%-include('../partials/navbar-login.ejs') %>
+    <%-include('../partials/sidebar.ejs') %>
+    <main class="main-for-sidebar content-top-position featurette-divider col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="container pt-3">
+        <%-include('../partials/messages.ejs') %>
+            <div class="card">
+                <div class="card-header bg-dark">
+                    <div class="panel-title ">Missão</div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12 ">
+                    <div class="table-responsive">
+                        <table>
+                            <tr>
+                                <td><b>Nome da Missão:</b></td>
+                                <td><%= mission.name %></td>
+                            </tr>
+                            <% if (mission.description) { %>
+                                <tr>    
+                                    <td><b>Descrição da missão:</b></td>                                 
+                                    <td><%- mission.description %></td>
+                                </tr>
+                            <% }%>
+                            <tr>
+                                <td><b>Pontuação da Missão:</b></td>
+                                <td><%= mission.point %> pontos</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-center d-grid gap-2">
+                <a href="/missions" class="btn btn-primary">Voltar</a>
+            </div>
         </div>
-        <div class="card-footer text-center d-grid gap-2">
-            <a href="/missions" class="btn btn-primary">Voltar</a>
-        </div>
-    </div>
-</main>
-<%-include('../partials/footer-next-to-sidebar.ejs') %>
+    </main>
+    <%-include('../partials/footer-next-to-sidebar.ejs') %>
+</body>

@@ -1,49 +1,51 @@
-<%-include('../partials/header.ejs') %>
-<%-include('../partials/navbar-login.ejs') %>
-<%-include('../partials/sidebar.ejs') %>
-<main class="main-for-sidebar content-top-position featurette-divider col-md-9 ms-sm-auto col-lg-10 px-md-4">
-    <div class="container pt-3">
-        <%-include('../partials/messages.ejs') %>
-        <div class="card">
-            <div class="card-header bg-dark">
-                <div class="panel-title">Equipes</div>
-            </div>
-                <div class="table-responsive">
-                    <table class="table table-striped ">
-                        <thead class="table-dark">
-                            <tr>
-                                <th>Nome das Equipes</th>
-                                <% if( locals.profileUser==="Teacher" ) { %>
-                                    <th colspan="3">Ações</th>
-                                <% } %>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% teams.forEach(team=> {%>
+<body  onload="checkStorage()">
+    <%-include('../partials/header.ejs') %>
+    <%-include('../partials/navbar-login.ejs') %>
+    <%-include('../partials/sidebar.ejs') %>
+    <main class="main-for-sidebar content-top-position featurette-divider col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="container pt-3">
+            <%-include('../partials/messages.ejs') %>
+            <div class="card">
+                <div class="card-header bg-dark">
+                    <div class="panel-title">Equipes</div>
+                </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped ">
+                            <thead class="table-dark">
                                 <tr>
-                                    <td>
-                                        <%= team.name %>
-                                    </td>
+                                    <th>Nome das Equipes</th>
                                     <% if( locals.profileUser==="Teacher" ) { %>
-                                        <td><a href="/teams/edit/<%= team.id %>"
-                                                class="btn btn-primary btn-sm">Atualizar Equipe</a> </td>
-                                        <td><a href="/teams/studentByTeam/<%= team.id %>"
-                                                class="btn btn-success btn-sm">Adicionar Alunos na Equipe
-                                            </a> </td>
-                                        <td><a href="/teams/listStudentsByTeam/<%= team.id %>"
-                                                class="btn btn-secondary btn-sm">Listar Alunos </a> </td>
+                                        <th colspan="3">Ações</th>
                                     <% } %>
                                 </tr>
-                            <% }) %>
-                        </tbody>
-                    </table>
-                </div>
-            <% if( locals.profileUser==="Teacher" ) { %>
-                <div class="card-footer text-center">
-                    <a href="/teams/new" class="btn btn-primary btn-block">Cadastrar Equipes</a>
-                </div>
-            <% } %>
+                            </thead>
+                            <tbody>
+                                <% teams.forEach(team=> {%>
+                                    <tr>
+                                        <td>
+                                            <%= team.name %>
+                                        </td>
+                                        <% if( locals.profileUser==="Teacher" ) { %>
+                                            <td><a href="/teams/edit/<%= team.id %>"
+                                                    class="btn btn-primary btn-sm">Atualizar Equipe</a> </td>
+                                            <td><a href="/teams/studentByTeam/<%= team.id %>"
+                                                    class="btn btn-success btn-sm">Adicionar Alunos na Equipe
+                                                </a> </td>
+                                            <td><a href="/teams/listStudentsByTeam/<%= team.id %>"
+                                                    class="btn btn-secondary btn-sm">Listar Alunos </a> </td>
+                                        <% } %>
+                                    </tr>
+                                <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                <% if( locals.profileUser==="Teacher" ) { %>
+                    <div class="card-footer text-center">
+                        <a href="/teams/new" class="btn btn-primary btn-block">Cadastrar Equipes</a>
+                    </div>
+                <% } %>
+            </div>
         </div>
-    </div>
-</main>
-<%-include('../partials/footer-next-to-sidebar.ejs') %>
+    </main>
+    <%-include('../partials/footer-next-to-sidebar.ejs') %>
+</body>

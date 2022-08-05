@@ -1,54 +1,56 @@
-<%-include('../partials/header.ejs') %>
-<%-include('../partials/navbar-login.ejs') %>
-<%-include('../partials/sidebar.ejs') %>
-<main class="main-for-sidebar content-top-position featurette-divider col-md-9 ms-sm-auto col-lg-10 px-md-4">
-    <div class="container pt-3">
-        <div class="card">
-            <div class="card-header bg-dark">
-                <div class="panel-title ">Missões</div>
+<body onload="checkStorage()">
+    <%-include('../partials/header.ejs') %>
+    <%-include('../partials/navbar-login.ejs') %>
+    <%-include('../partials/sidebar.ejs') %>
+    <main class="main-for-sidebar content-top-position featurette-divider col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="container pt-3">
+            <div class="card">
+                <div class="card-header bg-dark">
+                    <div class="panel-title ">Missões</div>
+                </div>
             </div>
-        </div>
-        <% missions.forEach(mission=> {%>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="panel-title">Missão: <%= mission.name %></div>
-                        </div>
-                        
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table>
-                                            <% if (mission.description) { %>
-                                                <tr>                                     
-                                                    <td><%- mission.description %></td>
-                                                </tr>
-                                            <% }%>
-                                        </table>
-                                    </div>
-                                </div>
+            <% missions.forEach(mission=> {%>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="panel-title">Missão: <%= mission.name %></div>
+                            </div>
                             
-                        <div class="card-footer bg-dark">
-                            <p class="text-light"><b>Pontuação máxima da missão:</b> <%= mission.point %> pontos</p>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table>
+                                                <% if (mission.description) { %>
+                                                    <tr>                                     
+                                                        <td><%- mission.description %></td>
+                                                    </tr>
+                                                <% }%>
+                                            </table>
+                                        </div>
+                                    </div>
+                                
+                            <div class="card-footer bg-dark">
+                                <p class="text-light"><b>Pontuação máxima da missão:</b> <%= mission.point %> pontos</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <br>
-        <% }) %>
-    </div>
-</main>
-<%-include('../partials/footer-next-to-sidebar.ejs') %>
+                <br>
+            <% }) %>
+        </div>
+    </main>
+    <%-include('../partials/footer-next-to-sidebar.ejs') %>
 
-<script>
-    (function () {
-        if (window.localStorage) {
-            if (!localStorage.getItem('firstLoad')) {
-                localStorage['firstLoad'] = true;
-                window.location.reload();
+    <script>
+        (function () {
+            if (window.localStorage) {
+                if (!localStorage.getItem('firstLoad')) {
+                    localStorage['firstLoad'] = true;
+                    window.location.reload();
+                }
+                else
+                    localStorage.removeItem('firstLoad');
             }
-            else
-                localStorage.removeItem('firstLoad');
-        }
-    })();
-</script>
+        })();
+    </script>
+</body>

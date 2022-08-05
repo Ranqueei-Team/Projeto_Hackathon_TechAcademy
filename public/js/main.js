@@ -2,13 +2,22 @@
 
 /* Sidebar */
 
-const sidebarItems = document.getElementById("sidebarItems");
-const sidebarLinks = sidebarItems.getElementsByClassName("sidebarLinks");
+/* Onload of your page this will get called */
+function checkStorage() {
+    /* Check if there is any value in localStorage */
+    if (localStorage.getItem("listId") != null) {
+        let value = localStorage.getItem("listId");
+        setActive(value);
+    }
+}
 
-for (let i = 0; i < sidebarLinks.length; i++) {
-    sidebarLinks[i].addEventListener("click", function () {
-        let current = document.getElementsByClassName("active");
-        current[0].className = current[0].className.replace(" active");
-        this.className += " active";
-    })
+function active(id) {
+    /* Clear previous data */
+    localStorage.removeItem("listId");
+    /* Add data to storage */
+    localStorage.setItem("listId", id);
+}
+
+function setActive(value) {
+    document.getElementById(value).classList.value = "nav-link active";
 }
