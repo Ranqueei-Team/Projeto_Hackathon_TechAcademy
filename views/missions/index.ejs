@@ -1,50 +1,52 @@
 <%-include('../partials/header.ejs') %>
-<%-include('../partials/navbar-login.ejs') %>
-<%-include('../partials/sidebar.ejs') %>
-<main class="main-for-sidebar content-top-position featurette-divider col-md-9 ms-sm-auto col-lg-10 px-md-4">
-    <div class="container pt-3">
-        <%-include('../partials/messages.ejs') %>
-                <div class="card">
-                    <div class="card-header bg-dark"">
-                        <div class="panel-title">Missões</div>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table table-striped ">
-                            <thead class="table-dark">
-                                <tr>
-                                    <th>Nome da Missão</th>
-                                    <th>Pontuação máxima</th>
-                                    <th colspan="2">Ações</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <% missions.forEach(mission=> {%>
-                                    <tr>
-                                        <td>
-                                            <%= mission.name %>
-                                        </td>
-                                        <td>
-                                            <%= mission.point %>
-                                        </td>
-                                        <td><a href="/missions/show/<%= mission.id %>"
-                                                class="btn btn-success btn-sm">Visualizar Missão</a></td>
-                                        <% if( locals.profileUser==="Teacher" ) { %>
-                                            <td><a href="/missions/edit/<%= mission.id %>"
-                                                    class="btn btn-primary btn-sm">Atualizar Missão</a></td>
-                                        <% } %>
-                                    </tr>
-                                <% }) %>
-                            </tbody>
-                        </table>
-                    </div>
-                    <% if( locals.profileUser==="Teacher" ) { %>
-                        <div class="card-footer text-center">
-                            <a href="/missions/new" class="btn btn-primary btn-block">Cadastrar Missão</a>
+<body  onload="checkStorage()">
+    <%-include('../partials/navbar-login.ejs') %>
+    <%-include('../partials/sidebar.ejs') %>
+    <main class="main-for-sidebar content-top-position featurette-divider col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="container pt-3">
+            <%-include('../partials/messages.ejs') %>
+                    <div class="card">
+                        <div class="card-header bg-dark"">
+                            <div class="panel-title">Missões</div>
                         </div>
-                    <% } %>
+                        <div class="table-responsive">
+                            <table class="table table-striped ">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Nome da Missão</th>
+                                        <th>Pontuação máxima</th>
+                                        <th colspan="2">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% missions.forEach(mission=> {%>
+                                        <tr>
+                                            <td>
+                                                <%= mission.name %>
+                                            </td>
+                                            <td>
+                                                <%= mission.point %>
+                                            </td>
+                                            <td><a href="/missions/show/<%= mission.id %>"
+                                                    class="btn btn-success btn-sm">Visualizar Missão</a></td>
+                                            <% if( locals.profileUser==="Teacher" ) { %>
+                                                <td><a href="/missions/edit/<%= mission.id %>"
+                                                        class="btn btn-primary btn-sm">Atualizar Missão</a></td>
+                                            <% } %>
+                                        </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                        <% if( locals.profileUser==="Teacher" ) { %>
+                            <div class="card-footer text-center">
+                                <a href="/missions/new" class="btn btn-primary btn-block">Cadastrar Missão</a>
+                            </div>
+                        <% } %>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</main>
-<%-include('../partials/footer-next-to-sidebar.ejs') %>
+    </main>
+    <%-include('../partials/footer-next-to-sidebar.ejs') %>
+</body>

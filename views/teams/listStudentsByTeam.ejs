@@ -1,36 +1,38 @@
 <%-include('../partials/header.ejs') %>
-<%-include('../partials/navbar-login.ejs') %>
-<%-include('../partials/sidebar.ejs') %>
-<main class="main-for-sidebar content-top-position featurette-divider col-md-9 ms-sm-auto col-lg-10 px-md-4">
-    <div class="container pt-3">
-        <%-include('../partials/messages.ejs') %>
-        <div class="card">
-            <div class="card-header">
-                <div class="panel-title">Estudantes da Equipe</div>
-            </div>
-            <div class="table-responsive-md"></div>
-                <table class="table">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Nome</th>
-                            <th>E-mail</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% students.forEach(student=> {%>
+<body  onload="checkStorage()">
+    <%-include('../partials/navbar-login.ejs') %>
+    <%-include('../partials/sidebar.ejs') %>
+    <main class="main-for-sidebar content-top-position featurette-divider col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="container pt-3">
+            <%-include('../partials/messages.ejs') %>
+            <div class="card">
+                <div class="card-header">
+                    <div class="panel-title">Estudantes da Equipe</div>
+                </div>
+                <div class="table-responsive-md"></div>
+                    <table class="table">
+                        <thead class="table-dark">
                             <tr>
-                                <td>
-                                    <%= student.name %>
-                                </td>
-                                <td>
-                                    <%= student.email %>
-                                </td>
+                                <th>Nome</th>
+                                <th>E-mail</th>
                             </tr>
-                        <% }) %>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <% students.forEach(student=> {%>
+                                <tr>
+                                    <td>
+                                        <%= student.name %>
+                                    </td>
+                                    <td>
+                                        <%= student.email %>
+                                    </td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-</main>
-<%-include('../partials/footer-next-to-sidebar.ejs') %>
+    </main>
+    <%-include('../partials/footer-next-to-sidebar.ejs') %>
+</body>

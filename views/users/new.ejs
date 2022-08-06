@@ -1,62 +1,64 @@
 <%-include('../partials/header.ejs') %>
-<%-include('../partials/navbar.ejs') %>
-<main class="content-top-position featurette-divider">
-  <div class="container pt-3">
-    <%-include('../partials/messages.ejs') %>
-    <div class="row form">
-      <div class="col-md-6 offset-md-3">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="panel-title">Cadastre-se</h3>
+<body  onload="checkStorage()">
+  <%-include('../partials/navbar.ejs') %>
+  <main class="content-top-position featurette-divider">
+    <div class="container pt-3">
+      <div class="row form">
+        <div class="col-md-6 offset-md-3">
+          <%-include('../partials/messages.ejs') %>
+          <div class="card">
+            <div class="card-header">
+              <h3 class="panel-title">Cadastre-se</h3>
+            </div>
+            <form method="POST" action="/users/create">
+              <div class="card-body">
+                <div class="row">
+                  <div class="row mb-3">
+                    <label for="inputEmail3" class="col-sm-12 col-form-label">Nome*</label>
+                    <input type="text" placeholder="Informe seu nome completo" name="name"
+                      value="<%= typeof name != 'undefined' ? name : '' %>" class="form-control" required>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="row mb-3">
+                    <label for="inputEmail3" class="col-sm-12 col-form-label">E-mail*</label>
+                    <input type="email" placeholder="Informe seu e-mail" name="email"
+                      value="<%= typeof email != 'undefined' ? email : '' %>" class="form-control" required>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="row mb-3">
+                    <label for="inputEmail3" class="col-sm-12 col-form-label">Senha*</label>
+                    <input type="password" placeholder="A senha deve conter pelo menos 8 caracteres!"
+                      name="password" class="form-control" required>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="row mb-3">
+                    <label for="inputEmail3" class="col-sm-12 col-form-label">Confirmar Senha*</label>
+                    <input type="password" placeholder="Por favor, repira a senha!" name="confirm_password"
+                      class="form-control" required>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-check d-flex justify-content-center mb-2">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck"
+                      aria-describedby="registerCheckHelpText">
+                    <label class="form-check-label" for="registerCheck">Concordo com os Termos de Uso</label>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer text-center d-grid gap-2">
+                <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+              </div>
+            </form>
           </div>
-          <form method="POST" action="/users/create">
-            <div class="card-body">
-              <div class="row">
-                <div class="row mb-3">
-                  <label for="inputEmail3" class="col-sm-12 col-form-label">Nome*</label>
-                  <input type="text" placeholder="Informe seu nome completo" name="name"
-                    value="<%= typeof name != 'undefined' ? name : '' %>" class="form-control" required>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="row mb-3">
-                  <label for="inputEmail3" class="col-sm-12 col-form-label">E-mail*</label>
-                  <input type="email" placeholder="Informe seu e-mail" name="email"
-                    value="<%= typeof email != 'undefined' ? email : '' %>" class="form-control" required>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="row mb-3">
-                  <label for="inputEmail3" class="col-sm-12 col-form-label">Senha*</label>
-                  <input type="password" placeholder="A senha deve conter pelo menos 8 caracteres!"
-                    name="password" class="form-control" required>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="row mb-3">
-                  <label for="inputEmail3" class="col-sm-12 col-form-label">Confirmar Senha*</label>
-                  <input type="password" placeholder="Por favor, repira a senha!" name="confirm_password"
-                    class="form-control" required>
-                </div>
-              </div>
-              <div class="row">
-                <div class="form-check d-flex justify-content-center mb-2">
-                  <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck"
-                    aria-describedby="registerCheckHelpText">
-                  <label class="form-check-label" for="registerCheck">Concordo com os Termos de Uso</label>
-                </div>
-              </div>
-            </div>
-            <div class="card-footer text-center d-grid gap-2">
-              <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
-            </div>
-          </form>
         </div>
       </div>
     </div>
-  </div>
-</main>
-<%-include('../partials/footer.ejs') %>
+  </main>
+  <%-include('../partials/footer.ejs') %>
+</body>

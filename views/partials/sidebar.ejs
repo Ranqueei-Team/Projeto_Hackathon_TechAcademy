@@ -5,48 +5,48 @@
     <nav id="sidebarMenu" class="bg-light-sidebar col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky sidebar-padding-rl sidebar-super-mt pt-3 sidebar-sticky">
         <ul class="nav nav-pills flex-column">
-          <li class="nav-item">
-            <a href="/classrooms/dashboard" class="nav-link active" aria-current="page">
-              <i class="sidebar-icon-size bi-gift-fill class-icon-mr bi bi-house-door-fill"></i>
+          <li>
+            <a href="/classrooms/dashboard" class="nav-link">
+              <i class="sidebar-icon-size class-icon-mr bi bi-house-door-fill"></i>
               Painel
             </a>
           </li>
           <li>
-            <a href="/teams" class="nav-link link-dark">
-              <i class="sidebar-icon-size bi-gift-fill class-icon-mr bi bi-people-fill"></i>
+            <a href="/teams" class="nav-link" id="rnqTeams" onclick="active('rnqTeams')">
+              <i class="sidebar-icon-size class-icon-mr bi bi-people-fill"></i>
               Equipes
             </a>
           </li>
           <li>
-            <a href="/missions" class="nav-link link-dark">
-              <i class="sidebar-icon-size bi-gift-fill class-icon-mr bi bi-star-fill"></i>
+            <a href="/missions" class="nav-link" id="rnqMissions" onclick="active('rnqMissions')">
+              <i class="sidebar-icon-size class-icon-mr bi bi-star-fill"></i>
               Missões
             </a>
           </li>
           <li>
-            <a href="/rewards" class="nav-link link-dark">
-              <i class="sidebar-icon-size bi-gift-fill class-icon-mr bi bi-bar-chart-fill"></i>
+            <a href="/rewards" class="nav-link" id="rnqRewards" onclick="active('rnqRewards')">
+              <i class="sidebar-icon-size class-icon-mr bi bi-gift-fill"></i>
               Recompensas
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link link-dark">
+            <a href="#" class="nav-link" id="rnqFollowUp" onclick="active('rnqFollowUp')">
               <i class="sidebar-icon-size class-icon-mr bi bi-bar-chart-fill"></i>
               Acompanhamento
             </a>
           </li>
-          <% if( locals.profileUser === "Teacher" ) { %>
+          <% if( locals.profileUser==="Teacher" ) { %>
             <li>
-              <a href="/classrooms/edit" class="nav-link link-dark">
-                <i class="sidebar-icon-size class-icon-mr bi bi-chat-square-dots-fill"></i>
+              <a href="/classrooms/edit" class="nav-link" id="rnqClassroomsEdit" onclick="active('rnqClassroomsEdit')">
+                <i class="sidebar-icon-size class-icon-mr bi bi-book-fill"></i>
                 Turma
               </a>
             </li>
-          <% } %>
+            <% } %>
               <li>
-                <a href="/classrooms/show/<%= currentUser.current_classroom %>" class="nav-link link-dark">
-                  <i class="sidebar-icon-size class-icon-mr bi bi-puzzle-fill"></i>
-                  Principal
+                <a href="/classrooms/show/<%= currentUser.current_classroom %>" class="nav-link" id="rnqClassroomsShow" onclick="active('rnqClassroomsShow')">
+                  <i class="sidebar-icon-size class-icon-mr bi bi-clipboard2-fill"></i>
+                  Detalhes
                 </a>
               </li>
         </ul>
